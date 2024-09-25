@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Je kunt van elke webpagina die je bezoekt ook de onderliggende html-code bekijken. Dit kan door F12 in te toetsen of door met de rechtermuisknop op een plek te klikken en dan in het pop-up menu onderaan “Inspecteren” te kiezen. Dit opent de developer tools.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="screenshots/dev-tools.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Links een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools."><img src="screenshots/dev-tools.png" class="img-fluid figure-img" alt="Links een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools."></a></p>
+<p><a href="screenshots/dev-tools.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Links een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools."><img src="screenshots/dev-tools.png" class="img-fluid figure-img" alt="Links een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools."></a></p>
 <figcaption>Links een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools.</figcaption>
 </figure>
 </div>
@@ -790,7 +790,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
