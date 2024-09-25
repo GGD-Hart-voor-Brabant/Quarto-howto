@@ -1,8 +1,0 @@
----
-number-depth: 0
----
-
-
-# Code snippets
-
-In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.

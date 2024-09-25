@@ -1,0 +1,742 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto-uitleg",
+    "section": "",
+    "text": "Introductie\nR Quarto is een functionaliteit binnen RStudio die het mogelijk maakt om de opmaak van een tekst (denk aan Word) te combineren met code. De code kan geschreven zijn in R, maar andere talen zoals Python, SQL en css zijn ook mogelijk. De output kan worden getoond in verschillende formaten, zoals html, PDF, Word, Powerpoint en ePub. De uitleg in dit boek zal zich beperken tot html outputs.\nDe insteek van dit boek is om uitleg te geven over hoe Quarto gebruikt kan worden om informatieproducten (denk thematische schetsen, tabellenboeken) te maken die voldoen aan de eisen van digitoegankelijkheid. Het eerste deel bestaat uit uitleg over technieken, zoals Quarto zelf, Markdown, html en css. Het tweede deel bestaat uit stukjes voorbeeldcode die al geschreven zijn voor reeds gemaakte thematische schetsen ed, en die makkelijk gekopieerd - en daarna aangepast - kunnen worden voor een nieuw te maken schets.\nJe kunt op 2 manieren navigeren in dit boek. Via de linkerkant van de pagina kun je direct naar bepaalde hoofdstukken en secties springen door ze aan te klikken. Je kunt op een pagina zelf ook onderaan naar de vorige of volgende pagina gaan door op de linker- of rechterpijl en bijbehorende titel te klikken. Mocht je navigeren via de balk aan de linkerzijkant, let dan op dat je niet alleen de sub-hoofdstukken aanklikt, maar ook het bovenliggende hoofdstuk (zoals het hoofdstuk “Technieken”).",
+    "crumbs": [
+      "Introductie"
+    ]
+  },
+  {
+    "objectID": "Technieken.html",
+    "href": "Technieken.html",
+    "title": "Technieken",
+    "section": "",
+    "text": "Quarto\nQuarto is een ‘publishing system’ waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop.\nOm de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#markdown",
+    "href": "Technieken.html#markdown",
+    "title": "Technieken",
+    "section": "Markdown",
+    "text": "Markdown\nMarkdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document ‘rendert’, worden de Markdown secties omgezet in html tags.\nJe kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals **tekst**. Dit maakt tekst dikgedrukt.\nDe lijst met Markdown basics die werken in Quarto is hier te vinden.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#html",
+    "href": "Technieken.html#html",
+    "title": "Technieken",
+    "section": "HTML",
+    "text": "HTML\nHTML is de taal van internetpagina’s. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten ‘tags’, keywords omgeven door “&lt;&gt;”. Interessant voor ons zijn in ieder geval &lt;div&gt; en &lt;span&gt;. Bijna alle tags moeten ook weer gesloten worden, door middel van &lt;/&gt;. Voor div wordt het dan &lt;div&gt;&lt;/div&gt; en voor &lt;span&gt; wordt het &lt;span&gt;&lt;/span&gt;. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags.\nW3Schools bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#css",
+    "href": "Technieken.html#css",
+    "title": "Technieken",
+    "section": "CSS",
+    "text": "CSS\nCSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een ‘class’ of ‘id’ mee te geven en vervolgens in de css te specificeren hoe elementen van zo’n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Quarto.html",
+    "href": "Quarto.html",
+    "title": "Quarto openen",
+    "section": "",
+    "text": "Quarto is een functionaliteit die ingebakken zit in RStudio. Je hoeft er niks nieuws voor te installeren. Als je een nieuw informatieproduct met Quarto wilt maken, ga je naar “File” &gt; “New File” &gt; “Quarto Document”. Er verschijnt nu een pop-up waar je de titel in moet vullen. De auteur is optioneel. Vervolgens maak je een keuze tussen “HTML”, “PDF” of “Word” - kies hier HTML. Als engine kiezen we “Knitr”. Zet het vinkje bij “Use visual markdown editor” uit.\n\n\n\n\n\n\n\nDe pop-up die verschijnt als je een nieuw Quarto document opent\n\n\nQuarto opent nu een script met wat voorbeeldtekst en code, en een aantal parameters met de info die je op hebt gegeven. Klik eventueel op de afbeelding voor een grotere weergave.\n\n\n\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen\n\n\nIn het script, hierboven het rechtervenster, worden 3 dingen getoond: (1) YAML, (2) Markdown en (3) R codeblokken. In de volgende secties gaan we hier dieper op in.\n\n\n\nDe pop-up die verschijnt als je een nieuw Quarto document opent\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen",
+    "crumbs": [
+      "Technieken",
+      "Quarto openen"
+    ]
+  },
+  {
+    "objectID": "YAML.html",
+    "href": "YAML.html",
+    "title": "YAML",
+    "section": "",
+    "text": "Parameters voor configuratie\nYAML (spreek uit: jemmel (Engels) of jammel (Nederlands)) wordt gebruikt voor de configuratie. Hierin staat in het voorbeeld hierboven de titel van het document en het type. Je kunt de configuratie uitbreiden door meer parameters op te nemen tussen de twee lijnen met “—”-tekens. Zo kun je een inhoudsopgave opnemen met ‘toc’ (table of contents), aangeven waar die moet staan (toc-location: left) en tot welke diepte de tussenkoppen opgenomen moeten worden in de inhoudsopgave (toc-depth: 3). De lijst voor alle mogelijke YAML parameters voor een HTML document is hier te vinden.",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
+    "objectID": "YAML.html#zelf-parameters-toevoegen",
+    "href": "YAML.html#zelf-parameters-toevoegen",
+    "title": "YAML",
+    "section": "Zelf parameters toevoegen",
+    "text": "Zelf parameters toevoegen\nDaarnaast kun je zelf extra parameters toevoegen met “params”. In het voorbeeld hieronder is bijvoorbeeld een extra parameter “gemeentenaam” opgenomen, die naar “Land van Cuijk” is gezet. In het script kun je de waarde van deze parameter oproepen met params$gemeentenaam.\nHet is handig om alle databestanden die je als input gebruikt op te nemen als parameter. Zo is mooi overzichtelijk welke bestanden nodig zijn. Als de bestanden in dezelfde map staan als je .qmd bestand, dan hoef je alleen de naam van het bestand inclusief de bestandsextensie (bijvoorbeeld ‘.xlsx’ voor Excelbestanden) in te vullen. Staan de inputbestanden in een submap (wel zo overzichtelijk), dan voeg je ook het pad naar het bestand toe. Het stuk “input/data/Gehuwd.xlsx” wijst naar een map ‘input’ met daarin een map ‘data’ en in deze map het bestand “Gehuwd.xlsx”.\n\n\n\nEen voorbeeld van de YAML sectie van een thematische schets",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
+    "objectID": "YAML.html#embed-resources",
+    "href": "YAML.html#embed-resources",
+    "title": "YAML",
+    "section": "Embed resources",
+    "text": "Embed resources\nOp het moment dat je je Quarto product wilt delen met de buitenwereld als 1 enkel html bestand, en je document bevat plaatjes of grafieken, dan is het nodig om in de YAML embed-resources: true op te nemen. Dit zorgt ervoor dat alle elementen uit het Quarto document worden opgenomen in het html document zelf en er geen verwijzingen meer zijn naar plekken elders op het internet.\n---\nformat:\n  html:\n    embed-resources: true\n---",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
+    "objectID": "YAML.html#theme",
+    "href": "YAML.html#theme",
+    "title": "YAML",
+    "section": "Theme",
+    "text": "Theme\nIn de eerste schetsen die we gemaakt hebben, kozen we voor het thema ‘cosmo’. Deze blijkt echter niet voldoende contrast te bevatten bij in ieder geval hyperlinks en de inhoudsopgave. Een thema dat wel voldoet aan de contrasteisen voor digitoegankelijkheid is het theme ‘default’. Het lettertype hiervan voor de koppen is minder sprekend, maar dat kan aangepast worden via css.\n---\nformat:\n  html:\n    theme: default\n---",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
+    "objectID": "YAML.html#echo-en-warning",
+    "href": "YAML.html#echo-en-warning",
+    "title": "YAML",
+    "section": "Echo en warning",
+    "text": "Echo en warning\nBij het maken van schetsen is het handig om onder ‘execute’ de parameters ‘echo’ en ‘warning’ op false te zetten. Echo op false zorgt ervoor dat de code die gebruikt is in codeblokken, om bijvoorbeeld een plot te maken, niet wordt getoond. Warning op false zorgt ervoor meldingen die normaal gesproken naar de console worden geprint, niet in je eindproduct terecht komen. Door het in de YAML op te nemen, worden deze parameters toegepast op alle codeblokken. Je kunt het ook weglaten in de YAML, en het per codeblok toevoegen, om zo per codeblok te bepalen of je bijvoorbeeld de code wel of niet wilt laten zien.\n---\nexecute:\n  echo: false\n  warning: false\n---\n\n\n\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen\nEen voorbeeld van de YAML sectie van een thematische schets",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
+    "objectID": "Markdown.html",
+    "href": "Markdown.html",
+    "title": "Markdown",
+    "section": "",
+    "text": "Titels\nHTML ondersteunt het maken van 6 niveaus aan titels. Het hoogste niveau aan titel, met default ook het grootste lettertype, is h1. De kleinste titel is h6. Binnen Markdown maak je een titel van niveau 1 door 1 hashtag te typen, gevolgd door een spatie en dan de tekst die je als titel wilt. Voor een titel van niveau 2 typ je 2 hashtags achter elkaar, voor niveau 3 gebruik je 3 hashtags, etc.\nTitels die je maakt door middel van hashtags verschijnen ook in de inhoudsopgave, als je deze aan hebt gezet in de YAML. Bij een toc-depth van 1 worden alleen titels van niveau 1 getoond. Bij een toc-depth van 3 worden titels van niveau 1 t/m 3 getoond in de inhoudsopgave, etc.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#titels",
+    "href": "Markdown.html#titels",
+    "title": "Markdown",
+    "section": "",
+    "text": "Zes niveaus voor titels\n\n\n\n---\nformat:\n  html:\n    toc: TRUE\n    toc-location: left\n    toc-depth: 3\n    toc-title: \"Inhoudsopgave\"\n---\n\nDigitoegankelijke titels\nJe zou titels ook kunnen maken zonder de hashtags te gebruiken, maar door de lettergrootte aan te passen via css. In het kader van digitoegankelijkheid is dat echter niet aan te raden. Mensen die een screenreader gebruiken kunnen door middel van de informatie over de verschillende titelniveaus snel een beeld krijgen van wat er op een pagina staat en ook snel naar verschillende secties navigeren. Om dezelfde reden is het geen goed idee om wel titels van niveau 1 en 3 te gebruiken, maar titels van niveau 2 over te slaan. Mocht je een voorkeur hebben voor de lettergroottes van 1 en 3, gebruik van niveau 1 en 2 en pas via css de lettergrootte van niveau 2 aan. Op die manier is de structuur duidelijk voor mensen die een screenreader gebruiken, en tegelijkertijd de layout zoals je wenst voor mensen die dit niet doen.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#dik--en-schuingedrukte-tekst",
+    "href": "Markdown.html#dik--en-schuingedrukte-tekst",
+    "title": "Markdown",
+    "section": "Dik- en schuingedrukte tekst",
+    "text": "Dik- en schuingedrukte tekst\nBinnen Markdown kun je tekst dikgedrukt maken door het woord te omgeven door ofwel 2 sterretjes, ofwel 2 underscores. **tekst** en __tekst__ zorgen allebei voor dikgedrukte tekst.\nSchuingedrukte tekst krijg je door het gebruik van 1 sterretje of underscore: *tekst* of _tekst_.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#plaatjes-invoegen",
+    "href": "Markdown.html#plaatjes-invoegen",
+    "title": "Markdown",
+    "section": "Plaatjes invoegen",
+    "text": "Plaatjes invoegen\nPlaatjes kun je invoegen door middel van ![](). Tussen de blokhaken kun je een onderschrift zetten, indien je dit wenst. Je kunt het echter ook leeg laten. Tussen de ronde haken zet je het pad naar het plaatje. Heb je in jouw project een submap met de naam “Afbeeldingen” en in deze map een afbeelding “GGD_logo.png”, dan zet je in de Markdown ![](Afbeeldingen/GGD_logo.png).\nJe kunt het plaatje extra parameters meegeven via accolades. Zo kun je de afbeelding links uit laten lijnen en een alternatieve tekst meegeven via ![](Afbeeldingen/GGD_logo.png){fig-align=\"left\" fig-alt=\"Logo van de GGD\"}. De alternatieve tekst is wat een screenreader voorleest op het moment dat het een plaatje tegenkomt. Als een afbeelding géén informatie toevoegt, dan is het beter om ook geen tekstalternatief te geven. In dit voorbeeld kan de alternatieve tekst dus beter achterwege gelaten worden.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#links-naar-andere-paginas",
+    "href": "Markdown.html#links-naar-andere-paginas",
+    "title": "Markdown",
+    "section": "Links naar andere pagina’s",
+    "text": "Links naar andere pagina’s\nDe Markdown code voor links naar andere pagina’s lijkt erg op die voor het invoegen van plaatjes: [](). Het verschil is dat bij links niet gestart wordt met een uitroepteken. Tussen de blokhaken komt de lopende tekst die aanklikbaar is. Tussen de ronde haken komt de internetpagina waar naar wordt verwezen.\nVoorbeeld:\nLees meer over dit onderwerp op de [website van de GGD](http://www.ggdhvb.nl).\nwordt getoond als\nLees meer over dit onderwerp op de website van de GGD.\n\nDigitoegankelijke links\nMaak geen gebruik van teksten als “Klik hier voor de website van de GGD”, waarbij links naar websites onder het woord “hier” worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord “hier” gevolgd door verschillende urls, dan is dat voor hun weinig informatief.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#lijsten",
+    "href": "Markdown.html#lijsten",
+    "title": "Markdown",
+    "section": "Lijsten",
+    "text": "Lijsten\nJe kunt een ongenummerde lijst maken door gebruik te maken van het * teken. Genummerde lijsten maak je simpelweg door een getal gevolgd door een punt te typen. Sub-bullets maak je door de tekst in te laten springen door middel van 1 tab of minimaal 2 spaties.\n* unordered list\n + sub-item 1 \n + sub-item 2\n   - sub-sub-item 1\ngeeft\n\nunordered list\n\nsub-item 1\nsub-item 2\n\nsub-sub-item 1",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#tabellen",
+    "href": "Markdown.html#tabellen",
+    "title": "Markdown",
+    "section": "Tabellen",
+    "text": "Tabellen\nHet is mogelijk om tabellen te maken in Markdown. De syntax hiervan is echter wat omslachtig en het resultaat is niet digitoegankelijk.\nfruit| price\n-----|-----:\napple|2.05\npear|1.37\norange|3.09\ngeeft\n\n\n\nfruit\nprice\n\n\n\n\napple\n2.05\n\n\npear\n1.37\n\n\norange\n3.09\n\n\n\nHet is beter om je data in te lezen of aan te maken in een R codeblok en vervolgens met de gt package een tabel te maken. Dit levert digitoegankelijke tabellen met veel opmaakmogelijkheden.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#div",
+    "href": "Markdown.html#div",
+    "title": "Markdown",
+    "section": "Div",
+    "text": "Div\nEen div is een html element waarmee je inhoud bij elkaar kunt groeperen. Een div open je door middel van een regel met minimaal 3 dubbele punten en sluit je op dezelfde manier:\n::: random-naam\nTekst die hier staat\n\nwordt in een div geplaatst.\n:::\nIn het bovenstaande voorbeeld heeft de div een class “random-naam” meegekregen. Een andere manier om een class mee te geven is door middel van accolades en een punt voor de naam:\n::: {.random-naam}\nEen ID geef je op dezelfde manier, maar dan met een hashtag in plaats van een punt:\n::: {#random-naam}\nClasses en IDs zijn nodig om via css of Javascript in te kunnen haken op divs. Je gebruikt classes als je meerdere divs in 1 keer wilt benaderen. Een ID is een uniek kenmerk en ken je daarom toe aan maximaal 1 div.\n::: {.tabel}\nDeze div krijgt een class mee\n:::\n\n::: {#tabel1}\nDeze div krijgt een ID mee\n:::",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#kolommen",
+    "href": "Markdown.html#kolommen",
+    "title": "Markdown",
+    "section": "Kolommen",
+    "text": "Kolommen\nKolommen maak je aan door middel van divs, die je een bepaalde parameter meegeeft. Er zijn een twee opties qua parameter. Je kunt het aantal kolommen opgeven met {layout-ncol=\"3\"}, dit geeft 3 kolommen van gelijke grootte.\n::: {layout-ncol=\"3\"}\nLinkerkolom\n\nMidden\n\nRechterkolom\n:::\ngeeft\n\n\n\n\n\n\nLinkerkolom\n\n\nMidden\n\n\nRechterkolom\n\n\n\nJe kunt ook gebruik maken van de layout parameter. Dit geeft je veel flexibiliteit qua kolombreedtes en maakt het mogelijk om per rij een verschillend aantal kolommen te hebben. Als je 1 rij wilt, maar je gebruik van {layout=[]}, waarbij tussen de blokhaken de percentages staan die elke kolom qua breedte in moet nemen. Wil je twee rijen, dan gebruik je twee keer [], gescheiden door een komma. Deze twee blokhaken omvat je ook weer door blokhaken. Het wordt dan layout=\"[[],[]]. Je kunt ook lege kolommen of lege rijen invoegen door middel van negatieve cijfers.\n:::: {layout=\"[[10, 20, -10, 30, 30],[-100], [10, 90]]\"}\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n::::\ngeeft\n\n\n\n\n\n\n1\n\n\n2\n\n\n \n\n\n3\n\n\n4\n\n\n\n\n \n\n\n\n\n5\n\n\n6",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#tabsets",
+    "href": "Markdown.html#tabsets",
+    "title": "Markdown",
+    "section": "Tabsets",
+    "text": "Tabsets\nTabsets zijn elementen met tabbladen waar de gebruiker tussen kan schakelen. Je maakt ze door middel van een div met class “panel-tabset”. De titels van de tabbladen maak je door middel van 2 hashtags.\n::: {.panel-tabset}\n\n## Tabblad 1\n\nInhoud van tabblad 1\n\n## Tabblad 2\n\nInhoud van tabblad 2\n:::\ngeeft\n\nTabblad 1Tabblad 2\n\n\nInhoud van tabblad 1\n\n\nInhoud van tabblad 2\n\n\n\nIn de tabbladen kun je tekst zetten, maar ook R code uit laten voeren die visualisaties tonen. Het resultaat van het codeblok wordt dan opgenomen in het tabblad.",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Markdown.html#span",
+    "href": "Markdown.html#span",
+    "title": "Markdown",
+    "section": "Span",
+    "text": "Span\nSpans kun je gebruiken om in een stuk lopende tekst een paar woorden of zinnen een bepaalde opmaak of een class of ID mee te geven. Dit doe je door middel van de lopende tekst te omgeven met blokhaken en de informatie die je mee wilt geven te omgeven door accolades: []{}\nDe volgende tekst is groen: [groene tekst]{style=color:green}\nwordt weergeven als\nDe volgende tekst is groen: groene tekst",
+    "crumbs": [
+      "Technieken",
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "Codeblokken.html",
+    "href": "Codeblokken.html",
+    "title": "Codeblokken",
+    "section": "",
+    "text": "Codeblokken openen en sluiten\nEen codeblok start je met 3 backticks. De backtick is het teken links bovenaan op het toetsenbord, links van de 1. Vervolgens typ je de naam van de programmeertaal die je wilt gebruiken tussen 2 accolades. Het codeblok sluit je door 3 backticks op een nieuwe regel.",
+    "crumbs": [
+      "Technieken",
+      "Codeblokken"
+    ]
+  },
+  {
+    "objectID": "Codeblokken.html#codeblokken-openen-en-sluiten",
+    "href": "Codeblokken.html#codeblokken-openen-en-sluiten",
+    "title": "Codeblokken",
+    "section": "",
+    "text": "```{r}\n\n# Een leeg codeblok\n\n```",
+    "crumbs": [
+      "Technieken",
+      "Codeblokken"
+    ]
+  },
+  {
+    "objectID": "Codeblokken.html#parameters",
+    "href": "Codeblokken.html#parameters",
+    "title": "Codeblokken",
+    "section": "Parameters",
+    "text": "Parameters\nJe kunt codeblokken parameters meegeven, zogeheten ‘chunk options’. Deze kunnen toegevoegd worden tussen de accolades waar ook de programmeertaal in staat, als op een eigen regel worden gezet, vooraf gegaan door een hashtag, een rechte streep en een spatie: #|. Quarto zelf raadt de laatste manier aan. Deze manier heeft ook als voordeel dat RStudio aan code-completion doet zodra je een deel van de parameter hebt geschreven. Zo kun je makkelijk opzoeken welke parameters er allemaal bestaan die starten met ‘fig’.\n\n\n\nChunk options tussen de accolades, en op een eigen regel\n\n\n\nEcho en warning\nDe chunk options ‘echo’ en ‘warning’ zijn al kort besproken in het YAML hoofdstuk. Echo op false zorgt ervoor dat de code uit een codeblok zelf niet getoond wordt. In een infographic willen we de code niet tonen, maar mocht je een uitleg willen schrijven bij een analyse die je gedaan hebt, dan is deze optie mogelijk wel interessant. Warning op false zorgt ervoor dat waarschuwingen die uitgevoerde R code soms naar de console stuurt - bijvoorbeeld dat een bepaalde functie uitgefaseerd gaat worden - niet getoond wordt.\n\n\nFig options\nHandige chunk options op het gebied van figuren zijn fig-width, fig-height en fig-alt. Hiermee vul je respectievelijk de breedte, hoogte en alternatieve tekst van figuren die door het codeblok gegenereerd worden. De getallen die je invult bij de breedte en hoogte zijn in inch.\n```{r}\n#| fig-width: 8\n#| fig-height: 4\n#| fig-alt: \"Vul hier een alternatieve tekst in\"\n\n```",
+    "crumbs": [
+      "Technieken",
+      "Codeblokken"
+    ]
+  },
+  {
+    "objectID": "HTML.html",
+    "href": "HTML.html",
+    "title": "HTML en CSS",
+    "section": "",
+    "text": "HTML\nHTML is de taal waarmee de structuur van webpagina’s weergeven wordt. Het maakt gebruik van tags, zoals &lt;h1&gt; en &lt;div&gt;. Deze komen doorgaans gepaard voor, een openingstag &lt;&gt; en een sluitende tag &lt;/&gt;. Een titel wordt dan bijvoorbeeld opgegeven als &lt;h1&gt;Dit is mijn titel&lt;/h1&gt;.\nIedere webpagina heeft minimaal onderstaande opbouw:\nEen html-pagina start met &lt;html&gt; en eindigt met &lt;/html&gt;. Daartussen zitten twee secties: de head en de body. De head-sectie bevat meta-informatie over de pagina en is voor ons doeleinde niet relevant. De body bevat het deel van de webpagina dat zichtbaar is voor degene die de pagina bezoekt. Als je in een Quarto document titels, tekst en plaatjes toevoegt, dan worden deze in de body van de html pagina gezet. Je hoeft de html code dus niet zelf te schrijven.\nJe kunt van elke webpagina die je bezoekt ook de onderliggende html-code bekijken. Dit kan door F12 in te toetsen of door met de rechtermuisknop op een plek te klikken en dan in het pop-up menu onderaan “Inspecteren” te kiezen. Dit opent de developer tools.\nRechts bovenaan staat de html code van de webpagina. Als je de rechtermuisknop + Inspecteren hebt gebruikt, dan wordt het element waarop je hebt geklikt gemarkeerd. Zo kun je makkelijk dat specifieke element terugvinden.\nVoor sommige tags staat een driehoekje. Dit zijn html tags waarbinnen andere html tags zijn geplaatst. Door op het driehoekje te klikken worden onderliggende tags getoond of verborgen. Binnen sommige tags staat een ellips met 3 puntjes. Ook hier kun je op klikken om de onderliggende inhoud zichtbaar te maken.",
+    "crumbs": [
+      "Technieken",
+      "HTML en CSS"
+    ]
+  },
+  {
+    "objectID": "HTML.html#css",
+    "href": "HTML.html#css",
+    "title": "HTML en CSS",
+    "section": "CSS",
+    "text": "CSS\nRechts onderaan staat de CSS - de styling - die is toegepast op het element dat als gemarkeerd staat in de html viewer. Mocht je willen kijken wat voor effect bepaalde css code heeft op een element voordat je het opneemt in het Quarto document, dan kun je dat hier testen. Wijzigingen die je in de developer tools maakt, worden niet onthouden. Op het moment dat je de pagina sluit, zijn alle wijzigingen weg.",
+    "crumbs": [
+      "Technieken",
+      "HTML en CSS"
+    ]
+  },
+  {
+    "objectID": "HTML.html#css-script",
+    "href": "HTML.html#css-script",
+    "title": "HTML en CSS",
+    "section": "CSS script",
+    "text": "CSS script\nEen CSS script kun je binnen Quarto op 2 manieren opnemen. Je kunt in het .qmd bestand een css codeblok aanmaken waarin je de css definieert. Je start een codeblok door middel van 3 backticks (het teken links van de 1 aan de linkerkant van het toetsenbord). Vervolgens specificeer je dat het om css gaat door het woord css te typen tussen 2 accolades: ```{css}. Hierna typ je de css code en sluit je het codeblock met 3 backticks. Let erop dat het begin en einde van het codeblok op een eigen regel staat.\nDe tweede optie is om een apart bestand aan te maken, eindigend met de .css extensie en een verwijzing naar dit bestand op te nemen in de YAML:\nformat:\n  html:\n    css: styles.css",
+    "crumbs": [
+      "Technieken",
+      "HTML en CSS"
+    ]
+  },
+  {
+    "objectID": "HTML.html#css-tutorials",
+    "href": "HTML.html#css-tutorials",
+    "title": "HTML en CSS",
+    "section": "CSS Tutorials",
+    "text": "CSS Tutorials\nIn dit Quarto boek leggen we alleen de basis uit. W3Schools heeft interactieve tutorials op het gebied van css. Hier kun je makkelijk parameters veranderen en kijken wat het effect is.\n\n\n\nLinks een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools.",
+    "crumbs": [
+      "Technieken",
+      "HTML en CSS"
+    ]
+  },
+  {
+    "objectID": "R.html",
+    "href": "R.html",
+    "title": "Handige links voor R",
+    "section": "",
+    "text": "Algemeen",
+    "crumbs": [
+      "Technieken",
+      "Handige links voor R"
+    ]
+  },
+  {
+    "objectID": "R.html#algemeen",
+    "href": "R.html#algemeen",
+    "title": "Handige links voor R",
+    "section": "",
+    "text": "Cheatsheets\nR Cookbook\nR for Data Science\nAdvanced R\nEfficient R\nR Markdown\nR en databases",
+    "crumbs": [
+      "Technieken",
+      "Handige links voor R"
+    ]
+  },
+  {
+    "objectID": "R.html#analyses",
+    "href": "R.html#analyses",
+    "title": "Handige links voor R",
+    "section": "Analyses",
+    "text": "Analyses\n\nExploring Complex Survey Data Analysis Using R\nTekst mining met R\nGeospatial Statistics in R\nR en statistiek\nPopulation Health Data Science with R",
+    "crumbs": [
+      "Technieken",
+      "Handige links voor R"
+    ]
+  },
+  {
+    "objectID": "R.html#visualisatie",
+    "href": "R.html#visualisatie",
+    "title": "Handige links voor R",
+    "section": "Visualisatie",
+    "text": "Visualisatie\n\nInteractive web-based data visualization with R, plotly and shiny\nR Graphics Cookbook\nModern Data Visualisation with R\ngt Cookbook",
+    "crumbs": [
+      "Technieken",
+      "Handige links voor R"
+    ]
+  },
+  {
+    "objectID": "R.html#overig",
+    "href": "R.html#overig",
+    "title": "Handige links voor R",
+    "section": "Overig",
+    "text": "Overig\n\nRegular expressions",
+    "crumbs": [
+      "Technieken",
+      "Handige links voor R"
+    ]
+  },
+  {
+    "objectID": "Digitoegankelijkheid.html",
+    "href": "Digitoegankelijkheid.html",
+    "title": "Digitoegankelijkheid",
+    "section": "",
+    "text": "Principes\nDigitoegankelijkheid draait om vier principes: waarneembaarheid, bedienbaarheid, begrijpelijkheid en robuustheid.\nOnder waarneembaarheid wordt verstaan dat alles op een website of app voor iedereen waarneembaar moet zijn. Een criterium onder dit principe is bijvoorbeeld dat afbeeldingen op een website worden voorzien van een alternatieve tekst. Iemand die de afbeelding niet kan zien, weet dan toch waar de afbeelding over gaat.\nOnder bedienbaarheid wordt verstaan dat een website of app door iedereen te bedienen moet zijn. Een navigatiemenu moet bijvoorbeeld niet alleen met een muis, maar ook met het toetsenbord bereikbaar zijn.\nOnder begrijpelijkheid wordt verstaan dat een website of app begrijpelijk moet zijn voor zowel software als mensen. Hulptechnologie zoals een schermlezer kan de tekst dan op de juiste manier voorlezen. Voor mensen moet het bijvoorbeeld duidelijk zijn waar de fout zit als een formulier niet goed is ingevuld.\nOnder robuustheid wordt verstaan dat een website of app door veel verschillende apparaten en hulptechnologie gebruikt moet kunnen worden. Een voorbeeld van een criterium onder dit principe is dat je voor elementen op een website of app aangeeft wat hun naam, rol en waarde is.",
+    "crumbs": [
+      "Digitoegankelijkheid"
+    ]
+  },
+  {
+    "objectID": "Digitoegankelijkheid.html#aandachtspunten-voor-de-bouwer",
+    "href": "Digitoegankelijkheid.html#aandachtspunten-voor-de-bouwer",
+    "title": "Digitoegankelijkheid",
+    "section": "Aandachtspunten voor de bouwer",
+    "text": "Aandachtspunten voor de bouwer\nQuarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over Technieken.\n\nMaak gebruik van hashtags voor het aangeven van een titel en subtitels. Sla hierin geen niveaus over.\nGeef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is.\nZorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.\nMaak voor het maken van tabellen gebruik van de gt package en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.\nCheck dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de Tanaguru contrast-finder. Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid.\nGebruik een omschrijvende link-tekst als je links onder tekst opneemt. Teksten als “Lees verder” of “Klik hier” geven te weinig context.\n\nMogelijk moet deze lijst worden uitgebreid. We leren zelf ook nog steeds bij.",
+    "crumbs": [
+      "Digitoegankelijkheid"
+    ]
+  },
+  {
+    "objectID": "Code snippets.html",
+    "href": "Code snippets.html",
+    "title": "Code snippets",
+    "section": "",
+    "text": "In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.",
+    "crumbs": [
+      "Code snippets"
+    ]
+  },
+  {
+    "objectID": "Icoon_met_tekst.html",
+    "href": "Icoon_met_tekst.html",
+    "title": "Icoon met tekst",
+    "section": "",
+    "text": "Vaststaande tekst zonder opmaak\nIn de layout parameter is 1 rij gedefinieerd door het gebruik van 1 keer de blokhaken. De eerste kolom is 10%, de tweede kolom is 90%.",
+    "crumbs": [
+      "Code snippets",
+      "Icoon met tekst"
+    ]
+  },
+  {
+    "objectID": "Icoon_met_tekst.html#vaststaande-tekst-zonder-opmaak",
+    "href": "Icoon_met_tekst.html#vaststaande-tekst-zonder-opmaak",
+    "title": "Icoon met tekst",
+    "section": "",
+    "text": "57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).\n\n\n\n::: {layout=\"[10, 90]\"}\n\n![](afbeeldingen/trouwringen.svg)\n\n57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).\n:::",
+    "crumbs": [
+      "Code snippets",
+      "Icoon met tekst"
+    ]
+  },
+  {
+    "objectID": "Icoon_met_tekst.html#vaststaande-tekst-met-opmaak",
+    "href": "Icoon_met_tekst.html#vaststaande-tekst-met-opmaak",
+    "title": "Icoon met tekst",
+    "section": "Vaststaande tekst met opmaak",
+    "text": "Vaststaande tekst met opmaak\nMocht je de percentages opvallender willen maken door middel van kleuren, dan kan dat door de Quarto Markdown voor een span te gebruiken: []{}.\nDaarnaast kun je extra regels toevoegen door meerdere blokhaken met reeksen toe te voegen en deze te omsluiten door ook weer een set blokhaken. In het voorbeeld hieronder staan drie rijen gedefinieerd. De eerste rij heeft 2 kolommen, een van 10% en een van 90%: [10, 90]. De tweede rij bevat 1 kolom van 100%, het negatieve teken ervoor maakt dat die regel leeg is: [-100]. De derde rij bevat 2 kolommen. De eerste kolom is 10% breed, maar is leeg; de tweede kolom is 90% breed: [-10, 90].\n\n\n\n\n\n\n\n\n\n57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).\n\n\n\n\n \n\n\n\n\n \n\n\n85% van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat 88%.\n\n\n\n::: {layout=\"[[10, 90], [-100], [-10, 90]\"}\n![](afbeeldingen/trouwringen.svg)\n\n[57%]{style=color:#b41257;font-weight:bold} van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit [56%]{style=color:#b41257;font-weight:bold} (2023).\n\n[85%]{style=color:#b41257;font-weight:bold} van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat [88%]{style=color:#b41257;font-weight:bold}.\n:::\nBinnenin de div - het stuk tussen de reeks van 3 dubbele punten - staan 3 blokjes met tekst en code. Het eerste blokje - de Quarto Markdown code voor de afbeelding - wordt geplaatst bij het eerste positieve element in de layout. Dit is de eerste kolom op de eerste rij, een kolom van 10% breedte. Het tweede blokje - het percentage gehuwde moeders - wordt geplaatst op het tweede positieve layout-element. Dit is de tweede kolom op de eerste rij, een kolom van 90% breed. Het derde blokje - het percentage ouders van wie de kinderen bij vader en moeder woont - wordt op het derde positieve layout-element geplaatst. Dit is de tweede kolom van de derde rij.\nAls je meer blokjes in de div hebt staan dan dat je regels hebt gespecifieerd achter layout, dan worden deze stukjes niet getoond.",
+    "crumbs": [
+      "Code snippets",
+      "Icoon met tekst"
+    ]
+  },
+  {
+    "objectID": "Icoon_met_tekst.html#dynamische-tekst",
+    "href": "Icoon_met_tekst.html#dynamische-tekst",
+    "title": "Icoon met tekst",
+    "section": "Dynamische tekst",
+    "text": "Dynamische tekst\nMet Quarto is het mogelijk om dingen uit te rekenen in bijvoorbeeld een blok R code en het resultaat ervan op te nemen in het Markdown deel. Dit werkt als volgt:\n```{r}\nuitgerekend_getal = 5 + 2\n```\n\nHet uitgerekende getal is `r uitgerekend_getal`.\nLet op: in het voorbeeld hierboven staat “r uitgerekend_getal” tussen backticks, de tekens links van de 1 aan de linkerkant van het toetsenbord. Het zijn geen enkele aanhalingstekens.\nGerendered ziet dit er als volgt uit:\nHet uitgerekende getal is 7.\n\nDynamische tekst met opmaak\nMocht je de dynamische tekst opgemaakt willen hebben, dan kan dat door in het R object html-code op te laten slaan. In het onderstaande voorbeeld wordt eerst data ingelezen vanuit een Excel bestand. De locatie van het bestand is opgenomen in de YAML onder params. Vervolgens worden er getallen weggeschreven in ‘percentage_gehuwd_gemeente’ en ‘percentage_gehuwd_landelijk’. Als laatste wordt de glue functie gebruikt om percentage_gehuwd_gemeente en percentage_gehuwd_landelijk in te laten vullen in een lopende zin, en de raw_html functie om het resultaat te markeren als html code. Dit wordt opgeslagen in het R object ‘gehuwd’.\n```{r}\npercentage_gehuwd &lt;- read_excel(params$gehuwd_xlsx) %&gt;% \n  mutate(Percentage = round2(`Gehuwd paar` / `Totaal huishoudens` * 100, digits = 0))\n\npercentage_gehuwd_gemeente &lt;- percentage_gehuwd %&gt;% \n  filter(RegioS_label %in% params$gemeentenaam) %&gt;%\n  pull(Percentage)\n\npercentage_gehuwd_landelijk &lt;- percentage_gehuwd %&gt;% \n  filter(RegioS_label %in% \"Nederland\") %&gt;%\n  pull(Percentage)\n  \n# Schrijf weg om later in tekst op te nemen\ngehuwd &lt;- knitr::raw_html(glue('&lt;span style=\"color:#b41257;font-weight:bold\"&gt;{percentage_gehuwd_gemeente}%&lt;/span&gt; van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit &lt;span style=\"color:#1a2c54;font-weight:bold\"&gt;{percentage_gehuwd_landelijk}%&lt;/span&gt; (2023).'))\n```\nJe kunt hetgeen wat is opgeslagen in het R object ‘gehuwd’ vervolgens in het Markdown deel oproepen door `r gehuwd` te typen. Let op: dit zijn weer backticks, geen enkele aanhalingstekens.\nIn plaats van de inline css in de span tag kun je de span ook een class meegeven en de class vervolgens aanroepen in een css codeblock of apart css script, zoals beschreven in het hoofdstuk HTML en CSS.",
+    "crumbs": [
+      "Code snippets",
+      "Icoon met tekst"
+    ]
+  },
+  {
+    "objectID": "Bol_met_cijfer.html",
+    "href": "Bol_met_cijfer.html",
+    "title": "Bol met cijfer",
+    "section": "",
+    "text": "Subfunctie\nDe functie voor het maken van de svg ziet er als volgt uit:\nDe functie heeft 1 vereiste input (getal) en 7 optionele inputs (kleur en regel1 t/m regel6). Als je geen kleur invult, dan is de bol standaard roze. Geef je de kleur-parameter mee in de functie-aanroep met een andere hex-code (bijvoorbeeld bol_met_cijfer &lt;- function(getal = 13, kleur = \"#1A2C54\", regel1 = \"tekst\")), dan krijgt de bol een andere kleur.\nDe functie maakt eerst een deel van de svg code voor de tekst naar de kolom. Alle aangeleverde regels worden in een &lt;tspan&gt;&lt;/tspan&gt; tag gezet. Alle regels behalve de eerste krijgen een x en dy parameter mee, om de regels leesbaar te plaatsen.\nVervolgens wordt de volledige svg code aangemaakt. Door middel van de glue package worden op bepaalde plekken in de code variabelen ingevoegd. Zo wordt bij &lt;circle style=\"fill:{kleur};\" de hex-code van ofwel de default kleur, of de opgegeven kleur ingevuld. Binnen de &lt;text&gt; tags van &lt;g id=\"tekst\"&gt; wordt het eerder gemaakte r-object “tekst” ingevuld. Dit is de opgegeven tekst van regel 1 t/m regel6.",
+    "crumbs": [
+      "Code snippets",
+      "Bol met cijfer"
+    ]
+  },
+  {
+    "objectID": "Bol_met_cijfer.html#subfunctie",
+    "href": "Bol_met_cijfer.html#subfunctie",
+    "title": "Bol met cijfer",
+    "section": "",
+    "text": "```{r}\n\n# Glue package dient geinstalleerd te zijn voor deze functie\n\nbol_met_cijfer &lt;- function(getal, kleur = \"#b41257\", regel1 = NA, regel2 = NA, regel3 = NA, regel4 = NA, regel5 = NA, regel6 = NA){\n  \n  alt_tekst &lt;- getal\n  \n  # Maak een stukje svg code aan waarin de ingevoerde tekst is opgenomen en een variabele voor het aanvullen van de alternatieve tekst\n  tekst &lt;- c()\n  \n  for (regel in c(regel1, regel2, regel3, regel4, regel5, regel6)){\n    if(!is.na(regel)){\n      \n      alt_tekst &lt;- paste(alt_tekst, regel)\n      \n      if(length(tekst) == 0){\n        tekst &lt;- paste0('&lt;tspan&gt;', regel, '&lt;/tspan&gt;')\n        \n      }\n      else if (length(tekst) &gt; 0){\n      tekst &lt;- paste0(tekst, '&lt;tspan x=50 dy=\"1em\"&gt;', regel, '&lt;/tspan&gt;')\n      }\n    }\n  }\n  \n  # Voeg de ingevoerde informatie op de juiste plekken in de svg code met behulp van glue\n  svg_code &lt;- glue::glue('&lt;svg role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality;\"\n                viewBox=\"0 0 225 75\"&gt;\n                &lt;title&gt;{alt_tekst}&lt;/title&gt;\n                \n                &lt;g id=\"circle\"&gt;\n                    &lt;circle style=\"fill:{kleur};\" cx=\"25\" cy=\"25\" r=\"20\"&gt;\n                    &lt;/circle&gt;\n                    &lt;text x=25 y=\"25\" text-anchor=\"middle\" fill=\"#FFFFFF\" stroke=\"#FFFFFF\" stroke-width=\"1px\" dy=\".3em\" font-size=\"1em\"&gt;{getal}&lt;/text&gt;\n                &lt;/g&gt;\n                    \n                &lt;g id=\"tekst\"&gt;\n                &lt;text x=50 y=\"25\" stroke=\"#010101\" stroke-width=\"0.01px\" dy=\".3em\" font-size=\"0.5em\"&gt;{tekst}&lt;/text&gt;\n                &lt;/g&gt;\n                \n                &lt;/svg&gt;')\n\n  \n  return(svg_code)\n}\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Bol met cijfer"
+    ]
+  },
+  {
+    "objectID": "Bol_met_cijfer.html#grootte-van-de-cirkel-en-tekst-aanpassen",
+    "href": "Bol_met_cijfer.html#grootte-van-de-cirkel-en-tekst-aanpassen",
+    "title": "Bol met cijfer",
+    "section": "Grootte van de cirkel en tekst aanpassen",
+    "text": "Grootte van de cirkel en tekst aanpassen\nSVG is schaalbaar. Als je het gemaakte r-object binnen Markdown oproept in een kolom, dan zullen de cirkel en tekst automatisch kleiner worden. Je kunt ook binnen de subfunctie waarin de svg wordt aangemaakt wijzigingen maken. De parameter viewBox=\"0 0 225 75\" binnen de svg tag aan het begin van de code geeft aan hoe groot het veld van de svg is. Het veld begint op x=0 en y=0. De maximale x (breedte) is 225, de maximale y is 75 (hoogte). De &lt;circle&gt; en &lt;text&gt; tags hebben x en y parameters, of varianten daarop. cx en cx zijn de centrum-coordinaten van de cirkel, r is de radius. Een grotere getal bij \"r\" zorgt voor een grotere cirkel. Geef je een radius op van 50 en een cx van 200, dan zal een deel van de cirkel niet getoond worden. De maximale x van de cirkel zou namelijk 250 zijn, maar de viewBox gaat niet verder dan 225. Door deze getallen te veranderen, kun je dus de resulterende afbeelding veranderen.",
+    "crumbs": [
+      "Code snippets",
+      "Bol met cijfer"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html",
+    "href": "Lijngrafiek.html",
+    "title": "Lijngrafiek",
+    "section": "",
+    "text": "Digitoegankelijkheid\nGrafieken zijn doorgaans uit zichzelf niet digitoegankelijk. Bij een simpele grafiek met weinig datapunten zou je een beschrijving van de grafiek op kunnen nemen als alt-text (werkwijze volgt later). Een andere mogelijkheid, en beter geschikt bij meer datapunten, is om naast de grafiek ook een tabel op te nemen. Je kunt de plot en de tabel mooi op tabbladen naast elkaar plaatsen met een tabset. Zie ook het Markdown hoofdstuk.",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html#packages",
+    "href": "Lijngrafiek.html#packages",
+    "title": "Lijngrafiek",
+    "section": "Packages",
+    "text": "Packages\nEen lijngrafiek kun je maken met verschillende packages. De ggplot package wordt veel gebruikt binnen R. Deze geeft in Quarto documenten echter enigszins pixelige resultaten. Dit kan worden opgelost door de ggplot code te plaatsen binnen de ggplotly-functie van de plotly package. Op deze manier kun je grafieken vormgeven op de manier van ggplot, en toch een goede kwaliteit afbeelding opnemen.",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html#voorbeeld-lijngrafiek",
+    "href": "Lijngrafiek.html#voorbeeld-lijngrafiek",
+    "title": "Lijngrafiek",
+    "section": "Voorbeeld lijngrafiek",
+    "text": "Voorbeeld lijngrafiek\n\nPlotTabel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJaar\nAantal\n\n\n\n\n2014\n716\n\n\n2015\n722\n\n\n2016\n738\n\n\n2017\n740\n\n\n2018\n763\n\n\n2019\n746\n\n\n2020\n756\n\n\n2021\n821\n\n\n2022\n828\n\n\n2023\n752",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html#markdown-code",
+    "href": "Lijngrafiek.html#markdown-code",
+    "title": "Lijngrafiek",
+    "section": "Markdown code",
+    "text": "Markdown code\nDe globale Markdown code is als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Grafiek\n\nR codeblok waarin de tabel getoond wordt\n:::",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html#r-code-voor-de-grafiek",
+    "href": "Lijngrafiek.html#r-code-voor-de-grafiek",
+    "title": "Lijngrafiek",
+    "section": "R code voor de grafiek",
+    "text": "R code voor de grafiek\n```{r}\n\nlibrary(ggplot2)\nlibrary(plotly)\nlibrary(dplyr)\n\n\ndf &lt;- data.frame(Jaar = c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023),\n                 Aantal = c(716, 722, 738, 740, 763, 746, 756, 821, 828, 752))\n\nggplotly(\n  ggplot(df, aes(x = Jaar, y = Aantal)) +\n    geom_line(aes(group = 1), color = \"#1a2c54\", linewidth = 1) +\n    geom_point(aes(group = 1), color = \"#1a2c54\", size = 3) +\n    geom_text(data = df, aes(x = Jaar, \n                                               y = Aantal + max(Aantal, na.rm = T) / 40,\n                                               label = Aantal)) +\n    xlab(\"Jaar\") +\n    scale_y_continuous(n.breaks = 3) +  \n    theme(axis.title = element_blank(),\n          axis.line.x = element_blank(),\n          panel.background = element_blank(),\n          panel.grid.major.y = element_line(color=\"#bfbdb6\"),\n          axis.text.x = element_text(angle = 45, hjust = 1),\n          axis.text.y = element_blank(),\n          axis.ticks.y = element_blank()),\n  tooltip = NULL\n) %&gt;%\n  config(displayModeBar = FALSE) %&gt;%\n  layout(xaxis = list(fixedrange = TRUE), \n         yaxis = list(fixedrange = TRUE)\n  )\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Lijngrafiek.html#r-code-voor-de-tabel",
+    "href": "Lijngrafiek.html#r-code-voor-de-tabel",
+    "title": "Lijngrafiek",
+    "section": "R code voor de tabel",
+    "text": "R code voor de tabel\n```{r}\n\nlibrary(gt)\n\ngt(df) %&gt;% \n  # Lijn kolommen uit op gewenste manier\n  cols_align(columns = \"Jaar\",\n             align = \"left\") %&gt;% \n  cols_align(columns = \"Aantal\",\n             align = \"center\") %&gt;% \n  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt\n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_column_labels()) %&gt;% \n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_body(columns = \"Jaar\")) %&gt;% \n  # Bovenste rij gele kleur\n  tab_style(style = cell_fill(color = \"#F2F2F2\"), locations = cells_column_labels()) %&gt;% \n  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.\n  tab_options(table.margin.left = 0,\n              table.margin.right = 0,\n              table.width = \"50%\")\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html",
+    "href": "Leaflet.html",
+    "title": "Leaflet",
+    "section": "",
+    "text": "Basis leafletkaart\nMet de functie leaflet() kunnen we een lege leafletkaart aanroepen. In de meeste gevallen willen we een basiskaart als achtergrond hebben. Dit kan met de functie addTiles(). De onderstaande code maakt een leaflet object met de standaard wereldkaart als achtergrond. Zie: Standaard achtergrondkaart aanpassen\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(leaflet)\n\nleaflet() %&gt;% \n  addTiles()",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#leaflet-en-digitoegankelijkheid",
+    "href": "Leaflet.html#leaflet-en-digitoegankelijkheid",
+    "title": "Leaflet",
+    "section": "Leaflet en digitoegankelijkheid",
+    "text": "Leaflet en digitoegankelijkheid\nHet is mogelijk om digitoegankelijke kaarten met Leaflet te maken. Kaartlagen kunnen alt-text krijgen die door een screenreader wordt voorgelezen. Helaas gaat dit niet vanzelf wanneer je de leaflet library van R gebruikt. Om dit issue op te lossen kunnen we een hulpfunctie gebruiken die alt-text toevoegt aan een leafletkaart. Zie de onderstaande tip om de functie add_alt_text te kopieren. De functie werkt voor polygonen, markers en cirkels.\n\n\n\n\n\n\nKopieer hier de javascript-functie voor alt-text\n\n\n\n\n\n\n# functie om dmv JavaScript aria-label aan markers, polygons en cirkels toe te voegen\n# obv labels\n\nadd_alt_text &lt;- function(map) {\n\n  js_code &lt;- \"\n  function(el, x) {\n    // Loop langs elke laag van map en voeg alt-text toe o.b.v label\n    this.eachLayer(function(layer) {\n      \n      // Voor Markers\n      if(layer instanceof L.Marker) {\n        var altText = layer.getTooltip() ? layer.getTooltip().getContent() : '';\n        if(altText) {\n          layer._icon.setAttribute('aria-label', altText);\n          layer._icon.setAttribute('role', 'img');\n        }\n      }\n      \n      // Voor Polygonen\n      if(layer instanceof L.Polygon) {\n        var altText = layer.getTooltip() ? layer.getTooltip().getContent() : '';\n        if(altText) {\n          layer.getElement().setAttribute('aria-label', altText);\n          layer.getElement().setAttribute('role', 'img');\n        }\n      }\n      \n      // Voor cirkels\n      if(layer instanceof L.Circle) {\n        var altText = layer.getTooltip() ? layer.getTooltip().getContent() : '';\n        if(altText) {\n          layer.getElement().setAttribute('aria-label', altText);\n          layer.getElement().setAttribute('role', 'img');\n        }\n      }\n      \n    });\n  }\n  \"\n  \n  map &lt;- map %&gt;% htmlwidgets::onRender(jsCode = js_code)\n  \n  map\n}\n\n\n\n\nDe alt-text functie werkt voor polygonen en markers en kan je als volgt aanroepen:\n\nleaflet() %&gt;% \n  addTiles() %&gt;% \n  addMarkers(...) %&gt;%  \n  addPolygons(...) %&gt;% \n  add_alt_text() #Voegt alt text toe o.b.v. de labels voor markers en polygonen\n\nNet als met alle andere tools is het belangrijk dat je zelf goed nadenkt over digitoegankelijkheid. De labels die je toevoegt aan je polygonen of markers moeten informatief zijn. Als je kaart puur decoratief is zou je die uit kunnen zetten voor screen readers. Dat wordt hier niet uitgelegd. Zie voor meer informatie: A guide to basic leaflet accessibility.",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#kleurvlakken-choropleth",
+    "href": "Leaflet.html#kleurvlakken-choropleth",
+    "title": "Leaflet",
+    "section": "Kleurvlakken (Choropleth)",
+    "text": "Kleurvlakken (Choropleth)\nInformatie over gebieden zoals gemeenten, wijken of postcodegebieden tonen op de kaart kan met een Choropleth. Dat is een kaart met kleurvlakken. Hieronder wordt uitgelegd hoe we dat in R kunnen doen met leaflet.\n\nPolygonen toevoegen aan kaart\nOm een Choropleth te maken moeten we polygonen toevoegen aan de kaart. Polygonen zijn 2D oppervlakken die in dit geval gebieden op de kaart vertegenwoordigen.\n\n\n\n\n\n\nCBS Shapefiles downloaden\n\n\n\n\n\nCBS shapefiles kan kan je hier downloaden als ingepakt .gpkg bestand per jaar.\nIeder .gpkg bestand bevat meerdere lagen met shapefiles. Deze kunnen we met de functie st_layers() uit de library sf opvragen:\n\nlibrary(sf)\n\n#Haal een overzicht van de beschikbare lagen in het .gpkg bestand op \nshapekaarten_cbs &lt;- st_layers(\"shapefiles/cbsgebiedsindelingen2024.gpkg\")\n\n#Voorbeeld van uitvoer: laat de laatste 6 laagnamen zien\nshapekaarten_cbs$name %&gt;% tail()\n\n[1] \"wijk_gegeneraliseerd\"          \"wijk_niet_gegeneraliseerd\"    \n[3] \"buurt_niet_gegeneraliseerd\"    \"gemeente_niet_gegeneraliseerd\"\n[5] \"gebiedsIndelingen_register\"    \"layer_styles\"                 \n\n\nVervolgens kan je de specifieke shapefile lezen met de sf functie st_read\n\nsf_wijk &lt;- st_read(\"shapefiles/cbsgebiedsindelingen2024.gpkg\", layer = \"wijk_gegeneraliseerd\")\n\n\n\n\nOm polygonen met data toe te voegen aan een leaflet kaart hebben we een bestand met polygonen nodig. We gebruiken de functie st_read() library sf om zulke bestanden te lezen. In dit voorbeeld wordt een shapefile uit een .gpkg bestand van het CBS gebruikt. Zie de tip hierboven om die data zelf op te halen. Andere geo-bestandstypen zijn ook in te lezen met st_read().\n\n\n\n\n\n\nSF-dataframes\n\n\n\n\n\nDe functie st_read() maakt sf-dataframes. Deze objecten werken op dezelfde manier als reguliere dataframes en kunnen dus ook zo bevraagd en bewerkt worden. Dit maakt data toevoegen of ophalen uit sf-dataframes intuitief.\n\ntest = st_read(\"provincies.shp\") #een shapefile inlezen\ntest$nieuw = 1 #nieuwe variabele toewijzen\n\nprint(test$statnaam) #alle namen van provincies printen\n\n&gt; [1] \"Groningen\"     \"Fryslân\"       \"Drenthe\"       \"Overijssel\"    \"Flevoland\"     \"Gelderland\"    \"Utrecht\"      \n&gt; [8] \"Noord-Holland\" \"Zuid-Holland\"  \"Zeeland\"       \"Noord-Brabant\" \"Limburg\"  \n\n\n\n\nHieronder wordt een shapefile met polygonen van Nederlandse provincies ingelezen en toegevoegd aan een leafletkaart. Omdat leaflet een ander CRS gebruikt dan de shapefiles moet dit eerst omgezet worden met st_transform()\nPolygonen worden toegevoegd met de functie addPolygons.\n\n#shapefile inlezen uit gpkg layer\nsf_provincie &lt;- st_read(\"shapefiles/cbsgebiedsindelingen2024.gpkg\",\n                        layer = \"provincie_gegeneraliseerd\",\n                        quiet = TRUE) %&gt;%\n  st_transform(4326) #CRS aanpassen naar leaflet standaard\n  \n#leafletkaart maken met polygonen\nleaflet(data = sf_provincie) %&gt;%\n  addTiles() %&gt;% \n  addPolygons(label = ~statnaam, #label = naam provincie\n              color = \"black\",\n              weight = 1) %&gt;%  #lijnen polygoon zijn zwart & dikte 1\n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\n\n\nData koppelen aan sf-dataframe\nOm de polygonen in te kleuren o.b.v. verschillende waarden per provincie moeten we data aan het sf-dataframe toevoegen. Hieronder wordt fictieve data per provincie gemaakt en gekoppeld aan het sf-dataframe d.m.v. de dplyr functie left_join().\n\n#Alle provinciecodes uit sf-dataframe halen\nprovinciecodes = sf_provincie$statcode\n\n#fictieve data genereren\ndf_fictief &lt;- data.frame(\n  \"statcode\" = provinciecodes,\n  \"rapportcijfer\" = sample(x = 1:10,\n                           size = length(provinciecodes),\n                           replace = TRUE) #willekeurig getal tussen 1 en 10 genereren\n  )\n\n\n#data koppelen aan sf_provincie dmv dplyr::left_join\nsf_provincie = sf_provincie %&gt;% \n  left_join(df_fictief, by = \"statcode\")\n\nNu er inhoudelijke data is toegevoegd aan het sf-dataframe kan de data weergeven worden op de leafletkaart. Hier zijn verschillende mogelijkheden voor:\n\n\nPolygonen inkleuren: Continue kleurovergang o.b.v. numerieke data\nMet de leaflet functie colorNumeric() kan een continue kleurschaal gedefinieerd worden. Die kan hierna toegevoegd worden aan de functies addPolygons() en addLegend() om de kaart in te kleuren en een legenda toe te voegen.\n\n\n\n\n\n\nPaletten in R\n\n\n\n\n\nIn het onderstaande voorbeeld wordt voor colorNumeric() palette=“YlOrRd” opgegeven. Dit is de naam van een standaard palet uit RcolorBrewer. Voer de onderstaande code uit om een overzicht te krijgen van alle standaard paletten uit RcolorBrewer.\n\nRColorBrewer::display.brewer.all()\n\nEen andere veelgebruikte library is viridis (heel handig voor heatmaps)\nJe kan ook je eigen kleurenpaletten maken met de functie colorRampPalette(). Dit is erg handig er hele specifieke wensen zijn voor de kleuren op je leafletkaart.\n\n\n\n\n#maak kleurenfunctie voor een continue kleurschaal o.b.v. de fictieve data\npal = colorNumeric(palette = \"YlOrRd\", domain = df_fictief$rapportcijfer)\n\n#leafletkaart maken\nleaflet(data = sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(fillColor = ~pal(rapportcijfer), #kleuren o.b.v. rapportcijfer\n              label = ~statnaam, #label = naam provincie)\n              color = \"black\",\n              weight = 1) %&gt;% #lijnen polygoon zijn zwart & dikte = 1\n                   \n  addLegend(\n    pal = pal,\n    values = ~rapportcijfer, \n    position = \"bottomright\" #legenda o.b.v. rapportcijfer positie rechtsonder \n    \n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\n\n\nPolygonen inkleuren: Categorische kleurovergang o.b.v numerieke data\nAls je kleuren per categorie wilt toewijzen kan dat op een vergelijkbare manier. In plaats van colorNumeric() gebruiken we alleen met de functie colorBin() en wijzen we de gewenste categorieën toe door aan het argumnet bins door een vector te maken die alle categorieën vangt.\n\n\n\n\n\n\nWarning\n\n\n\nAls je drie categorieën wilt maken moet je een vector van 5 cijfers opgeven! De ‘bins’ of categorieën vallen tussen twee waarden. De laagste categorie in het voorbeeld bevat dus alle cijfers tussen 0 en 5.\n\n\n\n#maak kleurenfunctie voor een categorische kleurschaal o.b.v. de fictieve data\npal = colorBin(palette = \"YlOrRd\",\n               domain = df_fictief$rapportcijfer,\n               bins = c(0,5,7,10)\n               )\n\n#leafletkaart maken\nleaflet(data = sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(fillColor = ~pal(rapportcijfer), #kleuren o.b.v. rapportcijfer\n              label = ~statnaam, #label = naam provincie)\n              color = \"black\",\n              weight = 1) %&gt;% #lijnen polygoon zijn zwart & dikte = 1\n   \n  addLegend(\n    pal = pal,\n    values = ~rapportcijfer,\n    position = \"bottomright\"\n    \n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\n\n\nPolygonen inkleuren: Zelf categorieën inkleuren\nHet is ook mogelijk om handmatig kleuren en labels te kiezen. Dit kan om de kleuren direct aan het sf-dataframe toe te voegen en te gebruiken in addPolygons(). Vervolgens kunnen we in AddLegend() de argumenten colors & labels gebruiken om ‘handmatig’ een legenda op te bouwen.\n\n#kleuren als variabele aan sf-dataframe toevoegen o.b.v. rapportcijfers\nsf_provincie &lt;- sf_provincie %&gt;% \n  mutate(\n    kleur = case_when(\n      rapportcijfer &lt; 5 ~ \"red\", #Alles onder 5 is rood\n      rapportcijfer &lt; 7.5 ~ \"yellow\", #Al het andere onder 7.5 is geel\n      TRUE ~ \"green\" #Al het andere is groen\n      )\n    )\n\n\nleaflet(data = sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(fillColor = ~kleur, #variabele kleur toewijzen aan fillColor\n              label = ~statnaam, #label = naam provincie\n              color = \"black\",\n              weight = 1) %&gt;% #lijnen polygoon zijn zwart & dikte = 1\n\n  #legenda om de kleuren toe te lichten\n  addLegend(colors = c(\"red\",\"yellow\",\"green\"), #vector kleuren\n            labels = c(\"Onvoldoende\",\"Voldoende\",\"Goed\") #vector labels\n            ) %&gt;% \n  add_alt_text() #alt-text toevoegen",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#punten-met-data-toevoegen",
+    "href": "Leaflet.html#punten-met-data-toevoegen",
+    "title": "Leaflet",
+    "section": "Punten met data toevoegen",
+    "text": "Punten met data toevoegen\nOm informatie over specifieke locaties te tonen op de kaart kunnen we markers of circles toevoegen. Hiervoor hebben we een dataset nodig met punt-coordinaten. In dit voorbeeld zal er gebruik gemaakt worden van data van het RIVM over ‘natte koeltorens’ die is gedownload als ‘ESRI Shapefile’. Deze data is beschikbaar op het nationaal georegister.\n\nMarkers\nEerst wordt de data ingelezen als dataframe en wordt de CRS omgezet voor leaflet. Vervolgens wordt de shapefile op een leafletkaart geplot met de functie addMarkers(). Om te zorgen dat iedere ‘marker’ herkenbaar is wordt een label aangemaakt door de variabele ‘bedrijfsna’ & ‘beschrijvi’ aan elkaar te plakken.\n\n\n\n\n\n\nAangepaste icoontjes\n\n\n\nZie dit artikel en de functie addAwesomeMarkers() om markers toe te voegen waarvan je zelf het icoon en de kleur bepaald.\n\n\n\nsf_koeltorens &lt;- st_read(\"shapefiles/koeltorens/koeltoren_geaccepteerdPoint.shp\",\n                         quiet = TRUE) %&gt;% \n  st_transform(4326) %&gt;% \n  mutate(label_toren = paste(bedrijfsna, beschrijvi) %&gt;% iconv(to = \"UTF-8\"))\n  #iconv() is in dit specifieke geval nodig omdat er tekens in de data zitten die niet UTF-8 zijn\n  #leaflet kan daar niet mee werken.\n\nleaflet(sf_koeltorens) %&gt;%\n  addTiles() %&gt;%\n  addMarkers(label = ~label_toren) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\n\n\nCirkels\nDe data kan ook weergeven worden met Cirkels door de functie addCircles(). De kleur en de radius van die Cirkels kunnen ook bepaald worden de variabele ‘risico_cat’. De kleuren kunnen op dezelfde manier als hiervoor bepaald worden. In het voorbeeld is er voor de functie colorBin() gekozen.\n\npal = colorBin(\"YlOrRd\",domain = sf_koeltorens$risico_cat, bins = 4)\n\nleaflet(sf_koeltorens) %&gt;%\n  addTiles() %&gt;%\n  addCircles(label = ~label_toren,\n             radius = ~risico_cat*100,\n             fillColor = ~pal(risico_cat),\n             color = ~pal(risico_cat)) %&gt;% \n  add_alt_text() #alt-text toevoegen",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#popups-toevoegen",
+    "href": "Leaflet.html#popups-toevoegen",
+    "title": "Leaflet",
+    "section": "Popup’s toevoegen",
+    "text": "Popup’s toevoegen\nLagen die aan leaflet toegevoegd kunnen worden kunnen voorzien worden van een ‘popup’. Dit is een raampje met informatie dat tevoorschijn komt zodra de gebruiker op een element klikt. Bijvoorbeeld op een marker van een koeltoren, of op de polygoon van een provincie.\nLeaflet popups kunnen worden opgemaakt met html en kunnen van alles bevatten, zelfs de leafletkaart zelf (niet aan te bevelen). Een simpel voorbeeld zou zijn om de naam van de provincie en het rapportcijfer in de popup te zetten.\n\n\n\n\n\n\nglue\n\n\n\n\n\nIn onderstaand voorbeeld wordt de functie glue() gebruikt. glue() lijkt op de basisfunctie paste() maar werkt op een aantal punten anders. Hieronder wordt glue() gebruikt omdat de auteur dat leesbaarder en makkelijker te typen vindt dan paste(). vergelijk bijvoorbeeld paste() en glue() en oordeel zelf:\n\npaste(\"Het rapportcijfer voor provincie\",provincie_id, \"is\", rapportcijfer,\". De provincie scoorde een\",score_afsprong,\"voor de afsprong\")\n\nglue(\"Het rapportcijfer voor provincie {provincie_id} is {rapportcijfer}. De provincie scoorde een {score_afsprong} voor de afsprong\")\n\nZie de tidyverse pagina van glue\n\n\n\n\nlibrary(glue)\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(\n    popup = ~glue(\"&lt;h1&gt;{statnaam}&lt;/h1&gt;\n                 &lt;p&gt; rapportcijfer: {round(rapportcijfer,1)}\n                 \")\n    \n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\nOmdat de popups gevuld kunnen worden met HTML is het mogelijk complexere inhoud in te voegen. Wat bijvoorbeeld mogelijk is, om tabellen toe te voegen met de onderliggende scores voor fictieve rapportcijfers. In onderstaand voorbeeld wordt de fictieve dataset uitgebreid en worden er gt-tabellen gemaakt die in de popups worden gevoegd.\n\nlibrary(gt)\n#Fictieve data aanvullen met meer verzinsels\ndf_fictief &lt;- df_fictief %&gt;% \n  mutate(\n    sfeer = sample(1:10, size = n(), replace = TRUE),\n    infrastructuur = sample(1:10, size = n(), replace = TRUE),\n    afsprong = sample(1:10, size = n(), replace = TRUE),\n    rapportcijfer = (sfeer + infrastructuur + afsprong) / 3\n    )\n\n#provincie shapefile lezen en fictieve data koppelen\nsf_provincie &lt;- st_read(\"shapefiles/cbsgebiedsindelingen2024.gpkg\",\n                        layer = \"provincie_gegeneraliseerd\",\n                        quiet = TRUE) %&gt;%\n  st_transform(4326) %&gt;% #CRS aanpassen naar leaflet standaard\n  left_join(df_fictief, by = \"statcode\")\n\n#lijst met complexere popups maken incl gt tabellen\n\n#lapply: doe voor voor iedere 'statcode' x het onderstaande\n#en sla de uitvoer op in de lijstvariabele gt_popup in het sf-dataframe\nsf_provincie$gt_popup &lt;- lapply(unique(sf_provincie$statcode), function(x){ \n  \n  df_popup = sf_provincie %&gt;% \n    st_drop_geometry() %&gt;% #van sf-dataframe naar regulier dataframe\n    filter(statcode == x) #data filteren op provincie\n  \n  tabel_popup &lt;- df_popup %&gt;%\n    select(sfeer, infrastructuur,afsprong) %&gt;%\n    gt() %&gt;%\n    as_raw_html()\n\n  #voeg de tabel onder de een header en het rapportcijfer\n  glue(\"&lt;h1&gt;{df_popup$statnaam}&lt;/h1&gt;\n        &lt;p&gt;Rapportcijfer: {round(df_popup$rapportcijfer,1)}&lt;/p&gt;\n       {tabel_popup}\")\n  \n  })\n\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(popup = ~gt_popup) %&gt;% \n  add_alt_text() #alt-text toevoegen",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#meer-lagen-per-kaart-en-besturing-voor-kaartlagen",
+    "href": "Leaflet.html#meer-lagen-per-kaart-en-besturing-voor-kaartlagen",
+    "title": "Leaflet",
+    "section": "Meer lagen per kaart en besturing voor kaartlagen",
+    "text": "Meer lagen per kaart en besturing voor kaartlagen\n\nMeer kaartlagen\nOm een leafletkaart met meer kaartlagen te maken kunnen simpelweg meerdere kaartlaagfuncties toegevoegd worden. Hieronder worden de polygpnen en circles uit eerdere voorbeelden beide toegevoegd.\n\n\n\n\n\n\nWarning\n\n\n\nIn eerdere voorbeelden werden de sf-dataframes in het data argument van de functie leaflet() aangeroepen. Dit is geschikt voor kaarten waarbij er slechts 1 sf-dataframe is waar we gebruik van maken in de kaart.\nAls er geodata uit meerdere databronnen komt kunnen de sf-dataframes aangeroepen in het data argument van leaflet-functie waar ze bij horen.\n\n\n\n#palet voor cirkels watertorens\npal_koeltorens = colorBin(\"YlOrRd\",domain = sf_koeltorens$risico_cat, bins = 4)\n\n#palet voor polygonen provincies\npal_provincies = colorBin(palette = \"Blues\",\n               domain = df_fictief$rapportcijfer,\n               bins = c(0,5,7,10)\n               )\n\nleaflet() %&gt;% \n  addTiles() %&gt;% \n  #polygonen sf_provincie toevoegen met fictieve data\n  addPolygons(\n    data = sf_provincie, #data bij kaartelement ingevoerd ipv leaflet()\n    fillColor = ~pal(rapportcijfer),\n    label = ~statnaam, \n    color = \"black\",\n    weight = 1) %&gt;% \n  addCircles(\n    data = sf_koeltorens, #data bij kaartelement ingevoerd ipv leaflet()\n    label = ~label_toren,\n    radius = ~risico_cat * 100,\n    fillColor = ~pal(risico_cat),\n    color = ~pal(risico_cat)) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\n\n\nBesturing kaartlagen\nEen kaart met meerdere lagen kan snel verwarrend worden. De kaartlagen kunnen voorzien worden van besturing. Er worden dan knoppen toegevoegd aan de kaart, waarmee een gebruiker de verschillende lagen aan of uit kan zetten. Dit kan gedaan worden met de functie AddLayersControl(). In het onderstaande voorbeeld wordt een knop toegevoegd voor beide kaartlagen.\nOm te zorgen dat leaflet weet welke lagen aansproken moeten worden met de knoppen moet het argument ‘group’ ingevuld worden met een naam voor de group. Het is mogelijk om meerdere lagen aan één groep toe te wijzen door bij group dezelfde naam in te vullen.\nIn de functie AddLayersControl() moeten vervolgens de groepen benoemd worden in een character vector. We kunnen hiervoor de argumenten overlayGroups of baseGroups gebruiken. Het kan ook beide.\n\noverlayGroups: Maakt ‘checkbox’ knoppen. Dit maakt het mogelijk om meerdere lagen tegelijk aan te zetten. Of om alle lagen uit te zetten.\nbaseGroups: Maakt ‘radio’ knoppen. Er kan dan slechts één groep geselecteerd worden en er staat altijd ten minste één groep aan.\n\nIn het onderstaande voorbeeld wordt overlayGroups gebruikt.\nVerder wordt er een optie toegevoegd die ervoor zorgt dat de knoppen direct zichtbaar zijn d.m.v. options = layersControlOptions(collapsed = FALSE). Dit overschrijft de standaardinstelling waarbij de knoppen in een hamburgermenu worden gestopt.\n\n\n\n\n\n\nBesturing voor andere kaartelementen\n\n\n\n\n\nEr kunnen besturingselementen toegevoegd worden voor vrijwel alle leaflet functies. Bijvoorbeeld voor kaartachtergronden zoals uitgelegd in deze post: R-gallery Control Widget\n\n\n\n\nleaflet() %&gt;% \n  addTiles() %&gt;% \n  addPolygons(\n    data = sf_provincie,\n    fillColor = ~pal(rapportcijfer),\n    label = ~statnaam,\n    color = \"black\",\n    weight = 1,\n    group = \"Provincies\" #groepnaam toewijzen\n    ) %&gt;% \n  addCircles(\n    data = sf_koeltorens,\n    label = ~label_toren,\n    radius = ~risico_cat * 100,\n    fillColor = ~pal(risico_cat),\n    color = ~pal(risico_cat),\n    group = \"Koeltorens\" #groepnaam toewijzen\n    ) %&gt;% \n  addLayersControl(\n    overlayGroups = c(\"Provincies\",\"Koeltorens\"), #vector met groepnamen\n    options = layersControlOptions(collapsed = FALSE)\n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#view-en-zoom-instellen",
+    "href": "Leaflet.html#view-en-zoom-instellen",
+    "title": "Leaflet",
+    "section": "View en zoom instellen",
+    "text": "View en zoom instellen\nWanneer er data is toegevoegd aan een kaart zal een leafletkaart standaard openen met een orientatie en zoom waarbij de toegevoegde data zichtbaar is. Dit is meestal de bedoeling. Als dat niet zo is kunnen de zoom en de orientatie van de kaart ingesteld worden met setView(). De argumenten lng en lat worden gebruikt om de coordinaten van het midden van de ‘view’ door te geven. Het argument zoom bepaald hoe ver de kaart standaard is ingezoomd. Let op; hoe hoger de waarde, hoe verder ingezoomd.\n\nleaflet() %&gt;% \n  addTiles() %&gt;% \n  setView(lng = 5.332707,\n          lat = 51.67845, #Coordinaten van GGD HvB kantoor den Bosch\n          zoom = 15)",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Leaflet.html#standaard-achtergrondkaart-aanpassen",
+    "href": "Leaflet.html#standaard-achtergrondkaart-aanpassen",
+    "title": "Leaflet",
+    "section": "Standaard achtergrondkaart aanpassen",
+    "text": "Standaard achtergrondkaart aanpassen\nMet de functie addTiles() voegen we een standaard achtergrondkaart of toe. De functie addProviderTiles() maakt het mogelijk om andere achtergrondkaarten toe te voegen.\nJe kan de Leaflet Provider Demo raadplegen om verschillende voorbeelden te bekijken.\nAls de library leaflet is geladen is ook standaard de lijst ‘providers’ ingelezen waardoor we gemakkelijk ‘provider tiles’ kunnen selecteren. Door ‘providers$’ te typen verschijnt er vanzelf een lijst met opties de opties.\nJe kan ook meerdere achtergrondkaarten over elkaar heen plaatsen. Dit Rstudio artikel over basemaps legt uit hoe dat moet.\n\nleaflet() %&gt;%\n  addProviderTiles(providers$Stadia.StamenToner) %&gt;% \n  setView(lng = 5.332707,\n          lat = 51.67845,\n          zoom = 15)",
+    "crumbs": [
+      "Code snippets",
+      "Leaflet"
+    ]
+  },
+  {
+    "objectID": "Tabellen.html",
+    "href": "Tabellen.html",
+    "title": "Tabellen met gt()",
+    "section": "",
+    "text": "Kolomnamen programmatisch aanpassen\nSoms wil je de labels van kolomnamen niet handmatig in de code aanpassen (hardcoding), maar dit op een meer flexibele manier doen. Dit kan met de .list parameter van de cols_label functie. Je geeft hier dan een ‘named vector’ op. Deze kun je maken met de setNames() functie, in de vorm ‘nieuw = oud’.\nDe oude en nieuwe namen zijn in onderstaand voorbeeld gehardcode - anders is het lastig om als voorbeeld te laten zien. In de praktijk kunnen ze ingelezen worden door bijvoorbeeld een Excel lijst waarin een koppeling tussen een SPSS kolom naam en de gewenste te tonen naam staat. Een ander voorbeeld is als de kolomnamen een bepaald patroon hebben. Zo ontstaan in het script voor een digitoegankelijk tabellenboek kolommen in het formaat percentage_Wijk1, percentage_Wijk2 (als gevolg van een pivot actie). Door middel van de str_replace() functie kan het ’percentage_` deel van de kolomnaam weggehaald worden, en blijft alleen de wijknaam over.\nJe kunt op 1 tabel beide manieren gebruiken om de weergegeven kolomnamen aan te passen. Deze moeten echter wel in aparte cols_label statements worden gezet.\nCode\nResultaat\nNieuwe wijknaam\nAndere Wijk\nGemeente\nBrabant-Noord\nGGD-regio\nLandelijk\n\n\n\n\nA\n73\n79\n75\n78\n77\n76\n\n\nB\n27\n20\n22\n21\n22\n20\n\n\nC\n13\n18\n17\n16\n16\n\n\n\n\nD\n41\n49\n44\n47\n45\n45\nDe code uit het tabellenboekscript waarbij de namen aangepast worden op basis van een patroon in de kolomnamen ziet er als volgt uit:",
+    "crumbs": [
+      "Code snippets",
+      "Tabellen met gt()"
+    ]
+  },
+  {
+    "objectID": "Tabellen.html#kolomnamen-programmatisch-aanpassen",
+    "href": "Tabellen.html#kolomnamen-programmatisch-aanpassen",
+    "title": "Tabellen met gt()",
+    "section": "",
+    "text": "```{r}\n#| echo: FALSE\n#| warning: FALSE\n\n# Maak objecten aan met de oude namen en de namen zoals je ze wilt hebben. Dit is hier gehardcode, maar zou je ook kunnen doen op basis van een ingelezen Excel of een bepaald patroon \noude_namen &lt;- c(\"Wijk1\", \"Wijk2\", \"Subregio\", \"Regio\")\nnieuwe_namen &lt;- c(\"Nieuwe wijknaam\", \"Andere Wijk\", \"Brabant-Noord\", \"GGD-regio\")\n\n# Maak een named vector\nnieuwe_namen &lt;- setNames(nieuwe_namen, oude_namen)\n\ncijfers %&gt;% \n  gt() %&gt;% \n  \n  # Verberg kolom\n  cols_hide(c(\"ExtraKolom\")) %&gt;% \n  \n  # Toon andere kolomnamen - gehardcode manier\n  cols_label(Indicatornaam = \"\", # Lege cel\n             Gem = \"Gemeente\",\n             NL = \"Landelijk\") %&gt;% \n             \n  # Toon andere kolomnamen - op basis van een named vector\n  cols_label(.list = nieuwe_namen) %&gt;% \n  \n  # Lijn de eerste kolom anders uit\n  cols_align(align = \"center\", columns = Indicatornaam) %&gt;% \n  \n  # Zet NA om naar lege cell\n    sub_missing(columns = everything(), missing_text = \"\") %&gt;%\n  \n  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.\n  tab_options(table.margin.left = 0)\n\n```\n\n\n\n\n### Maak een lijst aan voor hoe de kolomnamen van de wijken uiteindelijk getoond moeten worden.\noude_kolomnamen_wijk &lt;- tabel1_varval_layout %&gt;% \n                          select(starts_with(\"percentage_wijk\")) %&gt;% \n                          colnames()\n                          \ngewenste_kolomnamen_wijk &lt;- str_replace(oude_kolomnamen_wijk, \"percentage_wijk_\", \"\")\ngewenste_kolomnamen_wijk &lt;- setNames(gewenste_kolomnamen_wijk, oude_kolomnamen_wijk)\n\ntabel1_varval_layout %&gt;% \n  gt() %&gt;% \n  cols_label(.list = gewenste_kolomnamen_wijk)",
+    "crumbs": [
+      "Code snippets",
+      "Tabellen met gt()"
+    ]
+  },
+  {
+    "objectID": "Tabellen.html#tab_options-en-tab_style",
+    "href": "Tabellen.html#tab_options-en-tab_style",
+    "title": "Tabellen met gt()",
+    "section": "tab_options() en tab_style()",
+    "text": "tab_options() en tab_style()\nEen groot deel van de opmaak kan worden aangepast door de tab_options() en tab_style() functies. Om deze te kunnen gebruiken, is het handig om te weten welke elementen een tabel in gt kan bevatten en wat de namen daarvan zijn. De onderdelen die je waarschijnlijk het meest aan zal schrijven, zijn de table header, de column labels en de table body.\n\nIn de gt reference sectie over tab_options() kun je alle parameters terugvinden die je mee kunt geven aan een tabel an sich. Eerst staat er een lijst met alle parameters, als je doorscrollt naar beneden wordt er uitgelegd welke waarden je een parameter mee kunt geven. Met tab_options() is het mogelijk om met 1 stukje code bijvoorbeeld de complete tabel dikgedrukt maken met table.font.weight', of dit alleen voor de column labels doen metcolumn_labels_font_size`. Voor de tab_options geldt dat iets wat je hier aanpast, voor het hele component (table body, column labels, etc) gedaan wordt.\nOm de opmaak van specifieke rijen, kolommen en cellen, maar ook de header en de footers aan te passen, maak je gebruik van tab_style(). De functie kent 3 parameters: data, style en locations: tab_style(data, style, locations). Het data argument kun je achterwege laten als je werkt met pipes (%&gt;%).\nBinnen tab_style kun je gebruik maken van een groot aantal helper-functies. Met cell_fill() kun je de achtergrondkleur van een element aanpassen. Met cell_text() kun je de tekstkleur, -font en -grootte aanpassen, de tekst schuin of dik laten drukken en de alignment (links, midden, rechts) en indent aanpassen. Voor de locatie parameter kun je gebruik maken van de cells_* functies, zoals cells_body(), cells_column_labels() en cells_title(). De hele lijst met helper functies staat in de gt reference guide\nCode\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n\ncijfers %&gt;% \n  gt() %&gt;%\n  \n  # Verberg kolom\n  cols_hide(c(\"ExtraKolom\")) %&gt;% \n  \n  # Toon andere kolomnamen - gehardcode manier\n  cols_label(Indicatornaam = \"\", # Lege cel\n             Gem = \"Gemeente\",\n             NL = \"Landelijk\") %&gt;% \n  \n  # Lijn de eerste kolom anders uit\n  cols_align(align = \"center\", columns = Indicatornaam) %&gt;% \n  \n  # Zet NA om naar lege cell\n  sub_missing(columns = everything(), missing_text = \"\") %&gt;%\n  \n  # Voeg een titel toe\n  tab_header(title = \"Mijn mooie titel\") %&gt;% \n  \n  # Zet de tekstkleur van de titel naar wit en de achtergrondkleur naar donkerblauw\n  tab_style(style = list(cell_text(color = \"#FFFFFF\"), \n                         cell_fill(color = \"#002060\")), \n            locations = cells_title()) %&gt;% \n  \n  # Lijn de titel links uit\n  tab_options(heading.align = \"left\") %&gt;% \n  \n  # Tekst van de kolomnamen dikgedrukt\n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_column_labels()) %&gt;%\n  \n  # Achtergrondkleur van de body en de kolomnamen\n  tab_style(style = cell_fill(color = \"#c5e3e3\"), locations = list(cells_body(columns = c(Wijk1, Wijk2)),\n                                                                   cells_column_labels(columns = c(Wijk1, Wijk2)))) %&gt;%\n  \n  tab_style(style = cell_fill(color = \"#009898\"), locations = list(cells_body(columns = c(Gem)),\n                                                                   cells_column_labels(columns = c(Gem)))) %&gt;% # Gemeente\n  \n  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links. Zet de breedte op 100%.\n  tab_options(table.margin.left = 0,\n              table.width = \"100%\")\n\n```\nResultaat\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMijn mooie titel\n\n\n\nWijk1\nWijk2\nGemeente\nSubregio\nRegio\nLandelijk\n\n\n\n\nA\n73\n79\n75\n78\n77\n76\n\n\nB\n27\n20\n22\n21\n22\n20\n\n\nC\n13\n18\n17\n16\n16\n\n\n\n\nD\n41\n49\n44\n47\n45\n45\n\n\n\n\n\n\n\nJe kunt meer dan 1 style-elementen tegelijk toewijzen naar 1 of meer locaties. Zet hiervoor de elementen in een list. Bij locations kun je alle kolommen van een bepaald type in 1 keer aanspreken (locations = cells_column_labels()), maar ook specifieke kolommen opgeven (cells_body(columns = c(Wijk1, Wijk2)).\n\n# 1 style-element op 1 locatie: Tekst van alle kolomnamen dikgedrukt\ntab_style(style = cell_text(weight = \"bold\"), \n          locations = cells_column_labels())\n\n# Meerdere style-elementen op 1 locatie: Font kleur en achtergrondkleur van de titel\ntab_style(style = list(cell_text(color = \"#FFFFFF\"), \n                       cell_fill(color = \"#002060\")),\n          locations = cell_title())\n\n# 1 style-element op meerdere locaties: Achtergrondkleur van specifieke kolommen aangepast\ntab_style(style = cell_fill(color = \"#c5e3e3\"), \n          locations = list(cells_body(columns = c(Wijk1, Wijk2)),\n                           cells_column_labels(columns = c(Wijk1, Wijk2))))",
+    "crumbs": [
+      "Code snippets",
+      "Tabellen met gt()"
+    ]
+  },
+  {
+    "objectID": "Tabellen.html#row-striping",
+    "href": "Tabellen.html#row-striping",
+    "title": "Tabellen met gt()",
+    "section": "Row striping",
+    "text": "Row striping\nIn onze versie van Quarto en gt lijkt de standaard te zijn dat rijen alternerend worden gekleurd: de oneven rijen hebben een grijze achtergrond, de even rijen een witte achtergrond. De default zou moeten zijn dat rijen niet gekleurd worden, ik weet niet waarom dit bij ons wel gebeurt. Het zou uitgezet moeten kunnen worden met tab_options(row.striping.include_table_body = FALSE) of het kortere opt_row_striping(data, row_striping = TRUE), maar dit lijkt niet te werken. Er is echter een workaround met behulp van css.\n```{css}\n\n/* Verwijder het alternerend strepen van de rijen \nDit voorbeeld zet het strepen uit op alle tabellen in het document. Wil je 1 specifieke tabel aanspreken, geef die tabel dan een eigen ID en voeg deze ID toe achter '.table'\n*/\n.table {\n  --bs-table-striped-bg: transparent !important;\n}\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Tabellen met gt()"
+    ]
+  },
+  {
+    "objectID": "Tabellen.html#html",
+    "href": "Tabellen.html#html",
+    "title": "Tabellen met gt()",
+    "section": "HTML",
+    "text": "HTML\nHet is mogelijk om HTML tags toe te voegen aan de inhoud van een cel. Om ervoor te zorgen dat de tekst als html code wordt herkend, kun je de html() functie van de gt package gebruiken in een mutate statement. Om dit voor alle rijen van meerdere kolommen tegelijkertijd te doen, kun je gebruik maken van de map() functie uit de purrr package. Het kan zijn dat er andere r packages geladen zijn die ook een html() functie of map() functie hebben. Om er zeker van te zijn dat de functie gebruik wordt uit de package die wij willen, voegen we de packagenaam en 2 dubbele punten toe voor het aanroepen van de functie. html() wordt gt::html() en map() wordt purrr::map.\nStukje code die ervoor zorgt dat gt later de tekst in de kolommen interpreteert als html ipv letterlijk te nemen tekst\n\ndataframe %&gt;%\n  \n  # Pas de html() functie uit de gt package toe op de waarden uit alle kolommen wiens naam begint met 'percentage', dmv de map functie uit purrr.\n  mutate(across(starts_with(\"percentage\"), ~purrr::map(., ~gt::html(.)))) %&gt;%\n  \n  # Zet om naar gt-tabel\n  gt()",
+    "crumbs": [
+      "Code snippets",
+      "Tabellen met gt()"
+    ]
+  },
+  {
+    "objectID": "Cirkeldiagram.html",
+    "href": "Cirkeldiagram.html",
+    "title": "Cirkeldiagram",
+    "section": "",
+    "text": "Subfunctie maken\nJe kunt een cirkeldiagram maken met de veelgebruikte ggplot2 package. Deze ordent de kleuren echter tegen de klok in, terwijl wij gewend zijn het met de klok mee te lezen. Een betere optie is de plotly package. Onderstaande code maakt een functie maak_cirkeldiagram aan. Deze heeft 6 input-parameters, waarvan 2 optioneel. De input-parameters zijn:",
+    "crumbs": [
+      "Code snippets",
+      "Cirkeldiagram"
+    ]
+  },
+  {
+    "objectID": "Cirkeldiagram.html#subfunctie-maken",
+    "href": "Cirkeldiagram.html#subfunctie-maken",
+    "title": "Cirkeldiagram",
+    "section": "",
+    "text": "data: een dataframe waar de data in staat\n\nvar_categorie: De naam van een kolom in de data die aangeeft tot welke categorie een datapunt behoort\n\nvar_waarde: De naam van een kolom in de data waarop de grootte van de schijven in het cirkeldiagram bepaald wordt\n\ntitel (optioneel): Titel voor boven het cirkeldiagram\n\nkleuren: Een zogeheten ‘named vector’, die aangeeft welke kleur toegewezen wordt aan welke categorie\n\nalt-text (optioneel): Een alternatieve tekst voor het cirkeldiagram\n\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n\nlibrary(plotly)\n \n# Maak een subfunctie aan met de naam 'maak_cirkeldiagram'. \nmaak_cirkeldiagram &lt;- function(data, \n                               var_categorie, \n                               var_waarde,\n                               titel = \"\",\n                               kleuren,\n                               alt_text = NULL) {\n  \n  # Sorteer de 'kleuren' vector naar de volgorde opgegeven in de kleuren input parameter\n  data &lt;- data[match(names(kleuren), data[[var_categorie]]), ] %&gt;% \n    mutate(percentage = round(!!sym(var_waarde) / sum(!!sym(var_waarde)) * 100))\n\n \n  # Maak een plotly taartdiagram aan\n  fig &lt;- plot_ly(data,\n                 labels = ~get(var_categorie),\n                 textinfo = \"~round(percent)\",\n                 values = ~percentage, \n                 type = \"pie\",\n                 hoverinfo = \"text\",\n                 text = \"\",\n                 direction = \"clockwise\",\n                 sort = FALSE,\n                 marker = list(colors = kleuren[data[[var_categorie]]],\n                               line = list(color = \"#FFFFFF\", width = 1)),\n                 insidetextfont = list(\n                   color = \"#FFFFFF\",\n                   size = 15\n                 ),\n                 outsidetextfont = list(\n                   color = \"#000000\",\n                   size = 15\n                 )\n  ) %&gt;% \n    layout(title = list(text = titel,\n                        font = list(size = 15)),\n           margin = list(t = 100)\n    ) %&gt;% \n    config(staticPlot = TRUE)\n  \n  # Add alt text if provided\n  if (!is.null(alt_text)) {\n    fig &lt;- fig %&gt;% htmlwidgets::onRender(glue::glue(\"\n      function(el, x) {{\n        el.setAttribute('alt', '{alt_text}');\n      }}\"))\n  }\n  fig\n}\n \n```",
+    "crumbs": [
+      "Code snippets",
+      "Cirkeldiagram"
+    ]
+  },
+  {
+    "objectID": "Cirkeldiagram.html#subfunctie-toepassen",
+    "href": "Cirkeldiagram.html#subfunctie-toepassen",
+    "title": "Cirkeldiagram",
+    "section": "Subfunctie toepassen",
+    "text": "Subfunctie toepassen\nBovenstaande code maakt alleen de functie aan. Deze functie moet vervolgens nog toegepast worden op data. Hieronder een voorbeeld voor het maken van een dataframe met wat data, het maken van een R object (named vector) waarin kleuren worden toegewezen aan categorieen die voorkomen in de data en als laatste het toepassen van de functie zelf.\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n\n# Maak een dataframe aan\ndata_leeftijd &lt;- data.frame(\n  indicator = c(\"34 jaar en jonger\", \"35 - 49 jaar\", \"50 - 64 jaar\", \"65 - 74 jaar\", \"75 jaar of ouder\"),\n  waarde = c(444, 1190, 2319, 3243, 2583)\n)\n \n# Ken kleuren toe aan de categorieen\nkleuren &lt;- c(\"34 jaar en jonger\" = \"#1a2c54\", \n             \"35 - 49 jaar\" = \"#8bca35\", \n             \"50 - 64 jaar\" = \"#fec80f\", \n             \"65 - 74 jaar\" = \"#72D5FF\", \n             \"75 jaar of ouder\" = \"#76428B\")\n \n# Maak de cirkeldiagram met de eerder aangemaakte 'maak_cirkeldiagram'-functie.\nmaak_cirkeldiagram(data = data_leeftijd,\n                   var_categorie = \"indicator\",\n                   var_waarde = \"waarde\",\n                   kleuren = kleuren)\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Cirkeldiagram"
+    ]
+  },
+  {
+    "objectID": "Radarchart.html",
+    "href": "Radarchart.html",
+    "title": "Radar chart",
+    "section": "",
+    "text": "Code\nJe kunt een spider chart maken met de fmsb package.\nDe fmsb package verwacht dat elke as in het spinnenweb een eigen kolom heeft. Mocht je meer dan 1 groep willen opnemen in de radar chart, voeg dan meerdere rijen toe met data.",
+    "crumbs": [
+      "Code snippets",
+      "Radar chart"
+    ]
+  },
+  {
+    "objectID": "Radarchart.html#nog-doen",
+    "href": "Radarchart.html#nog-doen",
+    "title": "Radar chart",
+    "section": "Nog doen:",
+    "text": "Nog doen:\n\nMargins en grootte van plaatje",
+    "crumbs": [
+      "Code snippets",
+      "Radar chart"
+    ]
+  }
+]
