@@ -1,0 +1,262 @@
+---
+number-depth: 0
+---
+
+# Radar chart {.unnumbered}
+
+```{r}
+#| echo: false
+#| warning: FALSE
+
+library(fmsb)
+library(dplyr)
+library(svglite)
+library(xml2)
+
+
+# subfunctie voor het maken van de radar chart
+maak_radarchart <- function(data, 
+                            color = "#00AFBB", 
+                            vlabels = colnames(data), 
+                            vlcex = 0.7,
+                            caxislabels = NULL, 
+                            title = NULL, 
+                            ...){
+  
+  radarchart(
+    data, 
+    axistype = 1,
+    centerzero = TRUE,
+    # Customize the polygon
+    pcol = color,  plwd = 3, plty = 1, # pfcol = scales::alpha(color, 0.5),
+    # Customize the grid
+    cglcol = "#999999", 
+    cglty = 1, 
+    cglwd = 0.8,
+    # Customize the axis
+    axislabcol = "grey", 
+    # Variable labels
+    vlcex = vlcex, 
+    vlabels = vlabels,
+    caxislabels = caxislabels,
+    title = title, 
+    ...
+  )
+}
+
+```
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| message: FALSE
+
+positieveGezondheid <- data.frame(Indicator = c("Matig eenzaam", "(Zeer) ernstig eenzaam", "Niet eenzaam"), 
+                                  `Goede gezondheid` = c(80.51, 52.45, 92.96), 
+                                  Gelukkig = c(70.58, 29.51, 96.74), 
+                                  `Psychisch gezond` = c(78.62, 32.16, 93.33), 
+                                  `Voldoende zingeving` = c(88.37,  60.99, 96.22), 
+                                  `Lid van een club/vereniging` = c(52.34,  44.76, 67.65), 
+                                  `Regie over eigen leven` = c(90.19,  63.87, 98.51),
+                                  check.names = FALSE)
+
+# Voeg voor elke as (=kolom) de maximale en de minimale waarde toe. Max moet op rij 1 en min op rij 2. Als je dit niet doet, wordt de plot wel getekend, maar krijg je andere waarden (geen logica in kunnen achterhalen) en kloppen de toegewezen kleuren niet.
+max <- c("Max", rep(100, 6))
+min <- c("Min", rep(0, 6))
+
+# Voeg samen tot 1 dataframe. Let op: eerst max, dan min, dan rest van de data.
+data <- rbind(max, min, positieveGezondheid) %>% 
+  mutate_at(c(2:7), as.numeric) 
+
+# Zet de rownames gelijk aan de eerste kolom
+rownames(data) <- data[,1]
+
+# fmsb package tekent assen tegen de klok in ipv met de klok mee. Volgorde gaat op basis van kolomvolgorde. Pas daarom de kolomvolgode aan. 
+# Laat de kolom die gebruikt is voor de rownames achterwege.
+data <- data %>%   
+  select(c("Goede gezondheid", 
+           "Regie over eigen leven", 
+           "Lid van een club/vereniging", 
+           "Gelukkig", 
+           "Voldoende zingeving",
+           "Psychisch gezond")) 
+
+# Zet de kleuren voor de 3 eenzaamheidscategorieen vast. Haal hiervoor de volgorde uit data_orig.
+kleurenpalet <- c()
+kleurenpalet[which(positieveGezondheid$Indicator %in% "(Zeer) ernstig eenzaam")] <- "#d95f02"
+kleurenpalet[which(positieveGezondheid$Indicator %in% "Matig eenzaam")] <- "#7570b3"
+kleurenpalet[which(positieveGezondheid$Indicator %in% "Niet eenzaam")] <- "#1b9e77"
+
+
+# Create a temporary connection to capture the SVG output
+tmp <- tempfile(fileext = ".svg")
+
+# Open an SVG device to write to the temporary file
+svglite(file = tmp)
+
+# Teken de plot
+maak_radarchart(
+  data = data, caxislabels = c(0, 20, 40, 60, 80, 100),
+  color = kleurenpalet,
+  vlabels = "",
+  seg = 5
+)
+
+# Close the SVG device
+invisible(dev.off())
+
+# Read the SVG file into a string
+svg_string <- read_xml(tmp) %>% as.character()
+
+# Optionally, delete the temporary file
+unlink(tmp)
+
+```
+
+```{r}
+#| results: asis
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+
+# Print the SVG string
+cat(svg_string)
+
+```
+
+Een radar chart, ook wel spider chart of sterdiagram genoemd, is een type grafiek dat wordt gebruikt om meerdere variabelen tegelijk te visualiseren en te vergelijken. Het heeft de vorm van een cirkel waarin verschillende assen vanuit het middelpunt naar buiten stralen. Elke as vertegenwoordigt een variabele, en de waarde van die variabele wordt gemarkeerd op de as. De punten op de verschillende assen worden vervolgens met elkaar verbonden, waardoor een veelhoekige vorm ontstaat.
+
+De radar chart is niet de meest geschikte visualisatievorm. Je kunt de perceptie van de grafiek makkelijk beinvloeden door de volgorde van de assen in de grafiek te veranderen. Door alle assen waar hoog op gescoord wordt bij elkaar te plaatsen, en alle assen waar laag op gescoord wordt ook, kan het beeld gegeven worden dat er een sterk 'profiel' een bepaalde kant op in de variabelen zit. Als je de hoge en lage scores afwisselt, kan het beeld worden gewekt van een 'all-round profiel'. De onderliggende data is echter gelijk.
+
+Ook liggen de verschillende assen dichter bij elkaar in het midden van de chart, dan aan de buitenkant van de grafiek. De oppervlakte die ingekleurd wordt door een kleine toename bij een lage score (dicht bij het centrum van de grafiek) is veel kleiner dan eenzelfde toename bij een hoge score op een as.
+
+Maar ja. Soms wil een mens gewoon een radar chart.
+
+# Code
+
+Je kunt een spider chart maken met de `fmsb` package. 
+
+```{{r}}
+#| echo: false
+#| warning: FALSE
+
+library(fmsb)
+library(dplyr)
+
+# subfunctie voor het maken van de radar chart
+maak_radarchart <- function(data, 
+                            color = "#00AFBB", 
+                            vlabels = colnames(data), 
+                            vlcex = 0.7,
+                            caxislabels = NULL, 
+                            title = NULL, 
+                            ...){
+  
+  radarchart(
+    data, 
+    axistype = 1,
+    centerzero = TRUE,
+    # Customize the polygon
+    pcol = color,  plwd = 3, plty = 1, # pfcol = scales::alpha(color, 0.5),
+    # Customize the grid
+    cglcol = "#999999", 
+    cglty = 1, 
+    cglwd = 0.8,
+    # Customize the axis
+    axislabcol = "grey", 
+    # Variable labels
+    vlcex = vlcex, 
+    vlabels = vlabels,
+    caxislabels = caxislabels,
+    title = title, 
+    ...
+  )
+}
+
+```
+
+
+De `fmsb` package verwacht dat elke as in het spinnenweb een eigen kolom heeft. Mocht je meer dan 1 groep willen opnemen in de radar chart, voeg dan meerdere rijen toe met data.
+
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+#| message: FALSE
+
+positieveGezondheid <- data.frame(Indicator = c("Matig eenzaam", "(Zeer) ernstig eenzaam", "Niet eenzaam"), 
+                                  `Goede gezondheid` = c(80.51, 52.45, 92.96), 
+                                  Gelukkig = c(70.58, 29.51, 96.74), 
+                                  `Psychisch gezond` = c(78.62, 32.16, 93.33), 
+                                  `Voldoende zingeving` = c(88.37,  60.99, 96.22), 
+                                  `Lid van een club/vereniging` = c(52.34,  44.76, 67.65), 
+                                  `Regie over eigen leven` = c(90.19,  63.87, 98.51),
+                                  check.names = FALSE)
+
+# Voeg voor elke as (=kolom) de maximale en de minimale waarde toe. Max moet op rij 1 en min op rij 2. Als je dit niet doet, wordt de plot wel getekend, maar krijg je andere waarden (geen logica in kunnen achterhalen) en kloppen de toegewezen kleuren niet.
+max <- c("Max", rep(100, 6))
+min <- c("Min", rep(0, 6))
+
+# Voeg samen tot 1 dataframe. Let op: eerst max, dan min, dan rest van de data.
+data <- rbind(max, min, positieveGezondheid) %>% 
+  mutate_at(c(2:7), as.numeric) 
+
+# Zet de rownames gelijk aan de eerste kolom
+rownames(data) <- data[,1]
+
+# fmsb package tekent assen tegen de klok in ipv met de klok mee. Volgorde gaat op basis van kolomvolgorde. Pas daarom de kolomvolgode aan. 
+# Laat de kolom die gebruikt is voor de rownames achterwege.
+data <- data %>%   
+  select(c("Goede gezondheid", 
+           "Regie over eigen leven", 
+           "Lid van een club/vereniging", 
+           "Gelukkig", 
+           "Voldoende zingeving",
+           "Psychisch gezond")) 
+
+# Zet de kleuren voor de 3 eenzaamheidscategorieen vast. Haal hiervoor de volgorde uit data_orig.
+kleurenpalet <- c()
+kleurenpalet[which(positieveGezondheid$Indicator %in% "(Zeer) ernstig eenzaam")] <- "#d95f02"
+kleurenpalet[which(positieveGezondheid$Indicator %in% "Matig eenzaam")] <- "#7570b3"
+kleurenpalet[which(positieveGezondheid$Indicator %in% "Niet eenzaam")] <- "#1b9e77"
+
+
+# Create a temporary connection to capture the SVG output
+tmp <- tempfile(fileext = ".svg")
+
+# Open an SVG device to write to the temporary file
+svglite(file = tmp)
+
+# Teken de plot
+maak_radarchart(
+  data = data, caxislabels = c(0, 20, 40, 60, 80, 100),
+  color = kleurenpalet,
+  vlabels = "",
+  seg = 5
+)
+
+# Close the SVG device
+invisible(dev.off())
+
+# Read the SVG file into a string
+svg_string <- read_xml(tmp) %>% as.character()
+
+# Optionally, delete the temporary file
+unlink(tmp)
+
+```
+
+```{{r}}
+#| results: asis
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+
+# Print the SVG string
+cat(svg_string)
+
+```
+
+
+## Nog doen:
+- Margins en grootte van plaatje

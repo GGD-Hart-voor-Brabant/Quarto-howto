@@ -1,0 +1,384 @@
+---
+number-depth: 0
+---
+
+# Tabellen met gt() {.unnumbered}
+
+Het is mogelijk om tabellen te maken door middel van Markdown syntax. Deze zijn echter niet digitoegankelijk. Het is beter om gebruik te maken van de [gt package](https://gt.rstudio.com/). Dit is een R package en gebruik je dus in een R codeblok. Het neemt een R dataframe (of tibble) als input, en gebruikt de 'pijplijnbenadering' (%>%) van de tidyverse. 
+
+```{{r}}
+
+# Laad de package
+library(gt)
+
+# Maak een dataframe aan
+cijfers <- data.frame("Indicatornaam" = c("A", "B", "C", "D"),
+                      "Wijk1" = c(73, 27, 13, 41), 
+                      "Wijk2" = c(79, 20, 18, 49), 
+                      "Gem" = c(75, 22, 17, 44),
+                      "Subregio" = c(78, 21, 16, 47),
+                      "Regio" = c(77, 22, 16, 45),
+                      "NL" = c(76, 20, NA, 45),
+                      "ExtraKolom" = c("Laat", "mij", "niet", "zien"))
+
+# Zet het dataframe om naar een gt object
+cijfers %>% 
+  gt()
+
+```
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+library(gt)
+
+cijfers <- data.frame("Indicatornaam" = c("A", "B", "C", "D"),
+                      "Wijk1" = c(73, 27, 13, 41), 
+                      "Wijk2" = c(79, 20, 18, 49), 
+                      "Gem" = c(75, 22, 17, 44),
+                      "Subregio" = c(78, 21, 16, 47),
+                      "Regio" = c(77, 22, 16, 45),
+                      "NL" = c(76, 20, NA, 45),
+                      "ExtraKolom" = c("Laat", "mij", "niet", "zien"))
+
+cijfers %>% 
+  gt()
+
+```
+
+Bovenstaande tabel is de standaard output. Deze wordt in het midden van het scherm getoond. Door extra code toe te voegen, kunnen we de opmaak van de tabel verbeteren:  
+- `cols_label()` verandert de weergavenaam van de kolom (maar past dit niet aan in de onderliggende dataframe).  
+- `cols_align()` lijnt de waarden van een kolom uit.  
+- `sub_missing()` vervangt NA-waarden met wat jij opgeeft.  
+- `cols_hide()` verbergt kolommen.  
+- `tab_options()` kan onder andere de tabel naar links verschuiven, door de margin aan de linkerkant naar 0 te zetten.
+
+__Code__
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+
+cijfers %>% 
+  gt() %>% 
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>%
+  
+  # Toon andere kolomnamen
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+             
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+    sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0)
+
+```
+
+__Resultaat__
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+cijfers %>% 
+  gt() %>% 
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>% 
+  
+  # Toon andere kolomnamen
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+  
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+    sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0) 
+
+```
+
+## Kolomnamen programmatisch aanpassen
+
+Soms wil je de labels van kolomnamen niet handmatig in de code aanpassen (hardcoding), maar dit op een meer flexibele manier doen. Dit kan met de `.list` parameter van de `cols_label` functie. Je geeft hier dan een 'named vector' op. Deze kun je maken met de `setNames()` functie, in de vorm 'nieuw = oud'. 
+
+De oude en nieuwe namen zijn in onderstaand voorbeeld gehardcode - anders is het lastig om als voorbeeld te laten zien. In de praktijk 
+kunnen ze ingelezen worden door bijvoorbeeld een Excel lijst waarin een koppeling tussen een SPSS kolom naam en de gewenste te tonen naam staat. Een ander voorbeeld is als de kolomnamen een bepaald patroon hebben. Zo ontstaan in het script voor een digitoegankelijk tabellenboek kolommen in het formaat percentage_Wijk1, percentage_Wijk2 (als gevolg van een pivot actie).  Door middel van de `str_replace()` functie kan het 'percentage_` deel van de kolomnaam weggehaald worden, en blijft alleen de wijknaam over.
+
+Je kunt op 1 tabel beide manieren gebruiken om de weergegeven kolomnamen aan te passen. Deze moeten echter wel in aparte `cols_label` statements worden gezet. 
+
+__Code__
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+
+# Maak objecten aan met de oude namen en de namen zoals je ze wilt hebben. Dit is hier gehardcode, maar zou je ook kunnen doen op basis van een ingelezen Excel of een bepaald patroon 
+oude_namen <- c("Wijk1", "Wijk2", "Subregio", "Regio")
+nieuwe_namen <- c("Nieuwe wijknaam", "Andere Wijk", "Brabant-Noord", "GGD-regio")
+
+# Maak een named vector
+nieuwe_namen <- setNames(nieuwe_namen, oude_namen)
+
+cijfers %>% 
+  gt() %>% 
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>% 
+  
+  # Toon andere kolomnamen - gehardcode manier
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+             
+  # Toon andere kolomnamen - op basis van een named vector
+  cols_label(.list = nieuwe_namen) %>% 
+  
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+    sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0)
+
+```
+
+__Resultaat__
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+# Maak objecten aan met de oude namen en de namen zoals je ze wilt hebben. Dit is hier 
+# gehardcode, maar zou je ook kunnen doen op basis van een ingelezen Excel of een bepaald patroon 
+oude_namen <- c("Wijk1", "Wijk2", "Subregio", "Regio")
+nieuwe_namen <- c("Nieuwe wijknaam", "Andere Wijk", "Brabant-Noord", "GGD-regio")
+
+# Maak een named vector
+nieuwe_namen <- setNames(nieuwe_namen, oude_namen)
+
+cijfers %>% 
+  gt() %>% 
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>% 
+  
+  # Toon andere kolomnamen - gehardcode manier
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+  
+  # Toon andere kolomnamen - op basis van een named vector
+  cols_label(.list = nieuwe_namen) %>% 
+  
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+    sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0)
+
+```
+
+De code uit het tabellenboekscript waarbij de namen aangepast worden op basis van een patroon in de kolomnamen ziet er als volgt uit:
+
+```R
+
+### Maak een lijst aan voor hoe de kolomnamen van de wijken uiteindelijk getoond moeten worden.
+oude_kolomnamen_wijk <- tabel1_varval_layout %>% 
+                          select(starts_with("percentage_wijk")) %>% 
+                          colnames()
+                          
+gewenste_kolomnamen_wijk <- str_replace(oude_kolomnamen_wijk, "percentage_wijk_", "")
+gewenste_kolomnamen_wijk <- setNames(gewenste_kolomnamen_wijk, oude_kolomnamen_wijk)
+
+tabel1_varval_layout %>% 
+  gt() %>% 
+  cols_label(.list = gewenste_kolomnamen_wijk)
+
+```
+
+## tab_options() en tab_style()
+
+Een groot deel van de opmaak kan worden aangepast door de `tab_options()` en `tab_style()` functies. Om deze te kunnen gebruiken, is het handig om te weten welke elementen een tabel in gt kan bevatten en wat de namen daarvan zijn. De onderdelen die je waarschijnlijk het meest aan zal schrijven, zijn de table header, de column labels en de table body. 
+
+
+![](/screenshots/gt_anatomie.png)
+
+In de [gt reference sectie over tab_options()](https://gt.rstudio.com/reference/tab_options.html) kun je alle parameters terugvinden die je mee kunt geven aan een tabel an sich. Eerst staat er een lijst met alle parameters, als je doorscrollt naar beneden wordt er uitgelegd welke waarden je een parameter mee kunt geven. Met tab_options() is het mogelijk om met 1 stukje code bijvoorbeeld de complete tabel dikgedrukt maken met `table.font.weight', of dit alleen voor de column labels doen met `column_labels_font_size`. Voor de tab_options geldt dat iets wat je hier aanpast, voor het hele component (table body, column labels, etc) gedaan wordt.
+
+Om de opmaak van specifieke rijen, kolommen en cellen, maar ook de header en de footers aan te passen, maak je gebruik van `tab_style()`. De functie kent 3 parameters: data, style en locations: `tab_style(data, style, locations)`. Het data argument kun je achterwege laten als je werkt met pipes (`%>%`). 
+
+Binnen tab_style kun je gebruik maken van een groot aantal helper-functies. Met `cell_fill()` kun je de achtergrondkleur van een element aanpassen. Met `cell_text()` kun je de tekstkleur, -font en -grootte aanpassen, de tekst schuin of dik laten drukken en de alignment (links, midden, rechts) en indent aanpassen.
+Voor de locatie parameter kun je gebruik maken van de cells_* functies, zoals `cells_body()`, `cells_column_labels()` en `cells_title()`. De hele lijst met helper functies staat in de [gt reference guide](https://gt.rstudio.com/reference/index.html#helper-functions)
+
+__Code__
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+
+cijfers %>% 
+  gt() %>%
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>% 
+  
+  # Toon andere kolomnamen - gehardcode manier
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+  
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+  sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Voeg een titel toe
+  tab_header(title = "Mijn mooie titel") %>% 
+  
+  # Zet de tekstkleur van de titel naar wit en de achtergrondkleur naar donkerblauw
+  tab_style(style = list(cell_text(color = "#FFFFFF"), 
+                         cell_fill(color = "#002060")), 
+            locations = cells_title()) %>% 
+  
+  # Lijn de titel links uit
+  tab_options(heading.align = "left") %>% 
+  
+  # Tekst van de kolomnamen dikgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>%
+  
+  # Achtergrondkleur van de body en de kolomnamen
+  tab_style(style = cell_fill(color = "#c5e3e3"), locations = list(cells_body(columns = c(Wijk1, Wijk2)),
+                                                                   cells_column_labels(columns = c(Wijk1, Wijk2)))) %>%
+  
+  tab_style(style = cell_fill(color = "#009898"), locations = list(cells_body(columns = c(Gem)),
+                                                                   cells_column_labels(columns = c(Gem)))) %>% # Gemeente
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links. Zet de breedte op 100%.
+  tab_options(table.margin.left = 0,
+              table.width = "100%")
+
+```
+
+__Resultaat__
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+cijfers %>% 
+  gt() %>%
+  
+  # Verberg kolom
+  cols_hide(c("ExtraKolom")) %>% 
+  
+  # Toon andere kolomnamen - gehardcode manier
+  cols_label(Indicatornaam = "", # Lege cel
+             Gem = "Gemeente",
+             NL = "Landelijk") %>% 
+  
+  # Lijn de eerste kolom anders uit
+  cols_align(align = "center", columns = Indicatornaam) %>% 
+  
+  # Zet NA om naar lege cell
+  sub_missing(columns = everything(), missing_text = "") %>%
+  
+  # Voeg een titel toe
+  tab_header(title = "Mijn mooie titel") %>% 
+  
+  # Zet de tekstkleur van de titel naar wit en de achtergrondkleur naar donkerblauw
+  tab_style(style = list(cell_text(color = "#FFFFFF"), 
+                         cell_fill(color = "#002060")), 
+            locations = cells_title()) %>% 
+  
+  # Lijn de titel links uit
+  tab_options(heading.align = "left") %>% 
+  
+  # Tekst van de kolomnamen dikgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>%
+  
+  # Achtergrondkleur van de body en de kolomnamen
+  tab_style(style = cell_fill(color = "#c5e3e3"), locations = list(cells_body(columns = c(Wijk1, Wijk2)),
+                                                                   cells_column_labels(columns = c(Wijk1, Wijk2)))) %>%
+  
+  tab_style(style = cell_fill(color = "#009898"), locations = list(cells_body(columns = c(Gem)),
+                                                                   cells_column_labels(columns = c(Gem)))) %>% # Gemeente
+  
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links. Zet de breedte op 100%.
+  tab_options(table.margin.left = 0,
+              table.width = "100%")
+
+```
+
+Je kunt meer dan 1 style-elementen tegelijk toewijzen naar 1 of meer locaties. Zet hiervoor de elementen in een list. Bij locations kun je alle kolommen van een bepaald type in 1 keer aanspreken (`locations = cells_column_labels()`), maar ook specifieke kolommen opgeven (`cells_body(columns = c(Wijk1, Wijk2)`). 
+
+
+```R
+
+# 1 style-element op 1 locatie: Tekst van alle kolomnamen dikgedrukt
+tab_style(style = cell_text(weight = "bold"), 
+          locations = cells_column_labels())
+
+# Meerdere style-elementen op 1 locatie: Font kleur en achtergrondkleur van de titel
+tab_style(style = list(cell_text(color = "#FFFFFF"), 
+                       cell_fill(color = "#002060")),
+          locations = cell_title())
+
+# 1 style-element op meerdere locaties: Achtergrondkleur van specifieke kolommen aangepast
+tab_style(style = cell_fill(color = "#c5e3e3"), 
+          locations = list(cells_body(columns = c(Wijk1, Wijk2)),
+                           cells_column_labels(columns = c(Wijk1, Wijk2))))
+
+```
+
+## Row striping
+In onze versie van Quarto en gt lijkt de standaard te zijn dat rijen alternerend worden gekleurd: de oneven rijen hebben een grijze achtergrond, de even rijen een witte achtergrond. De default zou moeten zijn dat rijen niet gekleurd worden, ik weet niet waarom dit bij ons wel gebeurt. Het zou uitgezet moeten kunnen worden met `tab_options(row.striping.include_table_body = FALSE)` of het kortere `opt_row_striping(data, row_striping = TRUE)`, maar dit lijkt niet te werken. Er is echter een workaround met behulp van css. 
+
+```{{css}}
+
+/* Verwijder het alternerend strepen van de rijen 
+Dit voorbeeld zet het strepen uit op alle tabellen in het document. Wil je 1 specifieke tabel aanspreken, geef die tabel dan een eigen ID en voeg deze ID toe achter '.table'
+*/
+.table {
+  --bs-table-striped-bg: transparent !important;
+}
+
+```
+
+
+## HTML
+Het is mogelijk om HTML tags toe te voegen aan de inhoud van een cel. Om ervoor te zorgen dat de tekst als html code wordt herkend, kun je de `html()` functie van de gt package gebruiken in een `mutate` statement. Om dit voor alle rijen van meerdere kolommen tegelijkertijd te doen, kun je gebruik maken van de `map()` functie uit de purrr package. Het kan zijn dat er andere r packages geladen zijn die ook een html() functie of map() functie hebben. Om er zeker van te zijn dat de functie gebruik wordt uit de package die wij willen, voegen we de packagenaam en 2 dubbele punten toe voor het aanroepen van de functie. `html()` wordt `gt::html()` en `map()` wordt `purrr::map`. 
+
+```
+Stukje code die ervoor zorgt dat gt later de tekst in de kolommen interpreteert als html ipv letterlijk te nemen tekst
+
+dataframe %>%
+  
+  # Pas de html() functie uit de gt package toe op de waarden uit alle kolommen wiens naam begint met 'percentage', dmv de map functie uit purrr.
+  mutate(across(starts_with("percentage"), ~purrr::map(., ~gt::html(.)))) %>%
+  
+  # Zet om naar gt-tabel
+  gt()
+
+
+```
+
+

@@ -1,0 +1,162 @@
+---
+number-depth: 0
+---
+
+
+# Lijngrafiek {.unnumbered}
+
+## Digitoegankelijkheid
+Grafieken zijn doorgaans uit zichzelf niet digitoegankelijk. Bij een simpele grafiek met weinig datapunten zou je een beschrijving van de grafiek op kunnen nemen als alt-text (werkwijze volgt later). Een andere mogelijkheid, en beter geschikt bij meer datapunten, is om naast de grafiek ook een tabel op te nemen. Je kunt de plot en de tabel mooi op tabbladen naast elkaar plaatsen met een tabset. Zie ook het [Markdown hoofdstuk](Markdown.html#tabsets).
+
+## Packages
+Een lijngrafiek kun je maken met verschillende packages. De ggplot package wordt veel gebruikt binnen R. Deze geeft in Quarto documenten echter enigszins pixelige resultaten. Dit kan worden opgelost door de ggplot code te plaatsen binnen de ggplotly-functie van de plotly package. Op deze manier kun je grafieken vormgeven op de manier van ggplot, en toch een goede kwaliteit afbeelding opnemen.
+
+## Voorbeeld lijngrafiek
+
+::: {.panel-tabset}
+
+## Plot
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(gt)
+
+df <- data.frame(Jaar = c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023),
+                 Aantal = c(716, 722, 738, 740, 763, 746, 756, 821, 828, 752))
+
+ggplotly(
+  ggplot(df, aes(x = Jaar, y = Aantal)) +
+    geom_line(aes(group = 1), color = "#1a2c54", linewidth = 1) +
+    geom_point(aes(group = 1), color = "#1a2c54", size = 3) +
+    geom_text(data = df, aes(x = Jaar, 
+                             y = Aantal + max(Aantal, na.rm = T) / 40,
+                             label = Aantal)) +
+    xlab("Jaar") +
+    scale_y_continuous(n.breaks = 3) +  
+    theme(axis.title = element_blank(),
+          axis.line.x = element_blank(),
+          panel.background = element_blank(),
+          panel.grid.major.y = element_line(color="#bfbdb6"),
+          axis.text.x = element_text(angle = 45, hjust = 1),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank()),
+  tooltip = NULL
+) %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE)
+  )
+
+
+```
+
+## Tabel
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+
+gt(df) %>% 
+  # Lijn kolommen uit op gewenste manier
+  cols_align(columns = "Jaar",
+             align = "left") %>% 
+  cols_align(columns = "Aantal",
+             align = "center") %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Jaar")) %>% 
+  # Bovenste rij gele kleur
+  tab_style(style = cell_fill(color = "#F2F2F2"), locations = cells_column_labels()) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "50%")
+```
+
+:::
+
+
+## Markdown code
+
+De globale Markdown code is als volgt:
+
+``` Markdown
+::: {.panel-tabset}
+
+## Plot
+
+R codeblok waarin de ggplot-grafiek getoond wordt
+
+## Grafiek
+
+R codeblok waarin de tabel getoond wordt
+:::
+```
+
+
+## R code voor de grafiek
+
+```{{r}}
+
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+
+df <- data.frame(Jaar = c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023),
+                 Aantal = c(716, 722, 738, 740, 763, 746, 756, 821, 828, 752))
+
+ggplotly(
+  ggplot(df, aes(x = Jaar, y = Aantal)) +
+    geom_line(aes(group = 1), color = "#1a2c54", linewidth = 1) +
+    geom_point(aes(group = 1), color = "#1a2c54", size = 3) +
+    geom_text(data = df, aes(x = Jaar, 
+                                               y = Aantal + max(Aantal, na.rm = T) / 40,
+                                               label = Aantal)) +
+    xlab("Jaar") +
+    scale_y_continuous(n.breaks = 3) +  
+    theme(axis.title = element_blank(),
+          axis.line.x = element_blank(),
+          panel.background = element_blank(),
+          panel.grid.major.y = element_line(color="#bfbdb6"),
+          axis.text.x = element_text(angle = 45, hjust = 1),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank()),
+  tooltip = NULL
+) %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE)
+  )
+
+```
+
+## R code voor de tabel
+
+```{{r}}
+
+library(gt)
+
+gt(df) %>% 
+  # Lijn kolommen uit op gewenste manier
+  cols_align(columns = "Jaar",
+             align = "left") %>% 
+  cols_align(columns = "Aantal",
+             align = "center") %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Jaar")) %>% 
+  # Bovenste rij gele kleur
+  tab_style(style = cell_fill(color = "#F2F2F2"), locations = cells_column_labels()) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "50%")
+
+```
+
