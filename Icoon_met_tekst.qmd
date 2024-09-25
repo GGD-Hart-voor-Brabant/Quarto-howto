@@ -7,7 +7,7 @@ number-depth: 0
 ## Vaststaande tekst zonder opmaak
 
 ::: {layout="[10, 90]"}
-![](afbeeldingen/trouwringen.png)
+![](afbeeldingen/trouwringen.svg)
 
 57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).
 :::
