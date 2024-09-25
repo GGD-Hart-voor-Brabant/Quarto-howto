@@ -1,0 +1,30 @@
+---
+number-depth: 0
+---
+
+
+# Technieken {.unnumbered}
+ 
+## Quarto
+
+Quarto is een 'publishing system' waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop. 
+
+Om de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.
+
+## Markdown
+
+Markdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document 'rendert', worden de Markdown secties omgezet in html tags.
+
+Je kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals `**tekst**`. Dit maakt **tekst** dikgedrukt. 
+
+De lijst met Markdown basics die werken in Quarto is [hier](https://quarto.org/docs/authoring/markdown-basics.html) te vinden.
+
+## HTML
+
+HTML is de taal van internetpagina's. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten 'tags', keywords omgeven door "<>". Interessant voor ons zijn in ieder geval `<div>` en `<span>`. Bijna alle tags moeten ook weer gesloten worden, door middel van `</>`. Voor div wordt het dan `<div></div>` en voor `<span>` wordt het `<span></span>`. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags. 
+
+[W3Schools](https://www.w3schools.com/html/default.asp) bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML. 
+
+## CSS
+
+CSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een 'class' of 'id' mee te geven en vervolgens in de css te specificeren hoe elementen van zo'n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.  

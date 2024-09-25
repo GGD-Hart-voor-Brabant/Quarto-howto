@@ -1,0 +1,38 @@
+---
+number-depth: 0
+---
+
+
+# Digitoegankelijkheid {.unnumbered}
+
+Digitoegankelijkheid is een set van voorwaarden waar een digitaal product aan moet voldoen zodat ook mensen met een beperking er gebruik van kunnen maken. Overheidsorganisaties zijn verplicht hieraan te voldoen vanuit de Wet digitale overheid (Wdo). Het ministerie van Binnenlandse Zaken en Koninkrijkrelaties heeft een [website waar veel informatie over digitoegankelijkheid is terug te vinden](https://www.digitoegankelijk.nl/). Onderdeel daarvan [praktische toegankelijkheidstips](https://www.digitoegankelijk.nl/aan-de-slag/tips) en een [kennisbank](https://kennisbank.digitoegankelijk.nl/).
+
+Een andere, Engelse, bron met duidelijk overzicht waar te beginnen is [documentatie van Mozilla over toegankelijkheid](https://developer.mozilla.org/en-US/docs/Web/Accessibility).
+
+De [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/Translations/WCAG21-nl/) is de internationale standaard voor digitale toegankelijkheid. Het bevat 3 niveaus: A, AA en AAA. De succescriteria van niveau A vormen de absolute basis voor toegankelijkheid. Voor overheidsorganisaties zijn de succescriteria van niveau A en AA verplicht. Bij elkaar gaat het om 50 criteria. [De lijst met succescriteria is hier te vinden](https://www.w3.org/Translations/WCAG21-nl/#waarneembaar).
+
+## Principes
+Digitoegankelijkheid draait om vier principes: waarneembaarheid, bedienbaarheid, begrijpelijkheid en robuustheid. 
+
+Onder waarneembaarheid wordt verstaan dat alles op een website of app voor iedereen waarneembaar moet zijn. Een criterium onder dit principe is bijvoorbeeld dat afbeeldingen op een website worden voorzien van een alternatieve tekst. Iemand die de afbeelding niet kan zien, weet dan toch waar de afbeelding over gaat.
+
+Onder bedienbaarheid wordt verstaan dat een website of app door iedereen te bedienen moet zijn. Een navigatiemenu moet bijvoorbeeld niet alleen met een muis, maar ook met het toetsenbord bereikbaar zijn. 
+
+Onder begrijpelijkheid wordt verstaan dat een website of app begrijpelijk moet zijn voor zowel software als mensen. Hulptechnologie zoals een schermlezer kan de tekst dan op de juiste manier voorlezen. Voor mensen moet het bijvoorbeeld duidelijk zijn waar de fout zit als een formulier niet goed is ingevuld.
+
+Onder robuustheid wordt verstaan dat een website of app door veel verschillende apparaten en hulptechnologie gebruikt moet kunnen worden. Een voorbeeld van een criterium onder dit principe is dat je voor elementen op een website of app aangeeft wat hun naam, rol en waarde is.
+
+## Aandachtspunten voor de bouwer
+Quarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over [Technieken](Technieken.qmd). 
+
+* Maak gebruik van hashtags voor het aangeven van een [titel en subtitels](http://localhost:5989/Markdown.html#titels). Sla hierin geen niveaus over.
+* Geef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is. 
+* Zorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.
+* Maak voor het [maken van tabellen](http://localhost:5989/Markdown.html#tabellen) gebruik van de [gt package](https://gt.rstudio.com/) en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.
+* Check dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de [Tanaguru contrast-finder](https://contrast-finder.tanaguru.com/). Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in [het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid](https://kennisbank.digitoegankelijk.nl/voldoende-contrast-van-tekst/).
+* Gebruik een omschrijvende link-tekst als je links onder tekst opneemt. Teksten als "Lees verder" of "Klik hier" geven te weinig context. 
+
+Mogelijk moet deze lijst worden uitgebreid. We leren zelf ook nog steeds bij.
+
+
+

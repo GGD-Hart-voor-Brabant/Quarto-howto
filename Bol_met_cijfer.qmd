@@ -1,0 +1,162 @@
+---
+number-depth: 0
+---
+
+# Bol met cijfer {.unnumbered}
+
+Een simpele manier om een cijfer visueel aantrekkelijker vorm te geven is om deze in een cirkel te plaatsen. Een manier om de browser (en hopelijk ook screenreaders) zo'n getal vloeiend voor te laten lezen met een stuk tekst naast de bol is om gebruik te maken van svg. SVG is een afbeeldingsformaat dat erg lijkt op html. Het maakt gebruik van tags zoals `<circle>` en `<text>`.
+
+```{r}
+#| echo: false
+#| warning: false
+
+# Glue package dient geinstalleerd te zijn voor deze functie
+
+bol_met_cijfer <- function(getal, kleur = "#b41257", regel1 = NA, regel2 = NA, regel3 = NA, regel4 = NA, regel5 = NA, regel6 = NA){
+  
+  alt_tekst <- getal
+  
+  # Maak een stukje svg code aan waarin de ingevoerde tekst is opgenomen en een variabele voor het aanvullen van de alternatieve tekst
+  tekst <- c()
+  
+  for (regel in c(regel1, regel2, regel3, regel4, regel5, regel6)){
+    if(!is.na(regel)){
+      
+      alt_tekst <- paste(alt_tekst, regel)
+      
+      if(length(tekst) == 0){
+        tekst <- paste0('<tspan>', regel, '</tspan>')
+        
+      }
+      else if (length(tekst) > 0){
+      tekst <- paste0(tekst, '<tspan x=50 dy="1em">', regel, '</tspan>')
+      }
+    }
+  }
+  
+  # Voeg de ingevoerde informatie op de juiste plekken in de svg code met behulp van glue
+  svg_code <- glue::glue('<svg role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality;"
+                viewBox="0 0 225 75">
+                <title>{alt_tekst}</title>
+                
+                <g id="circle">
+                    <circle style="fill:{kleur};" cx="25" cy="25" r="20">
+                    </circle>
+                    <text x=25 y="25" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1px" dy=".3em" font-size="1em">{getal}</text>
+                </g>
+                    
+                <g id="tekst">
+                <text x=50 y="25" stroke="#010101" stroke-width="0.01px" dy=".3em" font-size="0.5em">{tekst}</text>
+                </g>
+                
+                </svg>')
+
+  
+  return(svg_code)
+}
+
+bol_met_getal <- knitr::raw_html(bol_met_cijfer(1.6, regel1 = "gemiddeld aantal kinderen per", regel2 = "vrouw (NL 1.4; 2023)"))
+
+
+```
+
+`r bol_met_getal`
+
+De visualisatie hierboven is gemaakt door middel van een zelfgeschreven R functie. De functie heet 'bol_met_cijfer' en wordt als volgt gebruikt in een R codeblok:
+
+```{{r}}
+bol_met_getal <- knitr::raw_html(bol_met_cijfer(getal = 1.6, 
+                                                regel1 = "gemiddeld aantal kinderen per", 
+                                                regel2 = "vrouw (NL 1.4; 2023)"))
+
+```
+
+Het r object 'bol_met_cijfer' kan vervolgens in het Markdown deel worden gebruikt door __r bol_met_getal__ te typen, omgeven door backticks. Op die manier kun je bijvoorbeeld bollen in kolommen plaatsen. Onderstaande Markdown code maakt een div, genaamd columns, en plaatst in die div nog 2 divs, met de naam column. Dit geeft 1 rij met 2 kolommen. Vervolgens wordt dit nogmaals gedaan, wat weer een rij met 2 kolommen geeft. Een andere oplossing kan zijn om met `layout = [[50, 50], [50, 50]]` te werken. Zie ook het [Markdown hoofstuk](Markdown.html#kolommen).
+
+![](screenshots/bollen_in_kolom.png)
+
+::: columns
+::: column
+`r bol_met_getal`
+:::
+
+::: column
+`r bol_met_getal`
+:::
+:::
+
+::: columns
+::: column
+`r bol_met_getal`
+:::
+
+::: column
+`r bol_met_getal`
+:::
+:::
+
+
+## Subfunctie
+De functie voor het maken van de svg ziet er als volgt uit:
+
+```{{r}}
+
+# Glue package dient geinstalleerd te zijn voor deze functie
+
+bol_met_cijfer <- function(getal, kleur = "#b41257", regel1 = NA, regel2 = NA, regel3 = NA, regel4 = NA, regel5 = NA, regel6 = NA){
+  
+  alt_tekst <- getal
+  
+  # Maak een stukje svg code aan waarin de ingevoerde tekst is opgenomen en een variabele voor het aanvullen van de alternatieve tekst
+  tekst <- c()
+  
+  for (regel in c(regel1, regel2, regel3, regel4, regel5, regel6)){
+    if(!is.na(regel)){
+      
+      alt_tekst <- paste(alt_tekst, regel)
+      
+      if(length(tekst) == 0){
+        tekst <- paste0('<tspan>', regel, '</tspan>')
+        
+      }
+      else if (length(tekst) > 0){
+      tekst <- paste0(tekst, '<tspan x=50 dy="1em">', regel, '</tspan>')
+      }
+    }
+  }
+  
+  # Voeg de ingevoerde informatie op de juiste plekken in de svg code met behulp van glue
+  svg_code <- glue::glue('<svg role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality;"
+                viewBox="0 0 225 75">
+                <title>{alt_tekst}</title>
+                
+                <g id="circle">
+                    <circle style="fill:{kleur};" cx="25" cy="25" r="20">
+                    </circle>
+                    <text x=25 y="25" text-anchor="middle" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1px" dy=".3em" font-size="1em">{getal}</text>
+                </g>
+                    
+                <g id="tekst">
+                <text x=50 y="25" stroke="#010101" stroke-width="0.01px" dy=".3em" font-size="0.5em">{tekst}</text>
+                </g>
+                
+                </svg>')
+
+  
+  return(svg_code)
+}
+
+```
+
+
+De functie heeft 1 vereiste input (getal) en 7 optionele inputs (kleur en regel1 t/m regel6). Als je geen kleur invult, dan is de bol standaard roze. Geef je de kleur-parameter mee in de functie-aanroep met een andere hex-code (bijvoorbeeld `bol_met_cijfer <- function(getal = 13, kleur = "#1A2C54", regel1 = "tekst")`), dan krijgt de bol een andere kleur.
+
+De functie maakt eerst een deel van de svg code voor de tekst naar de kolom. Alle aangeleverde regels worden in een `<tspan></tspan>` tag gezet. Alle regels behalve de eerste krijgen een x en dy parameter mee, om de regels leesbaar te plaatsen. 
+
+Vervolgens wordt de volledige svg code aangemaakt. Door middel van de glue package worden op bepaalde plekken in de code variabelen ingevoegd. Zo wordt bij `<circle style="fill:{kleur};"` de hex-code van ofwel de default kleur, of de opgegeven kleur ingevuld. Binnen de `<text>` tags van `<g id="tekst">`  wordt het eerder gemaakte r-object "tekst" ingevuld. Dit is de opgegeven tekst van regel 1 t/m regel6.
+
+## Grootte van de cirkel en tekst aanpassen
+SVG is schaalbaar. Als je het gemaakte r-object binnen Markdown oproept in een kolom, dan zullen de cirkel en tekst automatisch kleiner worden. Je kunt ook binnen de subfunctie waarin de svg wordt aangemaakt wijzigingen maken. De parameter `viewBox="0 0 225 75"` binnen de svg tag aan het begin van de code geeft aan hoe groot het veld van de svg is. Het veld begint op x=0 en y=0. De maximale x (breedte) is 225, de maximale y is 75 (hoogte). De `<circle>` en `<text>` tags hebben x en y parameters, of varianten daarop. cx en cx zijn de centrum-coordinaten van de cirkel, r is de radius. Een grotere getal bij `"r"` zorgt voor een grotere cirkel. Geef je een radius op van 50 en een cx van 200, dan zal een deel van de cirkel niet getoond worden. De maximale x van de cirkel zou namelijk 250 zijn, maar de viewBox gaat niet verder dan 225. Door deze getallen te veranderen, kun je dus de resulterende afbeelding veranderen.
+
+
+

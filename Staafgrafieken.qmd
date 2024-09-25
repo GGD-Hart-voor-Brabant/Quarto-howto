@@ -1,0 +1,8 @@
+---
+number-depth: 0
+---
+
+
+# Staafgrafieken {.unnumbered}
+
+Voeg hier uitleg en voorbeeldcode over staafgrafieken in.
