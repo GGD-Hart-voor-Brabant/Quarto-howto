@@ -513,7 +513,7 @@
     "href": "Lijngrafiek.html#markdown-code",
     "title": "Lijngrafiek",
     "section": "Markdown code",
-    "text": "Markdown code\nDe globale Markdown code is als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Grafiek\n\nR codeblok waarin de tabel getoond wordt\n:::",
+    "text": "Markdown code\nDe globale Markdown code is als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Tabel\n\nR codeblok waarin de tabel getoond wordt\n:::",
     "crumbs": [
       "Code snippets",
       "Lijngrafiek"
@@ -539,6 +539,94 @@
     "crumbs": [
       "Code snippets",
       "Lijngrafiek"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html",
+    "href": "Staafgrafiek.html",
+    "title": "Staafgrafieken",
+    "section": "",
+    "text": "Voorbeeld staande staafgrafiek",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#voorbeeld-staande-staafgrafiek",
+    "href": "Staafgrafiek.html#voorbeeld-staande-staafgrafiek",
+    "title": "Staafgrafieken",
+    "section": "",
+    "text": "PlotTabel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGebied\nNederlandse achtergrond\nWesterse migratieachtergrond\nNiet-westerse migratieachtergrond\n\n\n\n\nGemeente\n88%\n6%\n7%\n\n\nRegio\n81%\n9%\n10%",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#markdown-code",
+    "href": "Staafgrafiek.html#markdown-code",
+    "title": "Staafgrafieken",
+    "section": "Markdown code",
+    "text": "Markdown code\nDe globale Markdown code is weer als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Grafiek\n\nR codeblok waarin de tabel getoond wordt\n:::",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#r-code-voor-de-staande-staafgrafiek",
+    "href": "Staafgrafiek.html#r-code-voor-de-staande-staafgrafiek",
+    "title": "Staafgrafieken",
+    "section": "R code voor de staande staafgrafiek",
+    "text": "R code voor de staande staafgrafiek\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n#| fig.height: 3\n\nlibrary(ggplot2)\nlibrary(plotly)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(gt)\n\ndf_etniciteit &lt;- data.frame(Gemeente = c(\"Gemeente\", \"Gemeente\", \"Gemeente\", \"Regio\", \"Regio\", \"Regio\"),\n                            Achtergrond = c(\"Nederlandse achtergrond\", \"Westerse migratieachtergrond\", \"Niet-westerse migratieachtergrond\",\n                                            \"Nederlandse achtergrond\", \"Westerse migratieachtergrond\", \"Niet-westerse migratieachtergrond\"),\n                            Percentage = c(88, 6, 7, 81, 9, 10)) \n\n# ggplot zet de categorieen op de x-as alfabetisch standaard weer. Zet de kolom om naar \n# een factor om zelf de volgorde te kunnen bepalen\ndf_etniciteit &lt;- df_etniciteit %&gt;% \n  mutate(Achtergrond = factor(Achtergrond, levels = c(\"Nederlandse achtergrond\", \n                                                      \"Westerse migratieachtergrond\", \n                                                      \"Niet-westerse migratieachtergrond\")),\n         Gemeente = factor(Gemeente, levels = c(\"Gemeente\", \"Regio\")))\n\n\nggplotly(\n  ggplot() +\n    geom_col(data = df_etniciteit, aes(x = Achtergrond, y = Percentage, fill = Gemeente), position = position_dodge(width=0.5), width = 0.5) + \n    geom_text(data = df_etniciteit, aes(x = Achtergrond, y = Percentage + 5, group = Gemeente, label = paste0(Percentage, \"%\")),\n              position = position_dodge(width=0.5),\n              size = 3) +\n    scale_fill_manual(values = setNames(c(\"#1a2c54\", \"#b41257\"), c(\"Regio\", \"Gemeente\"))) +\n    theme(legend.title=element_blank(),\n          legend.position =\"top\",\n          axis.title = element_blank(),\n          panel.background = element_blank(),\n          axis.ticks.x = element_blank(),\n          axis.ticks.y = element_blank(),\n          axis.text.y = element_blank()),\n  tooltip = NULL\n  ) %&gt;%\n  config(displayModeBar = FALSE) %&gt;%\n  layout(xaxis = list(fixedrange = TRUE), \n         yaxis = list(fixedrange = TRUE),\n         legend = list(\n           orientation = \"h\",\n           title = \"\",\n           xanchor = \"center\",\n           x = 0.5\n      ))\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#r-code-voor-de-tabel",
+    "href": "Staafgrafiek.html#r-code-voor-de-tabel",
+    "title": "Staafgrafieken",
+    "section": "R code voor de tabel",
+    "text": "R code voor de tabel\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n#| fig.height: 3\n\ndf_etniciteit_tabel &lt;- df_etniciteit %&gt;% \n  rename(\"Gebied\" = Gemeente) %&gt;% \n  mutate(Percentage = paste0(as.character(Percentage), \"%\")) %&gt;% \n  pivot_wider(names_from = \"Achtergrond\", values_from = \"Percentage\")\n  \ngt(df_etniciteit_tabel) %&gt;% \n  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt\n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_column_labels()) %&gt;% \n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_body(columns = \"Gebied\")) %&gt;% \n  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.\n  tab_options(table.margin.left = 0,\n              table.margin.right = 0,\n              table.width = \"100%\")\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#voorbeeld-liggende-staafgrafiek",
+    "href": "Staafgrafiek.html#voorbeeld-liggende-staafgrafiek",
+    "title": "Staafgrafieken",
+    "section": "Voorbeeld liggende staafgrafiek",
+    "text": "Voorbeeld liggende staafgrafiek\nJe kunt vrij eenvoudig van een staande staafgrafiek een liggende staafgrafiek maken. Dit doe je door bij de ggplot statements de functie coord_flip() op te nemen. Dit zorgt ervoor dat de coordinaten ge’flip’t worden, oftewel: de grafiek wordt 90 graden gedraaid.\nHet verkrijgen van de gewenste volgorde in de categorieen, de legenda en de staven is nog best een ding. Door in de dataframe de kolommen om te zetten naar factor kun je de volgorde vastzetten. Als je dit niet doet, pakt R de alfabetische volgorde. Het gebruik van coord_flip maakt vreemd genoeg dat de volgorde verkeerd om neer wordt gezet. Dit kan worden verholpen door de levels van je factor in de omgekeerde volgorde op te geven. Bijvoorbeeld, in plaats van mutate(Gebied = factor(Gebied, levels = c(\"Gemeente\", \"Nederland\"))), zet je bij levels neer: levels = c(\"Nederland\", \"Gemeente\"). Als je de levels eerder al hebt opgeslagen in een R variabele, dan kun je ook gebruik maken van rev, een functie die dingen ‘in reverse’ zet: mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)))\nOm daarnaast ook de staven van de gemeente boven die van Nederland te krijgen, maar wel nog in de legenda de gemeente links van de regio te tonen, heb ik gebruik gemaakt van de gebruik gemaakt van een zelf gedefinieerde (maar niet zelfbedachte) functie (Dank, Google): reverse_legend_labels. Het is dus even pielwerk om het zo te krijgen zoals je het graag wilt zien.\n\nPlotTabel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGemeente\nNederland\n\n\n\n\nJonger dan 20\n0%\n0%\n\n\n20 tot 25 jaar\n5%\n6%\n\n\n25 tot 30 jaar\n30%\n24%\n\n\n30 tot 35 jaar\n46%\n42%\n\n\n35 tot 40 jaar\n17%\n23%\n\n\n40 tot 45 jaar\n2%\n5%\n\n\n45 jaar of ouder\n0%\n0%",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#r-code-voor-de-liggende-staafgrafiek",
+    "href": "Staafgrafiek.html#r-code-voor-de-liggende-staafgrafiek",
+    "title": "Staafgrafieken",
+    "section": "R code voor de liggende staafgrafiek",
+    "text": "R code voor de liggende staafgrafiek\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n#| fig.height: 4\n\nleeftijden &lt;- c(\"Jonger dan 20\", \"20 tot 25 jaar\", \"25 tot 30 jaar\", \"30 tot 35 jaar\", \"35 tot 40 jaar\", \"40 tot 45 jaar\", \"45 jaar of ouder\")\n\ndata_leeftijd_moeder &lt;- data.frame(Leeftijdsgroep = rep(leeftijden, 2),\n                                   Gebied = c(rep(\"Gemeente\", 7), rep(\"Nederland\", 7)),\n                                   Percentage = c(0, 5, 30, 46, 17, 2, 0, 0, 6, 24, 42, 23, 5, 0)) %&gt;% \n  # Zet de opties uit Leeftijdsgroep om naar factor, om de volgorde op de y-as (eigenlijk geroteerde x-as) te kunnen bepalen. Ken ze in\n  # omgekeerde volgorde (rev = reverse) toe, zodat ze op de gewenste volgorde in de grafiek komen te staan.\n  mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)),\n         Gebied = factor(Gebied, levels = c(\"Nederland\", \"Gemeente\")))\n\n\n# Functie om in stacked bar charts de gewenste volgorde van de legenda-items te krijgen\nreverse_legend_labels &lt;- function(plotly_plot) {\n  n_labels &lt;- length(plotly_plot$x$data)\n  plotly_plot$x$data[1:n_labels] &lt;- plotly_plot$x$data[n_labels:1]\n  plotly_plot\n}\n\nggplotly(\n  ggplot(data_leeftijd_moeder, aes(x = Leeftijdsgroep, y = Percentage, fill = Gebied)) +\n    geom_col(position = position_dodge(width = 0.8), width = 0.8) +\n    geom_text(data = data_leeftijd_moeder, aes(x = Leeftijdsgroep, \n                               y = if_else(Percentage == 0, 1, Percentage + 2),  \n                               label = paste0(as.character(Percentage), \"%\")),\n              size = 2.5, \n              position = position_dodge(width = 0.8)) +\n    coord_flip() + \n    scale_fill_manual(values= setNames(c(\"#1a2c54\", \"#b41257\"), c(\"Nederland\", \"Gemeente\")),\n                      breaks = c(\"Gemeente\", \"Nederland\")) + \n    \n    theme(axis.title = element_blank(),\n          panel.background = element_blank(),\n          axis.text.x = element_blank(),\n          axis.ticks.x = element_blank(),\n          axis.ticks.y = element_blank(),\n          legend.title = element_blank()\n          ),\n  tooltip = NULL\n) %&gt;%\n  reverse_legend_labels() %&gt;%\n  config(displayModeBar = FALSE) %&gt;%\n  layout(xaxis = list(fixedrange = TRUE), \n         yaxis = list(fixedrange = TRUE),\n         legend = list(\n           title = \"\",\n           orientation = \"h\",\n           xanchor = \"center\",\n           x = 0.5\n      )\n         )\n\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
+    ]
+  },
+  {
+    "objectID": "Staafgrafiek.html#r-code-voor-de-tabel-1",
+    "href": "Staafgrafiek.html#r-code-voor-de-tabel-1",
+    "title": "Staafgrafieken",
+    "section": "R code voor de tabel",
+    "text": "R code voor de tabel\n```{r}\n#| echo: FALSE\n#| warning: FALSE\n#| fig.height: 4\n\n\n# Bewerk data\ndata_leeftijd_moeder &lt;- data_leeftijd_moeder %&gt;% \n  select(Gebied, Leeftijdsgroep, Percentage) %&gt;% \n  mutate(Percentage = paste0(as.character(Percentage), \"%\")) %&gt;% \n  pivot_wider(names_from = Gebied, values_from = Percentage)\n\n# Tabel\ngt(data_leeftijd_moeder) %&gt;%\n  # Geen kolomnaam boven eerste kolom\n  cols_label(matches(\"Leeftijdsgroep\") ~ \"\") %&gt;% \n  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt\n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_column_labels()) %&gt;% \n  tab_style(style = cell_text(weight = \"bold\"), locations = cells_body(columns = \"Leeftijdsgroep\")) %&gt;% \n  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.\n  tab_options(table.margin.left = 0,\n              table.margin.right = 0,\n              table.width = \"100%\") %&gt;% \n  # Gebied is een factor, en wordt daardoor niet automatisch links uitgelijnd, zoals wel bij de tekstkolommen van andere tabellen gebeurt.\n  cols_align(align = \"left\",\n             columns = Leeftijdsgroep)\n\n```",
+    "crumbs": [
+      "Code snippets",
+      "Staafgrafieken"
     ]
   },
   {
