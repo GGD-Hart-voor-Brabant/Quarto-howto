@@ -107,7 +107,7 @@ R codeblok waarin de tabel getoond wordt
 :::
 ```
 
-## R code voor de grafiek
+## R code voor de staande staafgrafiek
 
 ```{{r}}
 #| echo: FALSE
@@ -189,7 +189,7 @@ gt(df_etniciteit_tabel) %>%
 
 Je kunt vrij eenvoudig van een staande staafgrafiek een liggende staafgrafiek maken. Dit doe je door bij de ggplot statements de functie `coord_flip()` op te nemen. Dit zorgt ervoor dat de coordinaten ge'flip't worden, oftewel: de grafiek wordt 90 graden gedraaid. 
 
-Het verkrijgen van de gewenste volgorde in de categorieen, de legenda en de staven is nog best een ding. Door in de dataframe de kolommen om te zetten naar factor kun je de volgorde vastzetten. Als je dit niet doet, pakt R de alfabetische volgorde. Het gebruik van `coord_flip` maakt vreemd genoeg dat de volgorde verkeerd om neer wordt gezet. Dit kan worden verholpen door de levels van je factor in de omgekeerde volgorde op te geven. 
+Het verkrijgen van de gewenste volgorde in de categorieen, de legenda en de staven is nog best een ding. Door in de dataframe de kolommen om te zetten naar factor kun je de volgorde vastzetten. Als je dit niet doet, pakt R de alfabetische volgorde. Het gebruik van `coord_flip` maakt vreemd genoeg dat de volgorde verkeerd om neer wordt gezet. Dit kan worden verholpen door de levels van je factor in de omgekeerde volgorde op te geven. Bijvoorbeeld, in plaats van `mutate(Gebied = factor(Gebied, levels = c("Gemeente", "Nederland")))`, zet je bij levels neer: `levels = c("Nederland", "Gemeente")`. Als je de levels eerder al hebt opgeslagen in een R variabele, dan kun je ook gebruik maken van `rev`, een functie die dingen 'in reverse' zet: `mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)))`
 
 Om daarnaast ook de staven van de gemeente boven die van Nederland te krijgen, maar wel nog in de legenda de gemeente links van de regio te tonen, heb ik gebruik gemaakt van de gebruik gemaakt van een zelf gedefinieerde (maar niet zelfbedachte) functie (Dank, Google): `reverse_legend_labels`. Het is dus even pielwerk om het zo te krijgen zoals je het graag wilt zien.
 
@@ -289,7 +289,7 @@ gt(data_leeftijd_moeder) %>%
 
 :::
 
-## R code voor de grafiek
+## R code voor de liggende staafgrafiek
 
 ```{{r}}
 #| echo: FALSE
