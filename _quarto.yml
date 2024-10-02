@@ -28,6 +28,7 @@ book:
         - Icoon_met_tekst.qmd
         - Bol_met_cijfer.qmd
         - Lijngrafiek.qmd
+        - Staafgrafiek.qmd
         - Leaflet.qmd
         - Tabellen.qmd
         - Cirkeldiagram.qmd

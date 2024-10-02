@@ -92,7 +92,7 @@ De globale Markdown code is als volgt:
 
 R codeblok waarin de ggplot-grafiek getoond wordt
 
-## Grafiek
+## Tabel
 
 R codeblok waarin de tabel getoond wordt
 :::
