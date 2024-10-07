@@ -707,17 +707,6 @@
     ]
   },
   {
-    "objectID": "Leaflet.html#standaard-achtergrondkaart-aanpassen",
-    "href": "Leaflet.html#standaard-achtergrondkaart-aanpassen",
-    "title": "Leaflet",
-    "section": "Standaard achtergrondkaart aanpassen",
-    "text": "Standaard achtergrondkaart aanpassen\nMet de functie addTiles() voegen we een standaard achtergrondkaart of toe. De functie addProviderTiles() maakt het mogelijk om andere achtergrondkaarten toe te voegen.\nJe kan de Leaflet Provider Demo raadplegen om verschillende voorbeelden te bekijken.\nAls de library leaflet is geladen is ook standaard de lijst ‘providers’ ingelezen waardoor we gemakkelijk ‘provider tiles’ kunnen selecteren. Door ‘providers$’ te typen verschijnt er vanzelf een lijst met opties de opties.\nJe kan ook meerdere achtergrondkaarten over elkaar heen plaatsen. Dit Rstudio artikel over basemaps legt uit hoe dat moet.\n\nleaflet() %&gt;%\n  addProviderTiles(providers$Stadia.StamenToner) %&gt;% \n  setView(lng = 5.332707,\n          lat = 51.67845,\n          zoom = 15)",
-    "crumbs": [
-      "Code snippets",
-      "Leaflet"
-    ]
-  },
-  {
     "objectID": "Tabellen.html",
     "href": "Tabellen.html",
     "title": "Tabellen met gt()",
