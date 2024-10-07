@@ -10,6 +10,18 @@ number-depth: 0
 
 YAML (spreek uit: jemmel (Engels) of jammel (Nederlands)) wordt gebruikt voor de configuratie. Hierin staat in het voorbeeld hierboven de titel van het document en het type. Je kunt de configuratie uitbreiden door meer parameters op te nemen tussen de twee lijnen met "---"-tekens. Zo kun je een inhoudsopgave opnemen met 'toc' (table of contents), aangeven waar die moet staan (toc-location: left) en tot welke diepte de tussenkoppen opgenomen moeten worden in de inhoudsopgave (toc-depth: 3). De lijst voor alle mogelijke YAML parameters voor een HTML document is [hier](https://quarto.org/docs/reference/formats/html.html) te vinden.
 
+## Taalinstelling voor screenreaders
+
+Een html document gemaakt met Quarto krijgt standaard Engels mee als taalinstelling. Mocht jouw in het Nederlands geschreven document dan voorgelezen worden door een screenreader, dan denkt de screenreader dat het Engels voor zich heeft. Het gevolg is dat je Nederlandse woorden te horen krijgt met een hele rare uitspraak. Je kunt de taal aanpassen door de `lang` parameter op te nemen. Deze staat qua indentatie op hetzelfde niveau als bijvoorbeeld de titel en het format. Met deze instelling spreekt de screenreader wel de juiste taal.
+
+``` yaml
+---
+lang: nl
+format:
+  html
+---
+```
+
 ## Zelf parameters toevoegen
 
 Daarnaast kun je zelf extra parameters toevoegen met "params". In het voorbeeld hieronder is bijvoorbeeld een extra parameter "gemeentenaam" opgenomen, die naar "Land van Cuijk" is gezet. In het script kun je de waarde van deze parameter oproepen met `params$gemeentenaam`.
