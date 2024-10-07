@@ -72,6 +72,17 @@
     ]
   },
   {
+    "objectID": "YAML.html#taalinstelling-voor-screenreaders",
+    "href": "YAML.html#taalinstelling-voor-screenreaders",
+    "title": "YAML",
+    "section": "Taalinstelling voor screenreaders",
+    "text": "Taalinstelling voor screenreaders\nEen html document gemaakt met Quarto krijgt standaard Engels mee als taalinstelling. Mocht jouw in het Nederlands geschreven document dan voorgelezen worden door een screenreader, dan denkt de screenreader dat het Engels voor zich heeft. Het gevolg is dat je Nederlandse woorden te horen krijgt met een hele rare uitspraak. Je kunt de taal aanpassen door de lang parameter op te nemen. Deze staat qua indentatie op hetzelfde niveau als bijvoorbeeld de titel en het format. Met deze instelling spreekt de screenreader wel de juiste taal.\n---\nlang: nl\nformat:\n  html\n---",
+    "crumbs": [
+      "Technieken",
+      "YAML"
+    ]
+  },
+  {
     "objectID": "YAML.html#zelf-parameters-toevoegen",
     "href": "YAML.html#zelf-parameters-toevoegen",
     "title": "YAML",

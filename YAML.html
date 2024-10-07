@@ -272,6 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#parameters-voor-configuratie" id="toc-parameters-voor-configuratie" class="nav-link active" data-scroll-target="#parameters-voor-configuratie">Parameters voor configuratie</a></li>
+  <li><a href="#taalinstelling-voor-screenreaders" id="toc-taalinstelling-voor-screenreaders" class="nav-link" data-scroll-target="#taalinstelling-voor-screenreaders">Taalinstelling voor screenreaders</a></li>
   <li><a href="#zelf-parameters-toevoegen" id="toc-zelf-parameters-toevoegen" class="nav-link" data-scroll-target="#zelf-parameters-toevoegen">Zelf parameters toevoegen</a></li>
   <li><a href="#embed-resources" id="toc-embed-resources" class="nav-link" data-scroll-target="#embed-resources">Embed resources</a></li>
   <li><a href="#theme" id="toc-theme" class="nav-link" data-scroll-target="#theme">Theme</a></li>
@@ -303,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="screenshots/Quarto-template.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"><img src="screenshots/Quarto-template.png" class="img-fluid figure-img" alt="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"></a></p>
+<p><a href="screenshots/Quarto-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"><img src="screenshots/Quarto-template.png" class="img-fluid figure-img" alt="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"></a></p>
 <figcaption>Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen</figcaption>
 </figure>
 </div>
@@ -311,13 +312,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="parameters-voor-configuratie">Parameters voor configuratie</h2>
 <p>YAML (spreek uit: jemmel (Engels) of jammel (Nederlands)) wordt gebruikt voor de configuratie. Hierin staat in het voorbeeld hierboven de titel van het document en het type. Je kunt de configuratie uitbreiden door meer parameters op te nemen tussen de twee lijnen met “—”-tekens. Zo kun je een inhoudsopgave opnemen met ‘toc’ (table of contents), aangeven waar die moet staan (toc-location: left) en tot welke diepte de tussenkoppen opgenomen moeten worden in de inhoudsopgave (toc-depth: 3). De lijst voor alle mogelijke YAML parameters voor een HTML document is <a href="https://quarto.org/docs/reference/formats/html.html">hier</a> te vinden.</p>
 </section>
+<section id="taalinstelling-voor-screenreaders" class="level2">
+<h2 class="anchored" data-anchor-id="taalinstelling-voor-screenreaders">Taalinstelling voor screenreaders</h2>
+<p>Een html document gemaakt met Quarto krijgt standaard Engels mee als taalinstelling. Mocht jouw in het Nederlands geschreven document dan voorgelezen worden door een screenreader, dan denkt de screenreader dat het Engels voor zich heeft. Het gevolg is dat je Nederlandse woorden te horen krijgt met een hele rare uitspraak. Je kunt de taal aanpassen door de <code>lang</code> parameter op te nemen. Deze staat qua indentatie op hetzelfde niveau als bijvoorbeeld de titel en het format. Met deze instelling spreekt de screenreader wel de juiste taal.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> nl</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="zelf-parameters-toevoegen" class="level2">
 <h2 class="anchored" data-anchor-id="zelf-parameters-toevoegen">Zelf parameters toevoegen</h2>
 <p>Daarnaast kun je zelf extra parameters toevoegen met “params”. In het voorbeeld hieronder is bijvoorbeeld een extra parameter “gemeentenaam” opgenomen, die naar “Land van Cuijk” is gezet. In het script kun je de waarde van deze parameter oproepen met <code>params$gemeentenaam</code>.</p>
 <p>Het is handig om alle databestanden die je als input gebruikt op te nemen als parameter. Zo is mooi overzichtelijk welke bestanden nodig zijn. Als de bestanden in dezelfde map staan als je .qmd bestand, dan hoef je alleen de naam van het bestand inclusief de bestandsextensie (bijvoorbeeld ‘.xlsx’ voor Excelbestanden) in te vullen. Staan de inputbestanden in een submap (wel zo overzichtelijk), dan voeg je ook het pad naar het bestand toe. Het stuk “input/data/Gehuwd.xlsx” wijst naar een map ‘input’ met daarin een map ‘data’ en in deze map het bestand “Gehuwd.xlsx”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="screenshots/yaml.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Een voorbeeld van de YAML sectie van een thematische schets"><img src="screenshots/yaml.png" class="img-fluid figure-img" alt="Een voorbeeld van de YAML sectie van een thematische schets"></a></p>
+<p><a href="screenshots/yaml.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Een voorbeeld van de YAML sectie van een thematische schets"><img src="screenshots/yaml.png" class="img-fluid figure-img" alt="Een voorbeeld van de YAML sectie van een thematische schets"></a></p>
 <figcaption>Een voorbeeld van de YAML sectie van een thematische schets</figcaption>
 </figure>
 </div>
@@ -325,29 +335,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="embed-resources" class="level2">
 <h2 class="anchored" data-anchor-id="embed-resources">Embed resources</h2>
 <p>Op het moment dat je je Quarto product wilt delen met de buitenwereld als 1 enkel html bestand, en je document bevat plaatjes of grafieken, dan is het nodig om in de YAML <code>embed-resources: true</code> op te nemen. Dit zorgt ervoor dat alle elementen uit het Quarto document worden opgenomen in het html document zelf en er geen verwijzingen meer zijn naar plekken elders op het internet.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="theme" class="level2">
 <h2 class="anchored" data-anchor-id="theme">Theme</h2>
 <p>In de eerste schetsen die we gemaakt hebben, kozen we voor het thema ‘cosmo’. Deze blijkt echter niet voldoende contrast te bevatten bij in ieder geval hyperlinks en de inhoudsopgave. Een thema dat wel voldoet aan de contrasteisen voor digitoegankelijkheid is het theme ‘default’. Het lettertype hiervan voor de koppen is minder sprekend, maar dat kan aangepast worden via css.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="echo-en-warning" class="level2">
 <h2 class="anchored" data-anchor-id="echo-en-warning">Echo en warning</h2>
 <p>Bij het maken van schetsen is het handig om onder ‘execute’ de parameters ‘echo’ en ‘warning’ op false te zetten. Echo op false zorgt ervoor dat de code die gebruikt is in codeblokken, om bijvoorbeeld een plot te maken, niet wordt getoond. Warning op false zorgt ervoor meldingen die normaal gesproken naar de console worden geprint, niet in je eindproduct terecht komen. Door het in de YAML op te nemen, worden deze parameters toegepast op alle codeblokken. Je kunt het ook weglaten in de YAML, en het per codeblok toevoegen, om zo per codeblok te bepalen of je bijvoorbeeld de code wel of niet wilt laten zien.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 <div class="hidden" aria-hidden="true">
@@ -779,7 +789,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
