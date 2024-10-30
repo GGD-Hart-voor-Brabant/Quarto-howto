@@ -28,3 +28,7 @@ HTML is de taal van internetpagina's. Het staat voor HyperText Markup Language, 
 ## CSS
 
 CSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een 'class' of 'id' mee te geven en vervolgens in de css te specificeren hoe elementen van zo'n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.  
+
+## Javascript
+
+Javascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.
