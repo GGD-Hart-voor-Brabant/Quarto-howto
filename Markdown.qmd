@@ -58,6 +58,41 @@ Lees meer over dit onderwerp op de [website van de GGD](http://www.ggdhvb.nl).
 
 Maak geen gebruik van teksten als "Klik [hier](http://www.ggdhvb.nl) voor de website van de GGD", waarbij links naar websites onder het woord "hier" worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord "hier" gevolgd door verschillende urls, dan is dat voor hun weinig informatief.
 
+### Voor Swing en iframes: Links die altijd in een nieuw venster openen
+
+De meeste websites blokkeren toegang via 'iframes'. Dit zorgt dus voor problemen wanneer we rapporten in een iframe plaatsen zoals in Swing gedaan wordt.
+Om dit op te lossen kunnen we een links de html-eigenschap meegeven `target="_blank"`. Hiermee worden links automatisch in een nieuw tabblad geopend, waardoor de toegang niet geblokkeerd wordt. 
+
+Het zou erg vervelend zijn dit bij alle links te moeten doen. Het onderstaande codeblok bevat javascript die alle links in een quarto html document `target_"=_blank"` meegeeft (m.u.v. de links voor hoofdstukken in de inhoudsopgave). 
+
+
+```{=html}
+<script>
+// Voeg automatisch target="_blank" aan alle links toe m.u.v. de Table of Contents
+// Opent links in nieuw scherm
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll("a:not(.nav-link)");
+  links.forEach(link => {
+   link.setAttribute("target", "_blank");
+  });
+});
+</script>
+```
+
+```{{=html}}
+<script>
+// Automatically add target="_blank" to all links, except those with the class 'nav-link'
+document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll("a:not(.nav-link)");
+  links.forEach(link => {
+    link.setAttribute("target", "_blank");
+  });
+});
+</script>
+```
+
 ## Lijsten
 
 Je kunt een ongenummerde lijst maken door gebruik te maken van het \* teken. Genummerde lijsten maak je simpelweg door een getal gevolgd door een punt te typen. Sub-bullets maak je door de tekst in te laten springen door middel van 1 tab of minimaal 2 spaties.
