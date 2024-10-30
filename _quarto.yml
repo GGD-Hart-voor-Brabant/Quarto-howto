@@ -19,6 +19,7 @@ book:
         - Markdown.qmd
         - Codeblokken.qmd
         - HTML.qmd
+        - Javascript.qmd
         - R.qmd
     
     - Digitoegankelijkheid.qmd
@@ -33,9 +34,7 @@ book:
         - Tabellen.qmd
         - Cirkeldiagram.qmd
         - Radarchart.qmd
-        - javascript-snippets.qmd
-    
-
+        
 
 bibliography: references.bib
 

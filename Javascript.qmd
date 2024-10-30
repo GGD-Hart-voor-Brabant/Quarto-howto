@@ -1,0 +1,27 @@
+---
+number-depth: 0
+---
+
+
+# Javascript {.unnumbered}
+
+Waar R een programmeertaal is voor het doen van statistische analyses, is Javascript een programmeertaal waarmee webpagina's dynamisch worden gemaakt. HTML is dus voor de structuur, CSS voor de opmaak en Javascript voor interactiviteit. Quarto neemt een heel groot deel van de benodigde Javascript-kennis al voor ons weg. Maar soms wil een mens graag iets extra's toevoegen. Het toevoegen van Javascript kan met een `<script>` tag. 
+
+## Links altijd in nieuw tabblad
+
+Een van de dingen die je mogelijk wilt implementeren, is niet meer bij elke Quarto Markdown link handmatig de `target="_blank"` toe te moeten voegen: `[Link naar de GGD](http://www.ggdhvb.nl){target="_blank"}`. Het onderstaande codeblok bevat Javascript die alle links in een Quarto HTML document `target"=_blank"` meegeeft, maar de links voor hoofdstukken in de inhoudsopgave ongemoeid laat. 
+
+
+```{{html}}
+
+<script>
+// Automatically add target="_blank" to all links, except those with the class 'nav-link'
+document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll("a:not(.nav-link)");
+  links.forEach(link => {
+    link.setAttribute("target", "_blank");
+  });
+});
+</script>
+
+```

@@ -54,6 +54,12 @@ wordt getoond als
 
 Lees meer over dit onderwerp op de [website van de GGD](http://www.ggdhvb.nl).
 
+### Link openen in nieuw tabblad
+
+Links worden in de HTML code neergezet als `<a>`-tag. In de html staat minimaal de tag zelf en een 'href' attribuut, die de locatie bevat waar je naartoe wilt linken. Een link naar de GGD website ziet er bijvoorbeeld als volgt uit: ``<a href="www.ggdhvb.nl">Link naar de GGD website</a>`. Als je zo'n link aan zou klikken, dan word je doorgeleid naar de GGD website en ben je het scherm waar je was kwijt (tenzij je linkboven op de pijl naar links klikt). Voor onze informatieproducten is het fijner als het rapport dat de persoon aan het lezen was blijft staan, en dat de aangeklikte link wordt geopend in een nieuw venster. In de html code zou je dit doen met `<a href="www.ggdhvb.nl" target="_blank"></a>`. In Quarto kun je dit doen via `[](){target="_blank"}`.
+
+Wil je dit niet bij elke link opnieuw invoeren, voeg dan een stuk Javascript code in. Meer uitleg hierover vind je in het [Javascript hoofdstuk](Javascript.html).
+
 ### Digitoegankelijke links
 
 Maak geen gebruik van teksten als "Klik [hier](http://www.ggdhvb.nl) voor de website van de GGD", waarbij links naar websites onder het woord "hier" worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord "hier" gevolgd door verschillende urls, dan is dat voor hun weinig informatief.
