@@ -256,6 +256,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Radar chart</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./javascript-snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Javascript Codesnippets</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -277,6 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#links-naar-andere-paginas" id="toc-links-naar-andere-paginas" class="nav-link" data-scroll-target="#links-naar-andere-paginas">Links naar andere pagina’s</a>
   <ul class="collapse">
   <li><a href="#digitoegankelijke-links" id="toc-digitoegankelijke-links" class="nav-link" data-scroll-target="#digitoegankelijke-links">Digitoegankelijke links</a></li>
+  <li><a href="#voor-swing-en-iframes-links-die-altijd-in-een-nieuw-venster-openen" id="toc-voor-swing-en-iframes-links-die-altijd-in-een-nieuw-venster-openen" class="nav-link" data-scroll-target="#voor-swing-en-iframes-links-die-altijd-in-een-nieuw-venster-openen">Voor Swing en iframes: Links die altijd in een nieuw venster openen</a></li>
   </ul></li>
   <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten">Lijsten</a></li>
   <li><a href="#tabellen" id="toc-tabellen" class="nav-link" data-scroll-target="#tabellen">Tabellen</a></li>
@@ -353,6 +360,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="digitoegankelijke-links" class="level3">
 <h3 class="anchored" data-anchor-id="digitoegankelijke-links">Digitoegankelijke links</h3>
 <p>Maak geen gebruik van teksten als “Klik <a href="http://www.ggdhvb.nl">hier</a> voor de website van de GGD”, waarbij links naar websites onder het woord “hier” worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord “hier” gevolgd door verschillende urls, dan is dat voor hun weinig informatief.</p>
+</section>
+<section id="voor-swing-en-iframes-links-die-altijd-in-een-nieuw-venster-openen" class="level3">
+<h3 class="anchored" data-anchor-id="voor-swing-en-iframes-links-die-altijd-in-een-nieuw-venster-openen">Voor Swing en iframes: Links die altijd in een nieuw venster openen</h3>
+<p>De meeste websites blokkeren toegang via ‘iframes’. Dit zorgt dus voor problemen wanneer we rapporten in een iframe plaatsen zoals in Swing gedaan wordt. Om dit op te lossen kunnen we een links de html-eigenschap meegeven <code>target="_blank"</code>. Hiermee worden links automatisch in een nieuw tabblad geopend, waardoor de toegang niet geblokkeerd wordt.</p>
+<p>Het zou erg vervelend zijn dit bij alle links te moeten doen. Zie <a href="./javascript-snippets.html"></a></p>
 </section>
 </section>
 <section id="lijsten" class="level2">
