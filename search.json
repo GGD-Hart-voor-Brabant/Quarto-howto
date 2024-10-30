@@ -50,6 +50,16 @@
     ]
   },
   {
+    "objectID": "Technieken.html#javascript",
+    "href": "Technieken.html#javascript",
+    "title": "Technieken",
+    "section": "Javascript",
+    "text": "Javascript\nJavascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
     "objectID": "Quarto.html",
     "href": "Quarto.html",
     "title": "Quarto openen",
