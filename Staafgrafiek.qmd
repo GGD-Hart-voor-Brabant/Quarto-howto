@@ -1,0 +1,382 @@
+---
+number-depth: 0
+---
+
+# Staafgrafieken {.unnumbered}
+
+Voor staafgrafieken geldt hetzelfde als voor andere grafieken: ze zijn uit zichzelf doorgaans niet digitoegankelijk. Voeg daarom naast de grafiek ook een tabel toe met de cijfers. Dit kan door middel van [Markdown tabsets](Markdown.html#tabsets).
+
+## Voorbeeld staande staafgrafiek
+
+:::{.panel-tabset}
+
+## Plot
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 3
+
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(tidyr)
+library(gt)
+
+df_etniciteit <- data.frame(Gemeente = c("Gemeente", "Gemeente", "Gemeente", "Regio", "Regio", "Regio"),
+                            Achtergrond = c("Nederlandse achtergrond", "Westerse migratieachtergrond", "Niet-westerse migratieachtergrond",
+                                            "Nederlandse achtergrond", "Westerse migratieachtergrond", "Niet-westerse migratieachtergrond"),
+                            Percentage = c(88, 6, 7, 81, 9, 10)) 
+
+# ggplot zet de categorieen op de x-as alfabetisch standaard weer. Zet de kolom om naar 
+# een factor om zelf de volgorde te kunnen bepalen
+df_etniciteit <- df_etniciteit %>% 
+  mutate(Achtergrond = factor(Achtergrond, levels = c("Nederlandse achtergrond", 
+                                                      "Westerse migratieachtergrond", 
+                                                      "Niet-westerse migratieachtergrond")),
+         Gemeente = factor(Gemeente, levels = c("Gemeente", "Regio")))
+
+
+ggplotly(
+  ggplot() +
+    geom_col(data = df_etniciteit, aes(x = Achtergrond, y = Percentage, fill = Gemeente), position = position_dodge(width=0.5), width = 0.5) + 
+    geom_text(data = df_etniciteit, aes(x = Achtergrond, y = Percentage + 5, group = Gemeente, label = paste0(Percentage, "%")),
+              position = position_dodge(width=0.5),
+              size = 3) +
+    scale_fill_manual(values = setNames(c("#1a2c54", "#b41257"), c("Regio", "Gemeente"))) +
+    theme(legend.title=element_blank(),
+          legend.position ="top",
+          axis.title = element_blank(),
+          panel.background = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.text.y = element_blank()),
+  tooltip = NULL
+  ) %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE),
+         legend = list(
+           orientation = "h",
+           title = "",
+           xanchor = "center",
+           x = 0.5
+      ))
+
+```
+
+## Tabel
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 3
+
+df_etniciteit_tabel <- df_etniciteit %>% 
+  rename("Gebied" = Gemeente) %>% 
+  mutate(Percentage = paste0(as.character(Percentage), "%")) %>% 
+  pivot_wider(names_from = "Achtergrond", values_from = "Percentage")
+  
+gt(df_etniciteit_tabel) %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Gebied")) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "100%")
+
+```
+
+:::
+
+## Markdown code
+
+De globale Markdown code is weer als volgt:
+
+``` markdown
+::: {.panel-tabset}
+
+## Plot
+
+R codeblok waarin de ggplot-grafiek getoond wordt
+
+## Grafiek
+
+R codeblok waarin de tabel getoond wordt
+:::
+```
+
+## R code voor de staande staafgrafiek
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 3
+
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(tidyr)
+library(gt)
+
+df_etniciteit <- data.frame(Gemeente = c("Gemeente", "Gemeente", "Gemeente", "Regio", "Regio", "Regio"),
+                            Achtergrond = c("Nederlandse achtergrond", "Westerse migratieachtergrond", "Niet-westerse migratieachtergrond",
+                                            "Nederlandse achtergrond", "Westerse migratieachtergrond", "Niet-westerse migratieachtergrond"),
+                            Percentage = c(88, 6, 7, 81, 9, 10)) 
+
+# ggplot zet de categorieen op de x-as alfabetisch standaard weer. Zet de kolom om naar 
+# een factor om zelf de volgorde te kunnen bepalen
+df_etniciteit <- df_etniciteit %>% 
+  mutate(Achtergrond = factor(Achtergrond, levels = c("Nederlandse achtergrond", 
+                                                      "Westerse migratieachtergrond", 
+                                                      "Niet-westerse migratieachtergrond")),
+         Gemeente = factor(Gemeente, levels = c("Gemeente", "Regio")))
+
+
+ggplotly(
+  ggplot() +
+    geom_col(data = df_etniciteit, aes(x = Achtergrond, y = Percentage, fill = Gemeente), position = position_dodge(width=0.5), width = 0.5) + 
+    geom_text(data = df_etniciteit, aes(x = Achtergrond, y = Percentage + 5, group = Gemeente, label = paste0(Percentage, "%")),
+              position = position_dodge(width=0.5),
+              size = 3) +
+    scale_fill_manual(values = setNames(c("#1a2c54", "#b41257"), c("Regio", "Gemeente"))) +
+    theme(legend.title=element_blank(),
+          legend.position ="top",
+          axis.title = element_blank(),
+          panel.background = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.text.y = element_blank()),
+  tooltip = NULL
+  ) %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE),
+         legend = list(
+           orientation = "h",
+           title = "",
+           xanchor = "center",
+           x = 0.5
+      ))
+
+```
+
+## R code voor de tabel
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 3
+
+df_etniciteit_tabel <- df_etniciteit %>% 
+  rename("Gebied" = Gemeente) %>% 
+  mutate(Percentage = paste0(as.character(Percentage), "%")) %>% 
+  pivot_wider(names_from = "Achtergrond", values_from = "Percentage")
+  
+gt(df_etniciteit_tabel) %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Gebied")) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "100%")
+
+```
+
+## Voorbeeld liggende staafgrafiek
+
+Je kunt vrij eenvoudig van een staande staafgrafiek een liggende staafgrafiek maken. Dit doe je door bij de ggplot statements de functie `coord_flip()` op te nemen. Dit zorgt ervoor dat de coordinaten ge'flip't worden, oftewel: de grafiek wordt 90 graden gedraaid. 
+
+Het verkrijgen van de gewenste volgorde in de categorieen, de legenda en de staven is nog best een ding. Door in de dataframe de kolommen om te zetten naar factor kun je de volgorde vastzetten. Als je dit niet doet, pakt R de alfabetische volgorde. Het gebruik van `coord_flip` maakt vreemd genoeg dat de volgorde verkeerd om neer wordt gezet. Dit kan worden verholpen door de levels van je factor in de omgekeerde volgorde op te geven. Bijvoorbeeld, in plaats van `mutate(Gebied = factor(Gebied, levels = c("Gemeente", "Nederland")))`, zet je bij levels neer: `levels = c("Nederland", "Gemeente")`. Als je de levels eerder al hebt opgeslagen in een R variabele, dan kun je ook gebruik maken van `rev`, een functie die dingen 'in reverse' zet: `mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)))`
+
+Om daarnaast ook de staven van de gemeente boven die van Nederland te krijgen, maar wel nog in de legenda de gemeente links van de regio te tonen, heb ik gebruik gemaakt van de gebruik gemaakt van een zelf gedefinieerde (maar niet zelfbedachte) functie (Dank, Google): `reverse_legend_labels`. Het is dus even pielwerk om het zo te krijgen zoals je het graag wilt zien.
+
+:::{.panel-tabset}
+
+## Plot
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 4
+
+leeftijden <- c("Jonger dan 20", "20 tot 25 jaar", "25 tot 30 jaar", "30 tot 35 jaar", "35 tot 40 jaar", "40 tot 45 jaar", "45 jaar of ouder")
+
+data_leeftijd_moeder <- data.frame(Leeftijdsgroep = rep(leeftijden, 2),
+                                   Gebied = c(rep("Gemeente", 7), rep("Nederland", 7)),
+                                   Percentage = c(0, 5, 30, 46, 17, 2, 0, 0, 6, 24, 42, 23, 5, 0)) %>% 
+  # Zet de opties uit Leeftijdsgroep om naar factor, om de volgorde op de y-as (eigenlijk geroteerde x-as) te kunnen bepalen. Ken ze in
+  # omgekeerde volgorde (rev = reverse) toe, zodat ze op de gewenste volgorde in de grafiek komen te staan.
+  mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)),
+         Gebied = factor(Gebied, levels = c("Nederland", "Gemeente")))
+
+
+# Functie om in stacked bar charts de gewenste volgorde van de legenda-items te krijgen
+reverse_legend_labels <- function(plotly_plot) {
+  n_labels <- length(plotly_plot$x$data)
+  plotly_plot$x$data[1:n_labels] <- plotly_plot$x$data[n_labels:1]
+  plotly_plot
+}
+
+ggplotly(
+  ggplot(data_leeftijd_moeder, aes(x = Leeftijdsgroep, y = Percentage, fill = Gebied)) +
+    geom_col(position = position_dodge(width = 0.8), width = 0.8) +
+    geom_text(data = data_leeftijd_moeder, aes(x = Leeftijdsgroep, 
+                               y = if_else(Percentage == 0, 1, Percentage + 2),  
+                               label = paste0(as.character(Percentage), "%")),
+              size = 2.5, 
+              position = position_dodge(width = 0.8)) +
+    coord_flip() + 
+    scale_fill_manual(values= setNames(c("#1a2c54", "#b41257"), c("Nederland", "Gemeente")),
+                      breaks = c("Gemeente", "Nederland")) + 
+    
+    theme(axis.title = element_blank(),
+          panel.background = element_blank(),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          legend.title = element_blank()
+          ),
+  tooltip = NULL
+) %>%
+  reverse_legend_labels() %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE),
+         legend = list(
+           title = "",
+           orientation = "h",
+           xanchor = "center",
+           x = 0.5
+      )
+         )
+
+
+```
+
+## Tabel
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 4
+
+
+# Bewerk data
+data_leeftijd_moeder <- data_leeftijd_moeder %>% 
+  select(Gebied, Leeftijdsgroep, Percentage) %>% 
+  mutate(Percentage = paste0(as.character(Percentage), "%")) %>% 
+  pivot_wider(names_from = Gebied, values_from = Percentage)
+
+# Tabel
+gt(data_leeftijd_moeder) %>%
+  # Geen kolomnaam boven eerste kolom
+  cols_label(matches("Leeftijdsgroep") ~ "") %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Leeftijdsgroep")) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "100%") %>% 
+  # Gebied is een factor, en wordt daardoor niet automatisch links uitgelijnd, zoals wel bij de tekstkolommen van andere tabellen gebeurt.
+  cols_align(align = "left",
+             columns = Leeftijdsgroep)
+
+```
+
+:::
+
+## R code voor de liggende staafgrafiek
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 4
+
+leeftijden <- c("Jonger dan 20", "20 tot 25 jaar", "25 tot 30 jaar", "30 tot 35 jaar", "35 tot 40 jaar", "40 tot 45 jaar", "45 jaar of ouder")
+
+data_leeftijd_moeder <- data.frame(Leeftijdsgroep = rep(leeftijden, 2),
+                                   Gebied = c(rep("Gemeente", 7), rep("Nederland", 7)),
+                                   Percentage = c(0, 5, 30, 46, 17, 2, 0, 0, 6, 24, 42, 23, 5, 0)) %>% 
+  # Zet de opties uit Leeftijdsgroep om naar factor, om de volgorde op de y-as (eigenlijk geroteerde x-as) te kunnen bepalen. Ken ze in
+  # omgekeerde volgorde (rev = reverse) toe, zodat ze op de gewenste volgorde in de grafiek komen te staan.
+  mutate(Leeftijdsgroep = factor(Leeftijdsgroep, levels = rev(leeftijden)),
+         Gebied = factor(Gebied, levels = c("Nederland", "Gemeente")))
+
+
+# Functie om in stacked bar charts de gewenste volgorde van de legenda-items te krijgen
+reverse_legend_labels <- function(plotly_plot) {
+  n_labels <- length(plotly_plot$x$data)
+  plotly_plot$x$data[1:n_labels] <- plotly_plot$x$data[n_labels:1]
+  plotly_plot
+}
+
+ggplotly(
+  ggplot(data_leeftijd_moeder, aes(x = Leeftijdsgroep, y = Percentage, fill = Gebied)) +
+    geom_col(position = position_dodge(width = 0.8), width = 0.8) +
+    geom_text(data = data_leeftijd_moeder, aes(x = Leeftijdsgroep, 
+                               y = if_else(Percentage == 0, 1, Percentage + 2),  
+                               label = paste0(as.character(Percentage), "%")),
+              size = 2.5, 
+              position = position_dodge(width = 0.8)) +
+    coord_flip() + 
+    scale_fill_manual(values= setNames(c("#1a2c54", "#b41257"), c("Nederland", "Gemeente")),
+                      breaks = c("Gemeente", "Nederland")) + 
+    
+    theme(axis.title = element_blank(),
+          panel.background = element_blank(),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          legend.title = element_blank()
+          ),
+  tooltip = NULL
+) %>%
+  reverse_legend_labels() %>%
+  config(displayModeBar = FALSE) %>%
+  layout(xaxis = list(fixedrange = TRUE), 
+         yaxis = list(fixedrange = TRUE),
+         legend = list(
+           title = "",
+           orientation = "h",
+           xanchor = "center",
+           x = 0.5
+      )
+         )
+
+
+```
+
+## R code voor de tabel
+
+```{{r}}
+#| echo: FALSE
+#| warning: FALSE
+#| fig.height: 4
+
+
+# Bewerk data
+data_leeftijd_moeder <- data_leeftijd_moeder %>% 
+  select(Gebied, Leeftijdsgroep, Percentage) %>% 
+  mutate(Percentage = paste0(as.character(Percentage), "%")) %>% 
+  pivot_wider(names_from = Gebied, values_from = Percentage)
+
+# Tabel
+gt(data_leeftijd_moeder) %>%
+  # Geen kolomnaam boven eerste kolom
+  cols_label(matches("Leeftijdsgroep") ~ "") %>% 
+  # Jaartallen (kolomnamen) en tekst van eerste kolom vetgedrukt
+  tab_style(style = cell_text(weight = "bold"), locations = cells_column_labels()) %>% 
+  tab_style(style = cell_text(weight = "bold"), locations = cells_body(columns = "Leeftijdsgroep")) %>% 
+  # Per default wordt de tabel gecentreerd op de pagina. Zet deze volledig naar links.
+  tab_options(table.margin.left = 0,
+              table.margin.right = 0,
+              table.width = "100%") %>% 
+  # Gebied is een factor, en wordt daardoor niet automatisch links uitgelijnd, zoals wel bij de tekstkolommen van andere tabellen gebeurt.
+  cols_align(align = "left",
+             columns = Leeftijdsgroep)
+
+```

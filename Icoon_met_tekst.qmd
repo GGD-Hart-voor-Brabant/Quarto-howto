@@ -38,7 +38,7 @@ Daarnaast kun je extra regels toevoegen door meerdere blokhaken met reeksen toe 
 :::
 
 ``` markdown
-::: {layout="[[10, 90], [-100], [-10, 90]"}
+::: {layout="[[10, 90], [-100], [-10, 90]]"}
 ![](afbeeldingen/trouwringen.svg)
 
 [57%]{style=color:#b41257;font-weight:bold} van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit [56%]{style=color:#b41257;font-weight:bold} (2023).

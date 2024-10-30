@@ -536,25 +536,3 @@ leaflet() %>%
           zoom = 15)
 ```
 
-
-
-## Standaard achtergrondkaart aanpassen {#standaard-achtergrondkaart-aanpassen}
-
-Met de functie addTiles() voegen we een standaard achtergrondkaart of toe. De functie [**addProviderTiles()**](https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/addProviderTiles) maakt het mogelijk om andere achtergrondkaarten toe te voegen. 
-
-Je kan de [Leaflet Provider Demo](https://leaflet-extras.github.io/leaflet-providers/preview/) raadplegen om verschillende voorbeelden te bekijken.
-
-Als de library leaflet is geladen is ook standaard de lijst 'providers' ingelezen waardoor we gemakkelijk 'provider tiles' kunnen selecteren. Door 'providers$' te typen verschijnt er vanzelf een lijst met opties de opties.
-
-
-Je kan ook meerdere achtergrondkaarten over elkaar heen plaatsen. [Dit Rstudio artikel over basemaps ](https://rstudio.github.io/leaflet/articles/basemaps.html) legt uit hoe dat moet. 
-
-```{r}
-
-leaflet() %>%
-  addProviderTiles(providers$Stadia.StamenToner) %>% 
-  setView(lng = 5.332707,
-          lat = 51.67845,
-          zoom = 15) 
-  
-```
