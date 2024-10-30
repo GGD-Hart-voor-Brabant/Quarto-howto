@@ -175,7 +175,7 @@
     "href": "Markdown.html#links-naar-andere-paginas",
     "title": "Markdown",
     "section": "Links naar andere pagina’s",
-    "text": "Links naar andere pagina’s\nDe Markdown code voor links naar andere pagina’s lijkt erg op die voor het invoegen van plaatjes: [](). Het verschil is dat bij links niet gestart wordt met een uitroepteken. Tussen de blokhaken komt de lopende tekst die aanklikbaar is. Tussen de ronde haken komt de internetpagina waar naar wordt verwezen.\nVoorbeeld:\nLees meer over dit onderwerp op de [website van de GGD](http://www.ggdhvb.nl).\nwordt getoond als\nLees meer over dit onderwerp op de website van de GGD.\n\nDigitoegankelijke links\nMaak geen gebruik van teksten als “Klik hier voor de website van de GGD”, waarbij links naar websites onder het woord “hier” worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord “hier” gevolgd door verschillende urls, dan is dat voor hun weinig informatief.\n\n\nVoor Swing en iframes: Links die altijd in een nieuw venster openen\nDe meeste websites blokkeren toegang via ‘iframes’. Dit zorgt dus voor problemen wanneer we rapporten in een iframe plaatsen zoals in Swing gedaan wordt. Om dit op te lossen kunnen we een links de html-eigenschap meegeven target=\"_blank\". Hiermee worden links automatisch in een nieuw tabblad geopend, waardoor de toegang niet geblokkeerd wordt.\nHet zou erg vervelend zijn dit bij alle links te moeten doen. Zie",
+    "text": "Links naar andere pagina’s\nDe Markdown code voor links naar andere pagina’s lijkt erg op die voor het invoegen van plaatjes: [](). Het verschil is dat bij links niet gestart wordt met een uitroepteken. Tussen de blokhaken komt de lopende tekst die aanklikbaar is. Tussen de ronde haken komt de internetpagina waar naar wordt verwezen.\nVoorbeeld:\nLees meer over dit onderwerp op de [website van de GGD](http://www.ggdhvb.nl).\nwordt getoond als\nLees meer over dit onderwerp op de website van de GGD.\n\nLink openen in nieuw tabblad\nLinks worden in de HTML code neergezet als &lt;a&gt;-tag. In de html staat minimaal de tag zelf en een ‘href’ attribuut, die de locatie bevat waar je naartoe wilt linken. Een link naar de GGD website ziet er bijvoorbeeld als volgt uit: `&lt;a href=\"www.ggdhvb.nl\"&gt;Link naar de GGD website&lt;/a&gt;. Als je zo’n link aan zou klikken, dan word je doorgeleid naar de GGD website en ben je het scherm waar je was kwijt (tenzij je linkboven op de pijl naar links klikt). Voor onze informatieproducten is het fijner als het rapport dat de persoon aan het lezen was blijft staan, en dat de aangeklikte link wordt geopend in een nieuw venster. In de html code zou je dit doen met &lt;a href=\"www.ggdhvb.nl\" target=\"_blank\"&gt;&lt;/a&gt;. In Quarto kun je dit doen via [](){target=\"_blank\"}.\nWil je dit niet bij elke link opnieuw invoeren, voeg dan een stuk Javascript code in. Meer uitleg hierover vind je in het Javascript hoofdstuk.\n\n\nDigitoegankelijke links\nMaak geen gebruik van teksten als “Klik hier voor de website van de GGD”, waarbij links naar websites onder het woord “hier” worden gezet. Mensen met screenreaders kunnen een lijst opvragen van alle links die op een website staan, waarbij de tekst waar de link onder zit wordt getoond als context. Als zij een lijst krijgen met 6 keer het woord “hier” gevolgd door verschillende urls, dan is dat voor hun weinig informatief.\n\n\nVoor Swing en iframes: Links die altijd in een nieuw venster openen\nDe meeste websites blokkeren toegang via ‘iframes’. Dit zorgt dus voor problemen wanneer we rapporten in een iframe plaatsen zoals in Swing gedaan wordt. Om dit op te lossen kunnen we een links de html-eigenschap meegeven target=\"_blank\". Hiermee worden links automatisch in een nieuw tabblad geopend, waardoor de toegang niet geblokkeerd wordt.\nHet zou erg vervelend zijn dit bij alle links te moeten doen. Zie",
     "crumbs": [
       "Technieken",
       "Markdown"
@@ -322,6 +322,28 @@
     "crumbs": [
       "Technieken",
       "HTML en CSS"
+    ]
+  },
+  {
+    "objectID": "Javascript.html",
+    "href": "Javascript.html",
+    "title": "Javascript",
+    "section": "",
+    "text": "Links altijd in nieuw tabblad\nEen van de dingen die je mogelijk wilt implementeren, is niet meer bij elke Quarto Markdown link handmatig de target=\"_blank\" toe te moeten voegen: [Link naar de GGD](http://www.ggdhvb.nl){target=\"_blank\"}. Het onderstaande codeblok bevat Javascript die alle links in een Quarto HTML document target\"=_blank\" meegeeft, maar de links voor hoofdstukken in de inhoudsopgave ongemoeid laat.",
+    "crumbs": [
+      "Technieken",
+      "Javascript"
+    ]
+  },
+  {
+    "objectID": "Javascript.html#links-altijd-in-nieuw-tabblad",
+    "href": "Javascript.html#links-altijd-in-nieuw-tabblad",
+    "title": "Javascript",
+    "section": "",
+    "text": "```{html}\n\n&lt;script&gt;\n// Automatically add target=\"_blank\" to all links, except those with the class 'nav-link'\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n  const links = document.querySelectorAll(\"a:not(.nav-link)\");\n  links.forEach(link =&gt; {\n    link.setAttribute(\"target\", \"_blank\");\n  });\n});\n&lt;/script&gt;\n\n```",
+    "crumbs": [
+      "Technieken",
+      "Javascript"
     ]
   },
   {
@@ -825,28 +847,6 @@
     "crumbs": [
       "Code snippets",
       "Radar chart"
-    ]
-  },
-  {
-    "objectID": "javascript-snippets.html",
-    "href": "javascript-snippets.html",
-    "title": "1  Javascript Codesnippets",
-    "section": "",
-    "text": "Links altijd in nieuw tabblad t.b.v. functionaliteit iframes in Swing.\nHet onderstaande codeblok bevat javascript die alle links in een quarto html document target_\"=_blank\" meegeeft (m.u.v. de links voor hoofdstukken in de inhoudsopgave).\n```",
-    "crumbs": [
-      "Code snippets",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Javascript Codesnippets</span>"
-    ]
-  },
-  {
-    "objectID": "javascript-snippets.html#links-altijd-in-nieuw-tabblad-t.b.v.-functionaliteit-iframes-in-swing.",
-    "href": "javascript-snippets.html#links-altijd-in-nieuw-tabblad-t.b.v.-functionaliteit-iframes-in-swing.",
-    "title": "1  Javascript Codesnippets",
-    "section": "",
-    "text": "```{=html}\n\n&lt;script&gt;\n// Automatically add target=\"_blank\" to all links, except those with the class 'nav-link'\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n  const links = document.querySelectorAll(\"a:not(.nav-link)\");\n  links.forEach(link =&gt; {\n    link.setAttribute(\"target\", \"_blank\");\n  });\n});\n&lt;/script&gt;",
-    "crumbs": [
-      "Code snippets",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Javascript Codesnippets</span>"
     ]
   }
 ]

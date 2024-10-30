@@ -156,6 +156,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Javascript.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Javascript</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./R.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Handige links voor R</span></a>
   </div>
@@ -225,12 +231,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Radar chart</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./javascript-snippets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Javascript Codesnippets</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -268,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="screenshots/Popup_nieuw_document.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="De pop-up die verschijnt als je een nieuw Quarto document opent"><img src="screenshots/Popup_nieuw_document.png" class="quarto-figure quarto-figure-left figure-img" height="300" alt="De pop-up die verschijnt als je een nieuw Quarto document opent"></a></p>
+<p><a href="screenshots/Popup_nieuw_document.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="De pop-up die verschijnt als je een nieuw Quarto document opent"><img src="screenshots/Popup_nieuw_document.png" class="quarto-figure quarto-figure-left figure-img" height="300" alt="De pop-up die verschijnt als je een nieuw Quarto document opent"></a></p>
 </figure>
 </div>
 <figcaption>De pop-up die verschijnt als je een nieuw Quarto document opent</figcaption>
@@ -277,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Quarto opent nu een script met wat voorbeeldtekst en code, en een aantal parameters met de info die je op hebt gegeven. Klik eventueel op de afbeelding voor een grotere weergave.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="screenshots/Quarto-template.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"><img src="screenshots/Quarto-template.png" class="img-fluid figure-img" alt="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"></a></p>
+<p><a href="screenshots/Quarto-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"><img src="screenshots/Quarto-template.png" class="img-fluid figure-img" alt="Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen"></a></p>
 <figcaption>Aan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen</figcaption>
 </figure>
 </div>
@@ -712,7 +712,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
