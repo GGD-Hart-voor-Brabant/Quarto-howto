@@ -40,7 +40,7 @@ Schuingedrukte tekst krijg je door het gebruik van 1 sterretje of underscore: `*
 
 Plaatjes kun je invoegen door middel van `![]()`. Tussen de blokhaken kun je een onderschrift zetten, indien je dit wenst. Je kunt het echter ook leeg laten. Tussen de ronde haken zet je het pad naar het plaatje. Heb je in jouw project een submap met de naam "Afbeeldingen" en in deze map een afbeelding "GGD_logo.png", dan zet je in de Markdown `![](Afbeeldingen/GGD_logo.png)`.
 
-Je kunt het plaatje extra parameters meegeven via accolades. Zo kun je de afbeelding links uit laten lijnen en een alternatieve tekst meegeven via `![](Afbeeldingen/GGD_logo.png){fig-align="left" fig-alt="Logo van de GGD"}`. De alternatieve tekst is wat een screenreader voorleest op het moment dat het een plaatje tegenkomt. Als een afbeelding géén informatie toevoegt, dan is het beter om ook geen tekstalternatief te geven. In dit voorbeeld kan de alternatieve tekst dus beter achterwege gelaten worden. 
+Je kunt het plaatje extra parameters meegeven via accolades. Zo kun je de afbeelding links uit laten lijnen en een alternatieve tekst meegeven via `![](Afbeeldingen/GGD_logo.png){fig-align="left" fig-alt="Logo van de GGD"}`. De alternatieve tekst is wat een screenreader voorleest op het moment dat het een plaatje tegenkomt. Als een afbeelding géén informatie toevoegt, dan is het beter om het tekstalternatief leeg te laten: `fig-alt=""`. In dit voorbeeld kan de alternatieve tekst dus beter achterwege gelaten worden. 
 
 ## Links naar andere pagina's
 
