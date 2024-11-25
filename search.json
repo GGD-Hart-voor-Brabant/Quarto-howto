@@ -10,61 +10,11 @@
     ]
   },
   {
-    "objectID": "Technieken.html",
-    "href": "Technieken.html",
-    "title": "Technieken",
-    "section": "",
-    "text": "Quarto\nQuarto is een ‘publishing system’ waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop.\nOm de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#markdown",
-    "href": "Technieken.html#markdown",
-    "title": "Technieken",
-    "section": "Markdown",
-    "text": "Markdown\nMarkdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document ‘rendert’, worden de Markdown secties omgezet in html tags.\nJe kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals **tekst**. Dit maakt tekst dikgedrukt.\nDe lijst met Markdown basics die werken in Quarto is hier te vinden.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#html",
-    "href": "Technieken.html#html",
-    "title": "Technieken",
-    "section": "HTML",
-    "text": "HTML\nHTML is de taal van internetpagina’s. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten ‘tags’, keywords omgeven door “&lt;&gt;”. Interessant voor ons zijn in ieder geval &lt;div&gt; en &lt;span&gt;. Bijna alle tags moeten ook weer gesloten worden, door middel van &lt;/&gt;. Voor div wordt het dan &lt;div&gt;&lt;/div&gt; en voor &lt;span&gt; wordt het &lt;span&gt;&lt;/span&gt;. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags.\nW3Schools bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#css",
-    "href": "Technieken.html#css",
-    "title": "Technieken",
-    "section": "CSS",
-    "text": "CSS\nCSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een ‘class’ of ‘id’ mee te geven en vervolgens in de css te specificeren hoe elementen van zo’n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#javascript",
-    "href": "Technieken.html#javascript",
-    "title": "Technieken",
-    "section": "Javascript",
-    "text": "Javascript\nJavascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
     "objectID": "Quarto.html",
     "href": "Quarto.html",
     "title": "Quarto openen",
     "section": "",
-    "text": "Quarto is een functionaliteit die ingebakken zit in RStudio. Je hoeft er niks nieuws voor te installeren. Als je een nieuw informatieproduct met Quarto wilt maken, ga je naar “File” &gt; “New File” &gt; “Quarto Document”. Er verschijnt nu een pop-up waar je de titel in moet vullen. De auteur is optioneel. Vervolgens maak je een keuze tussen “HTML”, “PDF” of “Word” - kies hier HTML. Als engine kiezen we “Knitr”. Zet het vinkje bij “Use visual markdown editor” uit.\n\n\n\n\n\n\n\nDe pop-up die verschijnt als je een nieuw Quarto document opent\n\n\nQuarto opent nu een script met wat voorbeeldtekst en code, en een aantal parameters met de info die je op hebt gegeven. Klik eventueel op de afbeelding voor een grotere weergave.\n\n\n\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen\n\n\nIn het script, hierboven het rechtervenster, worden 3 dingen getoond: (1) YAML, (2) Markdown en (3) R codeblokken. In de volgende secties gaan we hier dieper op in.\n\n\n\nDe pop-up die verschijnt als je een nieuw Quarto document opent\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen",
+    "text": "Quarto is een functionaliteit die ingebakken zit in RStudio. Je hoeft er niks nieuws voor te installeren. Als je een nieuw informatieproduct met Quarto wilt maken, ga je naar “File” &gt; “New File” &gt; “Quarto Document”. Er verschijnt nu een pop-up waar je de titel in moet vullen. De auteur is optioneel. Vervolgens maak je een keuze tussen “HTML”, “PDF” of “Word” - kies hier HTML. Als engine kiezen we “Knitr”. Zet het vinkje bij “Use visual markdown editor” uit.\n\n\n\n\n\n\n\nDe pop-up die verschijnt als je een nieuw Quarto document opent\n\n\nQuarto opent nu een script met wat voorbeeldtekst en code, en een aantal parameters met de info die je op hebt gegeven. Klik eventueel op de afbeelding voor een grotere weergave.\n\n\n\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen\n\n\nIn het script, hierboven het rechtervenster, worden 3 dingen getoond: (1) YAML, (2) Markdown en (3) R codeblokken. In de volgende secties gaan we hier dieper op in.",
     "crumbs": [
       "Technieken",
       "Quarto openen"
@@ -130,7 +80,7 @@
     "href": "YAML.html#echo-en-warning",
     "title": "YAML",
     "section": "Echo en warning",
-    "text": "Echo en warning\nBij het maken van schetsen is het handig om onder ‘execute’ de parameters ‘echo’ en ‘warning’ op false te zetten. Echo op false zorgt ervoor dat de code die gebruikt is in codeblokken, om bijvoorbeeld een plot te maken, niet wordt getoond. Warning op false zorgt ervoor meldingen die normaal gesproken naar de console worden geprint, niet in je eindproduct terecht komen. Door het in de YAML op te nemen, worden deze parameters toegepast op alle codeblokken. Je kunt het ook weglaten in de YAML, en het per codeblok toevoegen, om zo per codeblok te bepalen of je bijvoorbeeld de code wel of niet wilt laten zien.\n---\nexecute:\n  echo: false\n  warning: false\n---\n\n\n\nAan de linkerkant het Quarto script, rechts het resultaat als je het script zou renderen\nEen voorbeeld van de YAML sectie van een thematische schets",
+    "text": "Echo en warning\nBij het maken van schetsen is het handig om onder ‘execute’ de parameters ‘echo’ en ‘warning’ op false te zetten. Echo op false zorgt ervoor dat de code die gebruikt is in codeblokken, om bijvoorbeeld een plot te maken, niet wordt getoond. Warning op false zorgt ervoor meldingen die normaal gesproken naar de console worden geprint, niet in je eindproduct terecht komen. Door het in de YAML op te nemen, worden deze parameters toegepast op alle codeblokken. Je kunt het ook weglaten in de YAML, en het per codeblok toevoegen, om zo per codeblok te bepalen of je bijvoorbeeld de code wel of niet wilt laten zien.\n---\nexecute:\n  echo: false\n  warning: false\n---",
     "crumbs": [
       "Technieken",
       "YAML"
@@ -174,7 +124,7 @@
     "href": "Markdown.html#plaatjes-invoegen",
     "title": "Markdown",
     "section": "Plaatjes invoegen",
-    "text": "Plaatjes invoegen\nPlaatjes kun je invoegen door middel van ![](). Tussen de blokhaken kun je een onderschrift zetten, indien je dit wenst. Je kunt het echter ook leeg laten. Tussen de ronde haken zet je het pad naar het plaatje. Heb je in jouw project een submap met de naam “Afbeeldingen” en in deze map een afbeelding “GGD_logo.png”, dan zet je in de Markdown ![](Afbeeldingen/GGD_logo.png).\nJe kunt het plaatje extra parameters meegeven via accolades. Zo kun je de afbeelding links uit laten lijnen en een alternatieve tekst meegeven via ![](Afbeeldingen/GGD_logo.png){fig-align=\"left\" fig-alt=\"Logo van de GGD\"}. De alternatieve tekst is wat een screenreader voorleest op het moment dat het een plaatje tegenkomt. Als een afbeelding géén informatie toevoegt, dan is het beter om ook geen tekstalternatief te geven. In dit voorbeeld kan de alternatieve tekst dus beter achterwege gelaten worden.",
+    "text": "Plaatjes invoegen\nPlaatjes kun je invoegen door middel van ![](). Tussen de blokhaken kun je een onderschrift zetten, indien je dit wenst. Je kunt het echter ook leeg laten. Tussen de ronde haken zet je het pad naar het plaatje. Heb je in jouw project een submap met de naam “Afbeeldingen” en in deze map een afbeelding “GGD_logo.png”, dan zet je in de Markdown ![](Afbeeldingen/GGD_logo.png).\nJe kunt het plaatje extra parameters meegeven via accolades. Zo kun je de afbeelding links uit laten lijnen en een alternatieve tekst meegeven via ![](Afbeeldingen/GGD_logo.png){fig-align=\"left\" fig-alt=\"Logo van de GGD\"}. De alternatieve tekst is wat een screenreader voorleest op het moment dat het een plaatje tegenkomt. Als een afbeelding géén informatie toevoegt, dan is het beter om het tekstalternatief leeg te laten: fig-alt=\"\". In dit voorbeeld kan de alternatieve tekst dus beter achterwege gelaten worden.",
     "crumbs": [
       "Technieken",
       "Markdown"
@@ -328,7 +278,7 @@
     "href": "HTML.html#css-tutorials",
     "title": "HTML en CSS",
     "section": "CSS Tutorials",
-    "text": "CSS Tutorials\nIn dit Quarto boek leggen we alleen de basis uit. W3Schools heeft interactieve tutorials op het gebied van css. Hier kun je makkelijk parameters veranderen en kijken wat het effect is.\n\n\n\nLinks een webpagina en de pop-up als je op de rechtermuisknop klikt. Rechts de developer tools.",
+    "text": "CSS Tutorials\nIn dit Quarto boek leggen we alleen de basis uit. W3Schools heeft interactieve tutorials op het gebied van css. Hier kun je makkelijk parameters veranderen en kijken wat het effect is.",
     "crumbs": [
       "Technieken",
       "HTML en CSS"
@@ -429,16 +379,6 @@
     "text": "Aandachtspunten voor de bouwer\nQuarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over Technieken.\n\nMaak gebruik van hashtags voor het aangeven van een titel en subtitels. Sla hierin geen niveaus over.\nGeef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is.\nZorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.\nMaak voor het maken van tabellen gebruik van de gt package en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.\nCheck dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de Tanaguru contrast-finder. Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid.\nGebruik een omschrijvende link-tekst als je links onder tekst opneemt. Teksten als “Lees verder” of “Klik hier” geven te weinig context.\n\nMogelijk moet deze lijst worden uitgebreid. We leren zelf ook nog steeds bij.",
     "crumbs": [
       "Digitoegankelijkheid"
-    ]
-  },
-  {
-    "objectID": "Code snippets.html",
-    "href": "Code snippets.html",
-    "title": "Code snippets",
-    "section": "",
-    "text": "In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.",
-    "crumbs": [
-      "Code snippets"
     ]
   },
   {
@@ -857,6 +797,66 @@
     "crumbs": [
       "Code snippets",
       "Radar chart"
+    ]
+  },
+  {
+    "objectID": "Technieken.html",
+    "href": "Technieken.html",
+    "title": "Technieken",
+    "section": "",
+    "text": "Quarto\nQuarto is een ‘publishing system’ waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop.\nOm de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#markdown",
+    "href": "Technieken.html#markdown",
+    "title": "Technieken",
+    "section": "Markdown",
+    "text": "Markdown\nMarkdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document ‘rendert’, worden de Markdown secties omgezet in html tags.\nJe kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals **tekst**. Dit maakt tekst dikgedrukt.\nDe lijst met Markdown basics die werken in Quarto is hier te vinden.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#html",
+    "href": "Technieken.html#html",
+    "title": "Technieken",
+    "section": "HTML",
+    "text": "HTML\nHTML is de taal van internetpagina’s. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten ‘tags’, keywords omgeven door “&lt;&gt;”. Interessant voor ons zijn in ieder geval &lt;div&gt; en &lt;span&gt;. Bijna alle tags moeten ook weer gesloten worden, door middel van &lt;/&gt;. Voor div wordt het dan &lt;div&gt;&lt;/div&gt; en voor &lt;span&gt; wordt het &lt;span&gt;&lt;/span&gt;. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags.\nW3Schools bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#css",
+    "href": "Technieken.html#css",
+    "title": "Technieken",
+    "section": "CSS",
+    "text": "CSS\nCSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een ‘class’ of ‘id’ mee te geven en vervolgens in de css te specificeren hoe elementen van zo’n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#javascript",
+    "href": "Technieken.html#javascript",
+    "title": "Technieken",
+    "section": "Javascript",
+    "text": "Javascript\nJavascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Code snippets.html",
+    "href": "Code snippets.html",
+    "title": "Code snippets",
+    "section": "",
+    "text": "In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.",
+    "crumbs": [
+      "Code snippets"
     ]
   }
 ]

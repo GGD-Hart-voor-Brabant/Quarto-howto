@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto-uitleg - Staafgrafieken</title>
+<title>Staafgrafieken – Quarto-uitleg</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -130,13 +130,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Code snippets.html">Code snippets</a></li><li class="breadcrumb-item"><a href="./Staafgrafiek.html">Staafgrafieken</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./Technieken.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Technieken</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./Code snippets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code snippets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -333,31 +333,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-f30cdbde489d57f6de6e" style="width:100%;height:278px;"></div>
-<script type="application/json" data-for="htmlwidget-f30cdbde489d57f6de6e">{"x":{"data":[{"orientation":"v","width":[0.25,0.25,0.25],"base":[0,0,0],"x":[0.875,1.875,2.875],"y":[88,6,7],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(180,18,87,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gemeente","legendgroup":"Gemeente","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.25,0.25,0.25],"base":[0,0,0],"x":[1.125,2.125,3.125],"y":[81,9,10],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(26,44,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Regio","legendgroup":"Regio","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.875,1.875,2.875,1.125,2.125,3.125],"y":[93,11,12,86,14,15],"text":["88%","6%","7%","81%","9%","10%"],"hovertext":["","","","","",""],"textfont":{"size":11.338582677165356,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":33.047184170471837,"r":7.3059360730593621,"b":32.389649923896499,"l":10.958904109589042},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Nederlandse achtergrond","Westerse migratieachtergrond","Niet-westerse migratieachtergrond"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Nederlandse achtergrond","Westerse migratieachtergrond","Niet-westerse migratieachtergrond"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.6500000000000004,97.650000000000006],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50.000000000000007,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":"","orientation":"h","xanchor":"center","x":0.5},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"2a84f2f7322":{"x":{},"y":{},"fill":{},"type":"bar"},"2a84e4f26e7":{"x":{},"y":{},"label":{}}},"cur_data":"2a84f2f7322","visdat":{"2a84f2f7322":["function (y) ","x"],"2a84e4f26e7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f910b9e696e71842bef7" style="width:100%;height:278px;"></div>
+<script type="application/json" data-for="htmlwidget-f910b9e696e71842bef7">{"x":{"data":[{"orientation":"v","width":[0.25,0.25,0.25],"base":[0,0,0],"x":[0.875,1.875,2.875],"y":[88,6,7],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(180,18,87,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gemeente","legendgroup":"Gemeente","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.25,0.25,0.25],"base":[0,0,0],"x":[1.125,2.125,3.125],"y":[81,9,10],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(26,44,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Regio","legendgroup":"Regio","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.875,1.875,2.875,1.125,2.125,3.125],"y":[93,11,12,86,14,15],"text":["88%","6%","7%","81%","9%","10%"],"hovertext":["","","","","",""],"textfont":{"size":11.338582677165356,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":33.047184170471837,"r":7.3059360730593621,"b":32.389649923896499,"l":10.958904109589042},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["Nederlandse achtergrond","Westerse migratieachtergrond","Niet-westerse migratieachtergrond"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Nederlandse achtergrond","Westerse migratieachtergrond","Niet-westerse migratieachtergrond"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.6500000000000004,97.650000000000006],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50.000000000000007,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":"","orientation":"h","xanchor":"center","x":0.5},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"23f83c9e7bf3":{"x":{},"y":{},"fill":{},"type":"bar"},"23f86d5717d":{"x":{},"y":{},"label":{}}},"cur_data":"23f83c9e7bf3","visdat":{"23f83c9e7bf3":["function (y) ","x"],"23f86d5717d":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="utqboxmiel" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#utqboxmiel table {
+<div id="dswhbhidto" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dswhbhidto table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#utqboxmiel thead, #utqboxmiel tbody, #utqboxmiel tfoot, #utqboxmiel tr, #utqboxmiel td, #utqboxmiel th {
+#dswhbhidto thead, #dswhbhidto tbody, #dswhbhidto tfoot, #dswhbhidto tr, #dswhbhidto td, #dswhbhidto th {
   border-style: none;
 }
 
-#utqboxmiel p {
+#dswhbhidto p {
   margin: 0;
   padding: 0;
 }
 
-#utqboxmiel .gt_table {
+#dswhbhidto .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -383,12 +383,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_caption {
+#dswhbhidto .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#utqboxmiel .gt_title {
+#dswhbhidto .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -400,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#utqboxmiel .gt_subtitle {
+#dswhbhidto .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -412,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#utqboxmiel .gt_heading {
+#dswhbhidto .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -424,13 +424,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_bottom_border {
+#dswhbhidto .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_col_headings {
+#dswhbhidto .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -445,7 +445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_col_heading {
+#dswhbhidto .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -465,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#utqboxmiel .gt_column_spanner_outer {
+#dswhbhidto .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -477,15 +477,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#utqboxmiel .gt_column_spanner_outer:first-child {
+#dswhbhidto .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#utqboxmiel .gt_column_spanner_outer:last-child {
+#dswhbhidto .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#utqboxmiel .gt_column_spanner {
+#dswhbhidto .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -497,11 +497,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#utqboxmiel .gt_spanner_row {
+#dswhbhidto .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#utqboxmiel .gt_group_heading {
+#dswhbhidto .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -527,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#utqboxmiel .gt_empty_group_heading {
+#dswhbhidto .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -542,15 +542,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#utqboxmiel .gt_from_md > :first-child {
+#dswhbhidto .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#utqboxmiel .gt_from_md > :last-child {
+#dswhbhidto .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#utqboxmiel .gt_row {
+#dswhbhidto .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#utqboxmiel .gt_stub {
+#dswhbhidto .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -582,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#utqboxmiel .gt_stub_row_group {
+#dswhbhidto .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -596,15 +596,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#utqboxmiel .gt_row_group_first td {
+#dswhbhidto .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#utqboxmiel .gt_row_group_first th {
+#dswhbhidto .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#utqboxmiel .gt_summary_row {
+#dswhbhidto .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -614,16 +614,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#utqboxmiel .gt_first_summary_row {
+#dswhbhidto .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_first_summary_row.thick {
+#dswhbhidto .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#utqboxmiel .gt_last_summary_row {
+#dswhbhidto .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -633,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_grand_summary_row {
+#dswhbhidto .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -643,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#utqboxmiel .gt_first_grand_summary_row {
+#dswhbhidto .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -653,7 +653,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_last_grand_summary_row_top {
+#dswhbhidto .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -663,11 +663,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_striped {
+#dswhbhidto .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#utqboxmiel .gt_table_body {
+#dswhbhidto .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -676,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_footnotes {
+#dswhbhidto .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -690,7 +690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_footnote {
+#dswhbhidto .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -699,7 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#utqboxmiel .gt_sourcenotes {
+#dswhbhidto .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -713,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#utqboxmiel .gt_sourcenote {
+#dswhbhidto .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -721,72 +721,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#utqboxmiel .gt_left {
+#dswhbhidto .gt_left {
   text-align: left;
 }
 
-#utqboxmiel .gt_center {
+#dswhbhidto .gt_center {
   text-align: center;
 }
 
-#utqboxmiel .gt_right {
+#dswhbhidto .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#utqboxmiel .gt_font_normal {
+#dswhbhidto .gt_font_normal {
   font-weight: normal;
 }
 
-#utqboxmiel .gt_font_bold {
+#dswhbhidto .gt_font_bold {
   font-weight: bold;
 }
 
-#utqboxmiel .gt_font_italic {
+#dswhbhidto .gt_font_italic {
   font-style: italic;
 }
 
-#utqboxmiel .gt_super {
+#dswhbhidto .gt_super {
   font-size: 65%;
 }
 
-#utqboxmiel .gt_footnote_marks {
+#dswhbhidto .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#utqboxmiel .gt_asterisk {
+#dswhbhidto .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#utqboxmiel .gt_indent_1 {
+#dswhbhidto .gt_indent_1 {
   text-indent: 5px;
 }
 
-#utqboxmiel .gt_indent_2 {
+#dswhbhidto .gt_indent_2 {
   text-indent: 10px;
 }
 
-#utqboxmiel .gt_indent_3 {
+#dswhbhidto .gt_indent_3 {
   text-indent: 15px;
 }
 
-#utqboxmiel .gt_indent_4 {
+#dswhbhidto .gt_indent_4 {
   text-indent: 20px;
 }
 
-#utqboxmiel .gt_indent_5 {
+#dswhbhidto .gt_indent_5 {
   text-indent: 25px;
 }
 
-#utqboxmiel .katex-display {
+#dswhbhidto .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#utqboxmiel div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dswhbhidto div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -926,31 +926,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-3041f4514d99827d84dd" style="width:100%;height:371px;"></div>
-<script type="application/json" data-for="htmlwidget-3041f4514d99827d84dd">{"x":{"data":[{"x":[1,7,32,48,19,4,1],"y":[7.2000000000000002,6.2000000000000002,5.2000000000000002,4.2000000000000002,3.2000000000000002,2.2000000000000002,1.2],"text":["0%","5%","30%","46%","17%","2%","0%"],"hovertext":["","","","","","",""],"textfont":{"size":9.4488188976377963,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Gemeente","legendgroup":"Gemeente","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,8,26,44,25,7,1],"y":[6.7999999999999998,5.7999999999999998,4.7999999999999998,3.7999999999999998,2.7999999999999998,1.8,0.80000000000000004],"text":["0%","6%","24%","42%","23%","5%","0%"],"hovertext":["","","","","","",""],"textfont":{"size":9.4488188976377963,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Nederland","legendgroup":"Nederland","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.39999999999999991],"base":[0,0,0,0,0,0,0],"x":[0,5,30,46,17,2,0],"y":[7.2000000000000002,6.2000000000000002,5.2000000000000002,4.2000000000000002,3.2000000000000002,2.2000000000000002,1.2],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(180,18,87,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gemeente","legendgroup":"Gemeente","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.39999999999999991,0.39999999999999991],"base":[0,0,0,0,0,0,0],"x":[0,6,24,42,23,5,0],"y":[6.7999999999999998,5.7999999999999998,4.7999999999999998,3.7999999999999998,2.7999999999999998,1.8,0.80000000000000004],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(26,44,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Nederland","legendgroup":"Nederland","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":28.785388127853885,"r":7.3059360730593621,"b":16.438356164383563,"l":104.47488584474888},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4000000000000004,50.399999999999999],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,7.5999999999999996],"tickmode":"array","ticktext":["45 jaar of ouder","40 tot 45 jaar","35 tot 40 jaar","30 tot 35 jaar","25 tot 30 jaar","20 tot 25 jaar","Jonger dan 20"],"tickvals":[1,2,3,4.0000000000000009,5,6,7],"categoryorder":"array","categoryarray":["45 jaar of ouder","40 tot 45 jaar","35 tot 40 jaar","30 tot 35 jaar","25 tot 30 jaar","20 tot 25 jaar","Jonger dan 20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716894984},"title":"","orientation":"h","xanchor":"center","x":0.5},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"2a8448b557b":{"x":{},"y":{},"fill":{},"type":"bar"},"2a846ee9410f":{"x":{},"y":{},"fill":{},"label":{}}},"cur_data":"2a8448b557b","visdat":{"2a8448b557b":["function (y) ","x"],"2a846ee9410f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-92a1625d6341f2281272" style="width:100%;height:371px;"></div>
+<script type="application/json" data-for="htmlwidget-92a1625d6341f2281272">{"x":{"data":[{"x":[1,7,32,48,19,4,1],"y":[7.2000000000000002,6.2000000000000002,5.2000000000000002,4.2000000000000002,3.2000000000000002,2.2000000000000002,1.2],"text":["0%","5%","30%","46%","17%","2%","0%"],"hovertext":["","","","","","",""],"textfont":{"size":9.4488188976377963,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Gemeente","legendgroup":"Gemeente","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,8,26,44,25,7,1],"y":[6.7999999999999998,5.7999999999999998,4.7999999999999998,3.7999999999999998,2.7999999999999998,1.8,0.80000000000000004],"text":["0%","6%","24%","42%","23%","5%","0%"],"hovertext":["","","","","","",""],"textfont":{"size":9.4488188976377963,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","name":"Nederland","legendgroup":"Nederland","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.39999999999999991],"base":[0,0,0,0,0,0,0],"x":[0,5,30,46,17,2,0],"y":[7.2000000000000002,6.2000000000000002,5.2000000000000002,4.2000000000000002,3.2000000000000002,2.2000000000000002,1.2],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(180,18,87,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gemeente","legendgroup":"Gemeente","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.40000000000000036,0.39999999999999991,0.39999999999999991],"base":[0,0,0,0,0,0,0],"x":[0,6,24,42,23,5,0],"y":[6.7999999999999998,5.7999999999999998,4.7999999999999998,3.7999999999999998,2.7999999999999998,1.8,0.80000000000000004],"text":"","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(26,44,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Nederland","legendgroup":"Nederland","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":28.785388127853885,"r":7.3059360730593621,"b":16.438356164383563,"l":104.47488584474888},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.4000000000000004,50.399999999999999],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,7.5999999999999996],"tickmode":"array","ticktext":["45 jaar of ouder","40 tot 45 jaar","35 tot 40 jaar","30 tot 35 jaar","25 tot 30 jaar","20 tot 25 jaar","Jonger dan 20"],"tickvals":[1,2,3,4.0000000000000009,5,6,7],"categoryorder":"array","categoryarray":["45 jaar of ouder","40 tot 45 jaar","35 tot 40 jaar","30 tot 35 jaar","25 tot 30 jaar","20 tot 25 jaar","Jonger dan 20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f","fixedrange":true},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716894984},"title":"","orientation":"h","xanchor":"center","x":0.5},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"source":"A","attrs":{"23f83e2a6635":{"x":{},"y":{},"fill":{},"type":"bar"},"23f835417105":{"x":{},"y":{},"fill":{},"label":{}}},"cur_data":"23f83e2a6635","visdat":{"23f83e2a6635":["function (y) ","x"],"23f835417105":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fgjehonmhk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fgjehonmhk table {
+<div id="lkyqoykypy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lkyqoykypy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fgjehonmhk thead, #fgjehonmhk tbody, #fgjehonmhk tfoot, #fgjehonmhk tr, #fgjehonmhk td, #fgjehonmhk th {
+#lkyqoykypy thead, #lkyqoykypy tbody, #lkyqoykypy tfoot, #lkyqoykypy tr, #lkyqoykypy td, #lkyqoykypy th {
   border-style: none;
 }
 
-#fgjehonmhk p {
+#lkyqoykypy p {
   margin: 0;
   padding: 0;
 }
 
-#fgjehonmhk .gt_table {
+#lkyqoykypy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -976,12 +976,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_caption {
+#lkyqoykypy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fgjehonmhk .gt_title {
+#lkyqoykypy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -993,7 +993,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#fgjehonmhk .gt_subtitle {
+#lkyqoykypy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1005,7 +1005,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#fgjehonmhk .gt_heading {
+#lkyqoykypy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1017,13 +1017,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_bottom_border {
+#lkyqoykypy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_col_headings {
+#lkyqoykypy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1038,7 +1038,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_col_heading {
+#lkyqoykypy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1058,7 +1058,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#fgjehonmhk .gt_column_spanner_outer {
+#lkyqoykypy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1070,15 +1070,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#fgjehonmhk .gt_column_spanner_outer:first-child {
+#lkyqoykypy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fgjehonmhk .gt_column_spanner_outer:last-child {
+#lkyqoykypy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fgjehonmhk .gt_column_spanner {
+#lkyqoykypy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1090,11 +1090,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#fgjehonmhk .gt_spanner_row {
+#lkyqoykypy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fgjehonmhk .gt_group_heading {
+#lkyqoykypy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1120,7 +1120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#fgjehonmhk .gt_empty_group_heading {
+#lkyqoykypy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1135,15 +1135,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#fgjehonmhk .gt_from_md > :first-child {
+#lkyqoykypy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fgjehonmhk .gt_from_md > :last-child {
+#lkyqoykypy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fgjehonmhk .gt_row {
+#lkyqoykypy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1162,7 +1162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#fgjehonmhk .gt_stub {
+#lkyqoykypy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1175,7 +1175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fgjehonmhk .gt_stub_row_group {
+#lkyqoykypy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1189,15 +1189,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#fgjehonmhk .gt_row_group_first td {
+#lkyqoykypy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fgjehonmhk .gt_row_group_first th {
+#lkyqoykypy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fgjehonmhk .gt_summary_row {
+#lkyqoykypy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1207,16 +1207,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fgjehonmhk .gt_first_summary_row {
+#lkyqoykypy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_first_summary_row.thick {
+#lkyqoykypy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fgjehonmhk .gt_last_summary_row {
+#lkyqoykypy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1226,7 +1226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_grand_summary_row {
+#lkyqoykypy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1236,7 +1236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fgjehonmhk .gt_first_grand_summary_row {
+#lkyqoykypy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1246,7 +1246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_last_grand_summary_row_top {
+#lkyqoykypy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1256,11 +1256,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_striped {
+#lkyqoykypy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fgjehonmhk .gt_table_body {
+#lkyqoykypy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1269,7 +1269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_footnotes {
+#lkyqoykypy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1283,7 +1283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_footnote {
+#lkyqoykypy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1292,7 +1292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fgjehonmhk .gt_sourcenotes {
+#lkyqoykypy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1306,7 +1306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#fgjehonmhk .gt_sourcenote {
+#lkyqoykypy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1314,72 +1314,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#fgjehonmhk .gt_left {
+#lkyqoykypy .gt_left {
   text-align: left;
 }
 
-#fgjehonmhk .gt_center {
+#lkyqoykypy .gt_center {
   text-align: center;
 }
 
-#fgjehonmhk .gt_right {
+#lkyqoykypy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fgjehonmhk .gt_font_normal {
+#lkyqoykypy .gt_font_normal {
   font-weight: normal;
 }
 
-#fgjehonmhk .gt_font_bold {
+#lkyqoykypy .gt_font_bold {
   font-weight: bold;
 }
 
-#fgjehonmhk .gt_font_italic {
+#lkyqoykypy .gt_font_italic {
   font-style: italic;
 }
 
-#fgjehonmhk .gt_super {
+#lkyqoykypy .gt_super {
   font-size: 65%;
 }
 
-#fgjehonmhk .gt_footnote_marks {
+#lkyqoykypy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fgjehonmhk .gt_asterisk {
+#lkyqoykypy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fgjehonmhk .gt_indent_1 {
+#lkyqoykypy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fgjehonmhk .gt_indent_2 {
+#lkyqoykypy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fgjehonmhk .gt_indent_3 {
+#lkyqoykypy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fgjehonmhk .gt_indent_4 {
+#lkyqoykypy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fgjehonmhk .gt_indent_5 {
+#lkyqoykypy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fgjehonmhk .katex-display {
+#lkyqoykypy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fgjehonmhk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lkyqoykypy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1569,18 +1569,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1612,7 +1601,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1620,7 +1631,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
