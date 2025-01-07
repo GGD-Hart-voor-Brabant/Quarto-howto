@@ -23,6 +23,25 @@ number-depth: 0
 
 In de layout parameter is 1 rij gedefinieerd door het gebruik van 1 keer de blokhaken. De eerste kolom is 10%, de tweede kolom is 90%.
 
+## SVG grootte inperken
+
+Het kan zijn dat bij het verkleinen van het scherm de svg-afbeelding zich niet houdt aan de breedte die hij heeft gekregen via de layout parameter, maar dat hij getoond wordt met de breedte van de svg-afbeelding zelf. Een mogelijke oplossing hiervoor is om de flex-direction parameter aan te passen: 
+
+```{{css}}
+.quarto-layout-row {
+  flex-direction: row;
+}
+```
+
+Mocht de svg-afbeelding zich ook op normaal scherm zich niet aan de toegewezen kolombreedte houden, dan is dat mogelijk op te lossen met de volgende css code:
+
+```{{css}}
+img, svg {
+  height: 100%;
+  width: 100%;
+}
+```
+
 ## Vaststaande tekst met opmaak
 
 Mocht je de percentages opvallender willen maken door middel van kleuren, dan kan dat door de Quarto Markdown voor een span te gebruiken: `[]{}`.
