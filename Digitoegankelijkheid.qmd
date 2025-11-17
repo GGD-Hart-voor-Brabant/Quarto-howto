@@ -26,7 +26,7 @@ Onder robuustheid wordt verstaan dat een website of app door veel verschillende 
 Quarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over [Technieken](Technieken.qmd). 
 
 * Maak gebruik van hashtags voor het aangeven van een [titel en subtitels](Markdown.qmd#titels). Sla hierin geen niveaus over.
-* Geef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is. 
+* Geef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is. Dit kan in de vorm van `figure-alt=""`  
 * Zorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.
 * Maak voor het [maken van tabellen](Markdown.qmd#tabellen) gebruik van de [gt package](https://gt.rstudio.com/) en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.
 * Check dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de [Tanaguru contrast-finder](https://contrast-finder.tanaguru.com/). Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in [het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid](https://kennisbank.digitoegankelijk.nl/voldoende-contrast-van-tekst/).
