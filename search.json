@@ -10,6 +10,56 @@
     ]
   },
   {
+    "objectID": "Technieken.html",
+    "href": "Technieken.html",
+    "title": "Technieken",
+    "section": "",
+    "text": "Quarto\nQuarto is een ‘publishing system’ waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop.\nOm de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#markdown",
+    "href": "Technieken.html#markdown",
+    "title": "Technieken",
+    "section": "Markdown",
+    "text": "Markdown\nMarkdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document ‘rendert’, worden de Markdown secties omgezet in html tags.\nJe kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals **tekst**. Dit maakt tekst dikgedrukt.\nDe lijst met Markdown basics die werken in Quarto is hier te vinden.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#html",
+    "href": "Technieken.html#html",
+    "title": "Technieken",
+    "section": "HTML",
+    "text": "HTML\nHTML is de taal van internetpagina’s. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten ‘tags’, keywords omgeven door “&lt;&gt;”. Interessant voor ons zijn in ieder geval &lt;div&gt; en &lt;span&gt;. Bijna alle tags moeten ook weer gesloten worden, door middel van &lt;/&gt;. Voor div wordt het dan &lt;div&gt;&lt;/div&gt; en voor &lt;span&gt; wordt het &lt;span&gt;&lt;/span&gt;. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags.\nW3Schools bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#css",
+    "href": "Technieken.html#css",
+    "title": "Technieken",
+    "section": "CSS",
+    "text": "CSS\nCSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een ‘class’ of ‘id’ mee te geven en vervolgens in de css te specificeren hoe elementen van zo’n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
+    "objectID": "Technieken.html#javascript",
+    "href": "Technieken.html#javascript",
+    "title": "Technieken",
+    "section": "Javascript",
+    "text": "Javascript\nJavascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.",
+    "crumbs": [
+      "Technieken"
+    ]
+  },
+  {
     "objectID": "Quarto.html",
     "href": "Quarto.html",
     "title": "Quarto openen",
@@ -91,7 +141,7 @@
     "href": "Markdown.html",
     "title": "Markdown",
     "section": "",
-    "text": "Titels\nHTML ondersteunt het maken van 6 niveaus aan titels. Het hoogste niveau aan titel, met default ook het grootste lettertype, is h1. De kleinste titel is h6. Binnen Markdown maak je een titel van niveau 1 door 1 hashtag te typen, gevolgd door een spatie en dan de tekst die je als titel wilt. Voor een titel van niveau 2 typ je 2 hashtags achter elkaar, voor niveau 3 gebruik je 3 hashtags, etc.\nTitels die je maakt door middel van hashtags verschijnen ook in de inhoudsopgave, als je deze aan hebt gezet in de YAML. Bij een toc-depth van 1 worden alleen titels van niveau 1 getoond. Bij een toc-depth van 3 worden titels van niveau 1 t/m 3 getoond in de inhoudsopgave, etc.",
+    "text": "Titels\nOnder de YAML kun je verder met Markdown en/of codeblokken. Markdown gebruik je voor het maken van - eventueel opgemaakte - titels en stukken tekst, het invoegen van plaatjes en links, en voor het opdelen van tekst naar kolommen.\nHTML ondersteunt het maken van 6 niveaus aan titels. Het hoogste niveau aan titel, met default ook het grootste lettertype, is h1. De kleinste titel is h6. Binnen Markdown maak je een titel van niveau 1 door 1 hashtag te typen, gevolgd door een spatie en dan de tekst die je als titel wilt. Voor een titel van niveau 2 typ je 2 hashtags achter elkaar, voor niveau 3 gebruik je 3 hashtags, etc.\nTitels die je maakt door middel van hashtags verschijnen ook in de inhoudsopgave, als je deze aan hebt gezet in de YAML. Bij een toc-depth van 1 worden alleen titels van niveau 1 getoond. Bij een toc-depth van 3 worden titels van niveau 1 t/m 3 getoond in de inhoudsopgave, etc.",
     "crumbs": [
       "Technieken",
       "Markdown"
@@ -179,7 +229,7 @@
     "href": "Markdown.html#kolommen",
     "title": "Markdown",
     "section": "Kolommen",
-    "text": "Kolommen\nKolommen maak je aan door middel van divs, die je een bepaalde parameter meegeeft. Er zijn een twee opties qua parameter. Je kunt het aantal kolommen opgeven met {layout-ncol=\"3\"}, dit geeft 3 kolommen van gelijke grootte.\n::: {layout-ncol=\"3\"}\nLinkerkolom\n\nMidden\n\nRechterkolom\n:::\ngeeft\n\n\n\n\n\n\nLinkerkolom\n\n\nMidden\n\n\nRechterkolom\n\n\n\nJe kunt ook gebruik maken van de layout parameter. Dit geeft je veel flexibiliteit qua kolombreedtes en maakt het mogelijk om per rij een verschillend aantal kolommen te hebben. Als je 1 rij wilt, maar je gebruik van {layout=[]}, waarbij tussen de blokhaken de percentages staan die elke kolom qua breedte in moet nemen. Wil je twee rijen, dan gebruik je twee keer [], gescheiden door een komma. Deze twee blokhaken omvat je ook weer door blokhaken. Het wordt dan layout=\"[[],[]]. Je kunt ook lege kolommen of lege rijen invoegen door middel van negatieve cijfers.\n:::: {layout=\"[[10, 20, -10, 30, 30],[-100], [10, 90]]\"}\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n::::\ngeeft\n\n\n\n\n\n\n1\n\n\n2\n\n\n \n\n\n3\n\n\n4\n\n\n\n\n \n\n\n\n\n5\n\n\n6",
+    "text": "Kolommen\nKolommen maak je aan door middel van divs, die je een bepaalde parameter meegeeft. Er zijn een twee opties qua parameter. Je kunt het aantal kolommen opgeven met {layout-ncol=\"3\"}, dit geeft 3 kolommen van gelijke grootte.\n::: {layout-ncol=\"3\"}\nLinkerkolom\n\nMidden\n\nRechterkolom\n:::\ngeeft\n\n\n\nLinkerkolom\n\n\nMidden\n\n\nRechterkolom\n\n\n\nJe kunt ook gebruik maken van de layout parameter. Dit geeft je veel flexibiliteit qua kolombreedtes en maakt het mogelijk om per rij een verschillend aantal kolommen te hebben. Als je 1 rij wilt, maar je gebruik van {layout=[]}, waarbij tussen de blokhaken de percentages staan die elke kolom qua breedte in moet nemen. Wil je twee rijen, dan gebruik je twee keer [], gescheiden door een komma. Deze twee blokhaken omvat je ook weer door blokhaken. Het wordt dan layout=\"[[],[]]. Je kunt ook lege kolommen of lege rijen invoegen door middel van negatieve cijfers.\n:::: {layout=\"[[10, 20, -10, 30, 30],[-100], [10, 90]]\"}\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n::::\ngeeft\n\n\n\n1\n\n\n2\n\n\n \n\n\n3\n\n\n4\n\n\n\n\n \n\n\n\n\n5\n\n\n6",
     "crumbs": [
       "Technieken",
       "Markdown"
@@ -212,7 +262,7 @@
     "href": "Codeblokken.html",
     "title": "Codeblokken",
     "section": "",
-    "text": "Codeblokken openen en sluiten\nEen codeblok start je met 3 backticks. De backtick is het teken links bovenaan op het toetsenbord, links van de 1. Vervolgens typ je de naam van de programmeertaal die je wilt gebruiken tussen 2 accolades. Het codeblok sluit je door 3 backticks op een nieuwe regel.",
+    "text": "Codeblokken openen en sluiten\nIn een Quarto document kun je stukken Markdown en stukken code met elkaar afwisselen. Deze codeblokken hoeven niet per se in R geschreven te zijn, je kunt bijvoorbeeld ook Python of Javascript code opnemen.\nEen codeblok start je met 3 backticks. De backtick is het teken links bovenaan op het toetsenbord, links van de 1. Vervolgens typ je de naam van de programmeertaal die je wilt gebruiken tussen 2 accolades. Het codeblok sluit je door 3 backticks op een nieuwe regel.",
     "crumbs": [
       "Technieken",
       "Codeblokken"
@@ -245,7 +295,7 @@
     "href": "HTML.html",
     "title": "HTML en CSS",
     "section": "",
-    "text": "HTML\nHTML is de taal waarmee de structuur van webpagina’s weergeven wordt. Het maakt gebruik van tags, zoals &lt;h1&gt; en &lt;div&gt;. Deze komen doorgaans gepaard voor, een openingstag &lt;&gt; en een sluitende tag &lt;/&gt;. Een titel wordt dan bijvoorbeeld opgegeven als &lt;h1&gt;Dit is mijn titel&lt;/h1&gt;.\nIedere webpagina heeft minimaal onderstaande opbouw:\nEen html-pagina start met &lt;html&gt; en eindigt met &lt;/html&gt;. Daartussen zitten twee secties: de head en de body. De head-sectie bevat meta-informatie over de pagina en is voor ons doeleinde niet relevant. De body bevat het deel van de webpagina dat zichtbaar is voor degene die de pagina bezoekt. Als je in een Quarto document titels, tekst en plaatjes toevoegt, dan worden deze in de body van de html pagina gezet. Je hoeft de html code dus niet zelf te schrijven.\nJe kunt van elke webpagina die je bezoekt ook de onderliggende html-code bekijken. Dit kan door F12 in te toetsen of door met de rechtermuisknop op een plek te klikken en dan in het pop-up menu onderaan “Inspecteren” te kiezen. Dit opent de developer tools.\nRechts bovenaan staat de html code van de webpagina. Als je de rechtermuisknop + Inspecteren hebt gebruikt, dan wordt het element waarop je hebt geklikt gemarkeerd. Zo kun je makkelijk dat specifieke element terugvinden.\nVoor sommige tags staat een driehoekje. Dit zijn html tags waarbinnen andere html tags zijn geplaatst. Door op het driehoekje te klikken worden onderliggende tags getoond of verborgen. Binnen sommige tags staat een ellips met 3 puntjes. Ook hier kun je op klikken om de onderliggende inhoud zichtbaar te maken.",
+    "text": "HTML\nOm je Quarto documenten mooi op te kunnen maken, is het nodig om kennis te hebben van HTML en CSS.\nHTML is de taal waarmee de structuur van webpagina’s weergeven wordt. Het maakt gebruik van tags, zoals &lt;h1&gt; en &lt;div&gt;. Deze komen doorgaans gepaard voor, een openingstag &lt;&gt; en een sluitende tag &lt;/&gt;. Een titel wordt dan bijvoorbeeld opgegeven als &lt;h1&gt;Dit is mijn titel&lt;/h1&gt;.\nIedere webpagina heeft minimaal onderstaande opbouw:\nEen html-pagina start met &lt;html&gt; en eindigt met &lt;/html&gt;. Daartussen zitten twee secties: de head en de body. De head-sectie bevat meta-informatie over de pagina en is voor ons doeleinde niet relevant. De body bevat het deel van de webpagina dat zichtbaar is voor degene die de pagina bezoekt. Als je in een Quarto document titels, tekst en plaatjes toevoegt, dan worden deze in de body van de html pagina gezet. Je hoeft de html code dus niet zelf te schrijven.\nJe kunt van elke webpagina die je bezoekt ook de onderliggende html-code bekijken. Dit kan door F12 in te toetsen of door met de rechtermuisknop op een plek te klikken en dan in het pop-up menu onderaan “Inspecteren” te kiezen. Dit opent de developer tools.\nRechts bovenaan staat de html code van de webpagina. Als je de rechtermuisknop + Inspecteren hebt gebruikt, dan wordt het element waarop je hebt geklikt gemarkeerd. Zo kun je makkelijk dat specifieke element terugvinden.\nVoor sommige tags staat een driehoekje. Dit zijn html tags waarbinnen andere html tags zijn geplaatst. Door op het driehoekje te klikken worden onderliggende tags getoond of verborgen. Binnen sommige tags staat een ellips met 3 puntjes. Ook hier kun je op klikken om de onderliggende inhoud zichtbaar te maken.",
     "crumbs": [
       "Technieken",
       "HTML en CSS"
@@ -289,7 +339,7 @@
     "href": "Javascript.html",
     "title": "Javascript",
     "section": "",
-    "text": "Links altijd in nieuw tabblad\nEen van de dingen die je mogelijk wilt implementeren, is niet meer bij elke Quarto Markdown link handmatig de target=\"_blank\" toe te moeten voegen: [Link naar de GGD](http://www.ggdhvb.nl){target=\"_blank\"}. Het onderstaande codeblok bevat Javascript die alle links in een Quarto HTML document target\"=_blank\" meegeeft, maar de links voor hoofdstukken in de inhoudsopgave ongemoeid laat.",
+    "text": "Links altijd in nieuw tabblad\nWaar R een programmeertaal is voor het doen van statistische analyses, is Javascript een programmeertaal waarmee webpagina’s dynamisch worden gemaakt. HTML is dus voor de structuur, CSS voor de opmaak en Javascript voor interactiviteit. Quarto neemt een heel groot deel van de benodigde Javascript-kennis al voor ons weg. Maar soms wil een mens graag iets extra’s toevoegen. Het toevoegen van Javascript kan met een &lt;script&gt; tag.\nEen van de dingen die je mogelijk wilt implementeren, is niet meer bij elke Quarto Markdown link handmatig de target=\"_blank\" toe te moeten voegen: [Link naar de GGD](http://www.ggdhvb.nl){target=\"_blank\"}. Het onderstaande codeblok bevat Javascript die alle links in een Quarto HTML document target\"=_blank\" meegeeft, maar de links voor hoofdstukken in de inhoudsopgave ongemoeid laat.",
     "crumbs": [
       "Technieken",
       "Javascript"
@@ -311,7 +361,7 @@
     "href": "R.html",
     "title": "Handige links voor R",
     "section": "",
-    "text": "Algemeen",
+    "text": "Algemeen\nDeze handleiding is gericht op de uitleg van Quarto en zal daarom geen uitgebreide uitleg van R bevatten. Wel staan hieronder links naar informatie op het internet die mogelijk kan helpen bij het vullen van de R codeblokken in Markdown.",
     "crumbs": [
       "Technieken",
       "Handige links voor R"
@@ -366,7 +416,7 @@
     "href": "Digitoegankelijkheid.html",
     "title": "Digitoegankelijkheid",
     "section": "",
-    "text": "Principes\nDigitoegankelijkheid draait om vier principes: waarneembaarheid, bedienbaarheid, begrijpelijkheid en robuustheid.\nOnder waarneembaarheid wordt verstaan dat alles op een website of app voor iedereen waarneembaar moet zijn. Een criterium onder dit principe is bijvoorbeeld dat afbeeldingen op een website worden voorzien van een alternatieve tekst. Iemand die de afbeelding niet kan zien, weet dan toch waar de afbeelding over gaat.\nOnder bedienbaarheid wordt verstaan dat een website of app door iedereen te bedienen moet zijn. Een navigatiemenu moet bijvoorbeeld niet alleen met een muis, maar ook met het toetsenbord bereikbaar zijn.\nOnder begrijpelijkheid wordt verstaan dat een website of app begrijpelijk moet zijn voor zowel software als mensen. Hulptechnologie zoals een schermlezer kan de tekst dan op de juiste manier voorlezen. Voor mensen moet het bijvoorbeeld duidelijk zijn waar de fout zit als een formulier niet goed is ingevuld.\nOnder robuustheid wordt verstaan dat een website of app door veel verschillende apparaten en hulptechnologie gebruikt moet kunnen worden. Een voorbeeld van een criterium onder dit principe is dat je voor elementen op een website of app aangeeft wat hun naam, rol en waarde is.",
+    "text": "Principes\nDigitoegankelijkheid is een set van voorwaarden waar een digitaal product aan moet voldoen zodat ook mensen met een beperking er gebruik van kunnen maken. Overheidsorganisaties zijn verplicht hieraan te voldoen vanuit de Wet digitale overheid (Wdo). Het ministerie van Binnenlandse Zaken en Koninkrijkrelaties heeft een website waar veel informatie over digitoegankelijkheid is terug te vinden. Onderdeel daarvan praktische toegankelijkheidstips en een kennisbank.\nEen andere, Engelse, bron met duidelijk overzicht waar te beginnen is documentatie van Mozilla over toegankelijkheid. Ook een fijne bron is de Accessibility tutorial van W3schools.\nDe Web Content Accessibility Guidelines (WCAG) is de internationale standaard voor digitale toegankelijkheid. Het bevat 3 niveaus: A, AA en AAA. De succescriteria van niveau A vormen de absolute basis voor toegankelijkheid. Voor overheidsorganisaties zijn de succescriteria van niveau A en AA verplicht. Bij elkaar gaat het om 50 criteria. De lijst met succescriteria is hier te vinden.\nDigitoegankelijkheid draait om vier principes: waarneembaarheid, bedienbaarheid, begrijpelijkheid en robuustheid.\nOnder waarneembaarheid wordt verstaan dat alles op een website of app voor iedereen waarneembaar moet zijn. Een criterium onder dit principe is bijvoorbeeld dat afbeeldingen op een website worden voorzien van een alternatieve tekst. Iemand die de afbeelding niet kan zien, weet dan toch waar de afbeelding over gaat.\nOnder bedienbaarheid wordt verstaan dat een website of app door iedereen te bedienen moet zijn. Een navigatiemenu moet bijvoorbeeld niet alleen met een muis, maar ook met het toetsenbord bereikbaar zijn.\nOnder begrijpelijkheid wordt verstaan dat een website of app begrijpelijk moet zijn voor zowel software als mensen. Hulptechnologie zoals een schermlezer kan de tekst dan op de juiste manier voorlezen. Voor mensen moet het bijvoorbeeld duidelijk zijn waar de fout zit als een formulier niet goed is ingevuld.\nOnder robuustheid wordt verstaan dat een website of app door veel verschillende apparaten en hulptechnologie gebruikt moet kunnen worden. Een voorbeeld van een criterium onder dit principe is dat je voor elementen op een website of app aangeeft wat hun naam, rol en waarde is.",
     "crumbs": [
       "Digitoegankelijkheid"
     ]
@@ -376,9 +426,19 @@
     "href": "Digitoegankelijkheid.html#aandachtspunten-voor-de-bouwer",
     "title": "Digitoegankelijkheid",
     "section": "Aandachtspunten voor de bouwer",
-    "text": "Aandachtspunten voor de bouwer\nQuarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over Technieken.\n\nMaak gebruik van hashtags voor het aangeven van een titel en subtitels. Sla hierin geen niveaus over.\nGeef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is.\nZorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.\nMaak voor het maken van tabellen gebruik van de gt package en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.\nCheck dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de Tanaguru contrast-finder. Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid.\nGebruik een omschrijvende link-tekst als je links onder tekst opneemt. Teksten als “Lees verder” of “Klik hier” geven te weinig context.\n\nMogelijk moet deze lijst worden uitgebreid. We leren zelf ook nog steeds bij.",
+    "text": "Aandachtspunten voor de bouwer\nQuarto neemt een deel van de zorgen over het digitoegankelijk maken van een document weg. Op het moment dat jij in de YAML aangeeft dat je een inhoudsopgave wilt opnemen, dan zorgt Quarto voor de juiste informatie in het uiteindelijke HTML bestand dat de inhoudsopgave bedienbaar, begrijpelijk en robuust maakt. Er blijven echter punten waar je als bouwer zelf voor moet zorgen. Sommige van deze punten zijn al voorbij gekomen in het hoofdstuk over Technieken.\n\nMaak gebruik van hashtags voor het aangeven van een titel en subtitels. Sla hierin geen niveaus over.\nGeef alternatieve tekst op bij afbeeldingen, mits de afbeelding informatief en niet alleen decoratief is. Dit kan in de vorm van figure-alt=\"\"\n\nZorg dat informatie uit grafieken ook op een andere manier beschikbaar is, zoals in een tabel.\nMaak voor het maken van tabellen gebruik van de gt package en niet van basis Markdown code. De gt package zorgt voor betere digitoegankelijkheid.\nCheck dat het contrast van tekstkleur en achtergrondkleur voldoende is. Dit kan bijvoorbeeld met de Tanaguru contrast-finder. Tekst kleiner dan 18pt (24px) moet een kleurcontrast hebben van minimaal 1 op 4.5. Voor grotere tekst is een contrast van 1 op 3.0 voldoende. Meer informatie is te vinden in het artikel over kleurcontrast in de Kennisbank Digitoegankelijkheid.\nGebruik een omschrijvende link-tekst als je links onder tekst opneemt. Teksten als “Lees verder” of “Klik hier” geven te weinig context.\n\nMogelijk moet deze lijst worden uitgebreid. We leren zelf ook nog steeds bij.",
     "crumbs": [
       "Digitoegankelijkheid"
+    ]
+  },
+  {
+    "objectID": "Code snippets.html",
+    "href": "Code snippets.html",
+    "title": "Code snippets",
+    "section": "",
+    "text": "In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.",
+    "crumbs": [
+      "Code snippets"
     ]
   },
   {
@@ -404,11 +464,22 @@
     ]
   },
   {
+    "objectID": "Icoon_met_tekst.html#svg-grootte-inperken",
+    "href": "Icoon_met_tekst.html#svg-grootte-inperken",
+    "title": "Icoon met tekst",
+    "section": "SVG grootte inperken",
+    "text": "SVG grootte inperken\nHet kan zijn dat bij het verkleinen van het scherm de svg-afbeelding zich niet houdt aan de breedte die hij heeft gekregen via de layout parameter, maar dat hij getoond wordt met de breedte van de svg-afbeelding zelf. Een mogelijke oplossing hiervoor is om de flex-direction parameter aan te passen:\n```{css}\n.quarto-layout-row {\n  flex-direction: row;\n}\n```\nMocht de svg-afbeelding zich ook op normaal scherm zich niet aan de toegewezen kolombreedte houden, dan is dat mogelijk op te lossen met de volgende css code:\n```{css}\nimg, svg {\n  height: 100%;\n  width: 100%;\n}\n```",
+    "crumbs": [
+      "Code snippets",
+      "Icoon met tekst"
+    ]
+  },
+  {
     "objectID": "Icoon_met_tekst.html#vaststaande-tekst-met-opmaak",
     "href": "Icoon_met_tekst.html#vaststaande-tekst-met-opmaak",
     "title": "Icoon met tekst",
     "section": "Vaststaande tekst met opmaak",
-    "text": "Vaststaande tekst met opmaak\nMocht je de percentages opvallender willen maken door middel van kleuren, dan kan dat door de Quarto Markdown voor een span te gebruiken: []{}.\nDaarnaast kun je extra regels toevoegen door meerdere blokhaken met reeksen toe te voegen en deze te omsluiten door ook weer een set blokhaken. In het voorbeeld hieronder staan drie rijen gedefinieerd. De eerste rij heeft 2 kolommen, een van 10% en een van 90%: [10, 90]. De tweede rij bevat 1 kolom van 100%, het negatieve teken ervoor maakt dat die regel leeg is: [-100]. De derde rij bevat 2 kolommen. De eerste kolom is 10% breed, maar is leeg; de tweede kolom is 90% breed: [-10, 90].\n\n\n\n\n\n\n\n\n\n57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).\n\n\n\n\n \n\n\n\n\n \n\n\n85% van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat 88%.\n\n\n\n::: {layout=\"[[10, 90], [-100], [-10, 90]]\"}\n![](afbeeldingen/trouwringen.svg)\n\n[57%]{style=color:#b41257;font-weight:bold} van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit [56%]{style=color:#b41257;font-weight:bold} (2023).\n\n[85%]{style=color:#b41257;font-weight:bold} van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat [88%]{style=color:#b41257;font-weight:bold}.\n:::\nBinnenin de div - het stuk tussen de reeks van 3 dubbele punten - staan 3 blokjes met tekst en code. Het eerste blokje - de Quarto Markdown code voor de afbeelding - wordt geplaatst bij het eerste positieve element in de layout. Dit is de eerste kolom op de eerste rij, een kolom van 10% breedte. Het tweede blokje - het percentage gehuwde moeders - wordt geplaatst op het tweede positieve layout-element. Dit is de tweede kolom op de eerste rij, een kolom van 90% breed. Het derde blokje - het percentage ouders van wie de kinderen bij vader en moeder woont - wordt op het derde positieve layout-element geplaatst. Dit is de tweede kolom van de derde rij.\nAls je meer blokjes in de div hebt staan dan dat je regels hebt gespecifieerd achter layout, dan worden deze stukjes niet getoond.",
+    "text": "Vaststaande tekst met opmaak\nMocht je de percentages opvallender willen maken door middel van kleuren, dan kan dat door de Quarto Markdown voor een span te gebruiken: []{}.\nDaarnaast kun je extra regels toevoegen door meerdere blokhaken met reeksen toe te voegen en deze te omsluiten door ook weer een set blokhaken. In het voorbeeld hieronder staan drie rijen gedefinieerd. De eerste rij heeft 2 kolommen, een van 10% en een van 90%: [10, 90]. De tweede rij bevat 1 kolom van 100%, het negatieve teken ervoor maakt dat die regel leeg is: [-100]. De derde rij bevat 2 kolommen. De eerste kolom is 10% breed, maar is leeg; de tweede kolom is 90% breed: [-10, 90].\n\n\n\n\n\n\n57% van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit 56% (2023).\n\n\n\n\n \n\n\n\n\n \n\n\n85% van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat 88%.\n\n\n\n::: {layout=\"[[10, 90], [-100], [-10, 90]]\"}\n![](afbeeldingen/trouwringen.svg)\n\n[57%]{style=color:#b41257;font-weight:bold} van de moeders van levend geboren kinderen is gehuwd. In heel Nederland is dit [56%]{style=color:#b41257;font-weight:bold} (2023).\n\n[85%]{style=color:#b41257;font-weight:bold} van de ouders van kinderen tussen 0 en 11 jaar geeft aan dat kind bij vader en moeder woont (2021). In de regio GGD Hart van Brabant is dat [88%]{style=color:#b41257;font-weight:bold}.\n:::\nBinnenin de div - het stuk tussen de reeks van 3 dubbele punten - staan 3 blokjes met tekst en code. Het eerste blokje - de Quarto Markdown code voor de afbeelding - wordt geplaatst bij het eerste positieve element in de layout. Dit is de eerste kolom op de eerste rij, een kolom van 10% breedte. Het tweede blokje - het percentage gehuwde moeders - wordt geplaatst op het tweede positieve layout-element. Dit is de tweede kolom op de eerste rij, een kolom van 90% breed. Het derde blokje - het percentage ouders van wie de kinderen bij vader en moeder woont - wordt op het derde positieve layout-element geplaatst. Dit is de tweede kolom van de derde rij.\nAls je meer blokjes in de div hebt staan dan dat je regels hebt gespecifieerd achter layout, dan worden deze stukjes niet getoond.",
     "crumbs": [
       "Code snippets",
       "Icoon met tekst"
@@ -430,7 +501,7 @@
     "href": "Bol_met_cijfer.html",
     "title": "Bol met cijfer",
     "section": "",
-    "text": "Subfunctie\nDe functie voor het maken van de svg ziet er als volgt uit:\nDe functie heeft 1 vereiste input (getal) en 7 optionele inputs (kleur en regel1 t/m regel6). Als je geen kleur invult, dan is de bol standaard roze. Geef je de kleur-parameter mee in de functie-aanroep met een andere hex-code (bijvoorbeeld bol_met_cijfer &lt;- function(getal = 13, kleur = \"#1A2C54\", regel1 = \"tekst\")), dan krijgt de bol een andere kleur.\nDe functie maakt eerst een deel van de svg code voor de tekst naar de kolom. Alle aangeleverde regels worden in een &lt;tspan&gt;&lt;/tspan&gt; tag gezet. Alle regels behalve de eerste krijgen een x en dy parameter mee, om de regels leesbaar te plaatsen.\nVervolgens wordt de volledige svg code aangemaakt. Door middel van de glue package worden op bepaalde plekken in de code variabelen ingevoegd. Zo wordt bij &lt;circle style=\"fill:{kleur};\" de hex-code van ofwel de default kleur, of de opgegeven kleur ingevuld. Binnen de &lt;text&gt; tags van &lt;g id=\"tekst\"&gt; wordt het eerder gemaakte r-object “tekst” ingevuld. Dit is de opgegeven tekst van regel 1 t/m regel6.",
+    "text": "Subfunctie\nEen simpele manier om een cijfer visueel aantrekkelijker vorm te geven is om deze in een cirkel te plaatsen. Een manier om de browser (en hopelijk ook screenreaders) zo’n getal vloeiend voor te laten lezen met een stuk tekst naast de bol is om gebruik te maken van svg. SVG is een afbeeldingsformaat dat erg lijkt op html. Het maakt gebruik van tags zoals &lt;circle&gt; en &lt;text&gt;.\nDe visualisatie hierboven is gemaakt door middel van een zelfgeschreven R functie. De functie heet ‘bol_met_cijfer’ en wordt als volgt gebruikt in een R codeblok:\nHet r object ‘bol_met_cijfer’ kan vervolgens in het Markdown deel worden gebruikt door r bol_met_getal te typen, omgeven door backticks. Op die manier kun je bijvoorbeeld bollen in kolommen plaatsen. Onderstaande Markdown code maakt een div, genaamd columns, en plaatst in die div nog 2 divs, met de naam column. Dit geeft 1 rij met 2 kolommen. Vervolgens wordt dit nogmaals gedaan, wat weer een rij met 2 kolommen geeft. Een andere oplossing kan zijn om met layout = [[50, 50], [50, 50]] te werken. Zie ook het Markdown hoofstuk.\nDe functie voor het maken van de svg ziet er als volgt uit:\nDe functie heeft 1 vereiste input (getal) en 7 optionele inputs (kleur en regel1 t/m regel6). Als je geen kleur invult, dan is de bol standaard roze. Geef je de kleur-parameter mee in de functie-aanroep met een andere hex-code (bijvoorbeeld bol_met_cijfer &lt;- function(getal = 13, kleur = \"#1A2C54\", regel1 = \"tekst\")), dan krijgt de bol een andere kleur.\nDe functie maakt eerst een deel van de svg code voor de tekst naar de kolom. Alle aangeleverde regels worden in een &lt;tspan&gt;&lt;/tspan&gt; tag gezet. Alle regels behalve de eerste krijgen een x en dy parameter mee, om de regels leesbaar te plaatsen.\nVervolgens wordt de volledige svg code aangemaakt. Door middel van de glue package worden op bepaalde plekken in de code variabelen ingevoegd. Zo wordt bij &lt;circle style=\"fill:{kleur};\" de hex-code van ofwel de default kleur, of de opgegeven kleur ingevuld. Binnen de &lt;text&gt; tags van &lt;g id=\"tekst\"&gt; wordt het eerder gemaakte r-object “tekst” ingevuld. Dit is de opgegeven tekst van regel 1 t/m regel6.",
     "crumbs": [
       "Code snippets",
       "Bol met cijfer"
@@ -529,7 +600,7 @@
     "href": "Staafgrafiek.html",
     "title": "Staafgrafieken",
     "section": "",
-    "text": "Voorbeeld staande staafgrafiek",
+    "text": "Voorbeeld staande staafgrafiek\nVoor staafgrafieken geldt hetzelfde als voor andere grafieken: ze zijn uit zichzelf doorgaans niet digitoegankelijk. Voeg daarom naast de grafiek ook een tabel toe met de cijfers. Dit kan door middel van Markdown tabsets.",
     "crumbs": [
       "Code snippets",
       "Staafgrafieken"
@@ -551,7 +622,7 @@
     "href": "Staafgrafiek.html#markdown-code",
     "title": "Staafgrafieken",
     "section": "Markdown code",
-    "text": "Markdown code\nDe globale Markdown code is weer als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Grafiek\n\nR codeblok waarin de tabel getoond wordt\n:::",
+    "text": "Markdown code\nDe globale Markdown code is weer als volgt:\n::: {.panel-tabset}\n\n## Plot\n\nR codeblok waarin de ggplot-grafiek getoond wordt\n\n## Tabel\n\nR codeblok waarin de tabel getoond wordt\n:::",
     "crumbs": [
       "Code snippets",
       "Staafgrafieken"
@@ -617,7 +688,7 @@
     "href": "Leaflet.html",
     "title": "Leaflet",
     "section": "",
-    "text": "Basis leafletkaart\nMet de functie leaflet() kunnen we een lege leafletkaart aanroepen. In de meeste gevallen willen we een basiskaart als achtergrond hebben. Dit kan met de functie addTiles(). De onderstaande code maakt een leaflet object met de standaard wereldkaart als achtergrond. Zie: Standaard achtergrondkaart aanpassen\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(leaflet)\n\nleaflet() %&gt;% \n  addTiles()",
+    "text": "Basis leafletkaart\nMet de R-library leaflet kunnen interactieven kaarten gemaakt worden. Deze kaarten kunnen opgenomen worden in quarto documenten. In dit hoofdstuk zullen enkele veelgebruikte toepassingen beschreven worden. De uitleg zal niet ingaan op alle mogelijkheden van leaflet. Lees daarvoor zelf de documentatie van leaflet en deze Rstudio pagina over leaflet.\nMet de functie leaflet() kunnen we een lege leafletkaart aanroepen. In de meeste gevallen willen we een basiskaart als achtergrond hebben. Dit kan met de functie addTiles(). De onderstaande code maakt een leaflet object met de standaard wereldkaart als achtergrond. Zie: Standaard achtergrondkaart aanpassen\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(leaflet)\n\nleaflet() %&gt;% \n  addTiles()",
     "crumbs": [
       "Code snippets",
       "Leaflet"
@@ -661,7 +732,7 @@
     "href": "Leaflet.html#popups-toevoegen",
     "title": "Leaflet",
     "section": "Popup’s toevoegen",
-    "text": "Popup’s toevoegen\nLagen die aan leaflet toegevoegd kunnen worden kunnen voorzien worden van een ‘popup’. Dit is een raampje met informatie dat tevoorschijn komt zodra de gebruiker op een element klikt. Bijvoorbeeld op een marker van een koeltoren, of op de polygoon van een provincie.\nLeaflet popups kunnen worden opgemaakt met html en kunnen van alles bevatten, zelfs de leafletkaart zelf (niet aan te bevelen). Een simpel voorbeeld zou zijn om de naam van de provincie en het rapportcijfer in de popup te zetten.\n\n\n\n\n\n\nglue\n\n\n\n\n\nIn onderstaand voorbeeld wordt de functie glue() gebruikt. glue() lijkt op de basisfunctie paste() maar werkt op een aantal punten anders. Hieronder wordt glue() gebruikt omdat de auteur dat leesbaarder en makkelijker te typen vindt dan paste(). vergelijk bijvoorbeeld paste() en glue() en oordeel zelf:\n\npaste(\"Het rapportcijfer voor provincie\",provincie_id, \"is\", rapportcijfer,\". De provincie scoorde een\",score_afsprong,\"voor de afsprong\")\n\nglue(\"Het rapportcijfer voor provincie {provincie_id} is {rapportcijfer}. De provincie scoorde een {score_afsprong} voor de afsprong\")\n\nZie de tidyverse pagina van glue\n\n\n\n\nlibrary(glue)\n\nWarning: package 'glue' was built under R version 4.3.3\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(\n    popup = ~glue(\"&lt;h1&gt;{statnaam}&lt;/h1&gt;\n                 &lt;p&gt; rapportcijfer: {round(rapportcijfer,1)}\n                 \")\n    \n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\nOmdat de popups gevuld kunnen worden met HTML is het mogelijk complexere inhoud in te voegen. Wat bijvoorbeeld mogelijk is, om tabellen toe te voegen met de onderliggende scores voor fictieve rapportcijfers. In onderstaand voorbeeld wordt de fictieve dataset uitgebreid en worden er gt-tabellen gemaakt die in de popups worden gevoegd.\n\nlibrary(gt)\n#Fictieve data aanvullen met meer verzinsels\ndf_fictief &lt;- df_fictief %&gt;% \n  mutate(\n    sfeer = sample(1:10, size = n(), replace = TRUE),\n    infrastructuur = sample(1:10, size = n(), replace = TRUE),\n    afsprong = sample(1:10, size = n(), replace = TRUE),\n    rapportcijfer = (sfeer + infrastructuur + afsprong) / 3\n    )\n\n#provincie shapefile lezen en fictieve data koppelen\nsf_provincie &lt;- st_read(\"shapefiles/cbsgebiedsindelingen2024.gpkg\",\n                        layer = \"provincie_gegeneraliseerd\",\n                        quiet = TRUE) %&gt;%\n  st_transform(4326) %&gt;% #CRS aanpassen naar leaflet standaard\n  left_join(df_fictief, by = \"statcode\")\n\n#lijst met complexere popups maken incl gt tabellen\n\n#lapply: doe voor voor iedere 'statcode' x het onderstaande\n#en sla de uitvoer op in de lijstvariabele gt_popup in het sf-dataframe\nsf_provincie$gt_popup &lt;- lapply(unique(sf_provincie$statcode), function(x){ \n  \n  df_popup = sf_provincie %&gt;% \n    st_drop_geometry() %&gt;% #van sf-dataframe naar regulier dataframe\n    filter(statcode == x) #data filteren op provincie\n  \n  tabel_popup &lt;- df_popup %&gt;%\n    select(sfeer, infrastructuur,afsprong) %&gt;%\n    gt() %&gt;%\n    as_raw_html()\n\n  #voeg de tabel onder de een header en het rapportcijfer\n  glue(\"&lt;h1&gt;{df_popup$statnaam}&lt;/h1&gt;\n        &lt;p&gt;Rapportcijfer: {round(df_popup$rapportcijfer,1)}&lt;/p&gt;\n       {tabel_popup}\")\n  \n  })\n\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(popup = ~gt_popup) %&gt;% \n  add_alt_text() #alt-text toevoegen",
+    "text": "Popup’s toevoegen\nLagen die aan leaflet toegevoegd kunnen worden kunnen voorzien worden van een ‘popup’. Dit is een raampje met informatie dat tevoorschijn komt zodra de gebruiker op een element klikt. Bijvoorbeeld op een marker van een koeltoren, of op de polygoon van een provincie.\nLeaflet popups kunnen worden opgemaakt met html en kunnen van alles bevatten, zelfs de leafletkaart zelf (niet aan te bevelen). Een simpel voorbeeld zou zijn om de naam van de provincie en het rapportcijfer in de popup te zetten.\n\n\n\n\n\n\nglue\n\n\n\n\n\nIn onderstaand voorbeeld wordt de functie glue() gebruikt. glue() lijkt op de basisfunctie paste() maar werkt op een aantal punten anders. Hieronder wordt glue() gebruikt omdat de auteur dat leesbaarder en makkelijker te typen vindt dan paste(). vergelijk bijvoorbeeld paste() en glue() en oordeel zelf:\n\npaste(\"Het rapportcijfer voor provincie\",provincie_id, \"is\", rapportcijfer,\". De provincie scoorde een\",score_afsprong,\"voor de afsprong\")\n\nglue(\"Het rapportcijfer voor provincie {provincie_id} is {rapportcijfer}. De provincie scoorde een {score_afsprong} voor de afsprong\")\n\nZie de tidyverse pagina van glue\n\n\n\n\nlibrary(glue)\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(\n    popup = ~glue(\"&lt;h1&gt;{statnaam}&lt;/h1&gt;\n                 &lt;p&gt; rapportcijfer: {round(rapportcijfer,1)}\n                 \")\n    \n  ) %&gt;% \n  add_alt_text() #alt-text toevoegen\n\n\n\n\n\nOmdat de popups gevuld kunnen worden met HTML is het mogelijk complexere inhoud in te voegen. Wat bijvoorbeeld mogelijk is, om tabellen toe te voegen met de onderliggende scores voor fictieve rapportcijfers. In onderstaand voorbeeld wordt de fictieve dataset uitgebreid en worden er gt-tabellen gemaakt die in de popups worden gevoegd.\n\nlibrary(gt)\n#Fictieve data aanvullen met meer verzinsels\ndf_fictief &lt;- df_fictief %&gt;% \n  mutate(\n    sfeer = sample(1:10, size = n(), replace = TRUE),\n    infrastructuur = sample(1:10, size = n(), replace = TRUE),\n    afsprong = sample(1:10, size = n(), replace = TRUE),\n    rapportcijfer = (sfeer + infrastructuur + afsprong) / 3\n    )\n\n#provincie shapefile lezen en fictieve data koppelen\nsf_provincie &lt;- st_read(\"shapefiles/cbsgebiedsindelingen2024.gpkg\",\n                        layer = \"provincie_gegeneraliseerd\",\n                        quiet = TRUE) %&gt;%\n  st_transform(4326) %&gt;% #CRS aanpassen naar leaflet standaard\n  left_join(df_fictief, by = \"statcode\")\n\n#lijst met complexere popups maken incl gt tabellen\n\n#lapply: doe voor voor iedere 'statcode' x het onderstaande\n#en sla de uitvoer op in de lijstvariabele gt_popup in het sf-dataframe\nsf_provincie$gt_popup &lt;- lapply(unique(sf_provincie$statcode), function(x){ \n  \n  df_popup = sf_provincie %&gt;% \n    st_drop_geometry() %&gt;% #van sf-dataframe naar regulier dataframe\n    filter(statcode == x) #data filteren op provincie\n  \n  tabel_popup &lt;- df_popup %&gt;%\n    select(sfeer, infrastructuur,afsprong) %&gt;%\n    gt() %&gt;%\n    as_raw_html()\n\n  #voeg de tabel onder de een header en het rapportcijfer\n  glue(\"&lt;h1&gt;{df_popup$statnaam}&lt;/h1&gt;\n        &lt;p&gt;Rapportcijfer: {round(df_popup$rapportcijfer,1)}&lt;/p&gt;\n       {tabel_popup}\")\n  \n  })\n\n\nleaflet(sf_provincie) %&gt;% \n  addTiles() %&gt;% \n  addPolygons(popup = ~gt_popup) %&gt;% \n  add_alt_text() #alt-text toevoegen",
     "crumbs": [
       "Code snippets",
       "Leaflet"
@@ -694,7 +765,7 @@
     "href": "Tabellen.html",
     "title": "Tabellen met gt()",
     "section": "",
-    "text": "Kolomnamen programmatisch aanpassen\nSoms wil je de labels van kolomnamen niet handmatig in de code aanpassen (hardcoding), maar dit op een meer flexibele manier doen. Dit kan met de .list parameter van de cols_label functie. Je geeft hier dan een ‘named vector’ op. Deze kun je maken met de setNames() functie, in de vorm ‘nieuw = oud’.\nDe oude en nieuwe namen zijn in onderstaand voorbeeld gehardcode - anders is het lastig om als voorbeeld te laten zien. In de praktijk kunnen ze ingelezen worden door bijvoorbeeld een Excel lijst waarin een koppeling tussen een SPSS kolom naam en de gewenste te tonen naam staat. Een ander voorbeeld is als de kolomnamen een bepaald patroon hebben. Zo ontstaan in het script voor een digitoegankelijk tabellenboek kolommen in het formaat percentage_Wijk1, percentage_Wijk2 (als gevolg van een pivot actie). Door middel van de str_replace() functie kan het ’percentage_` deel van de kolomnaam weggehaald worden, en blijft alleen de wijknaam over.\nJe kunt op 1 tabel beide manieren gebruiken om de weergegeven kolomnamen aan te passen. Deze moeten echter wel in aparte cols_label statements worden gezet.\nCode\nResultaat\nNieuwe wijknaam\nAndere Wijk\nGemeente\nBrabant-Noord\nGGD-regio\nLandelijk\n\n\n\n\nA\n73\n79\n75\n78\n77\n76\n\n\nB\n27\n20\n22\n21\n22\n20\n\n\nC\n13\n18\n17\n16\n16\n\n\n\n\nD\n41\n49\n44\n47\n45\n45\nDe code uit het tabellenboekscript waarbij de namen aangepast worden op basis van een patroon in de kolomnamen ziet er als volgt uit:",
+    "text": "Kolomnamen programmatisch aanpassen\nHet is mogelijk om tabellen te maken door middel van Markdown syntax. Deze zijn echter niet digitoegankelijk. Het is beter om gebruik te maken van de gt package. Dit is een R package en gebruik je dus in een R codeblok. Het neemt een R dataframe (of tibble) als input, en gebruikt de ‘pijplijnbenadering’ (%&gt;%) van de tidyverse.\nBovenstaande tabel is de standaard output. Deze wordt in het midden van het scherm getoond. Door extra code toe te voegen, kunnen we de opmaak van de tabel verbeteren:\n- cols_label() verandert de weergavenaam van de kolom (maar past dit niet aan in de onderliggende dataframe).\n- cols_align() lijnt de waarden van een kolom uit.\n- sub_missing() vervangt NA-waarden met wat jij opgeeft.\n- cols_hide() verbergt kolommen.\n- tab_options() kan onder andere de tabel naar links verschuiven, door de margin aan de linkerkant naar 0 te zetten.\nCode\nResultaat\nSoms wil je de labels van kolomnamen niet handmatig in de code aanpassen (hardcoding), maar dit op een meer flexibele manier doen. Dit kan met de .list parameter van de cols_label functie. Je geeft hier dan een ‘named vector’ op. Deze kun je maken met de setNames() functie, in de vorm ‘nieuw = oud’.\nDe oude en nieuwe namen zijn in onderstaand voorbeeld gehardcode - anders is het lastig om als voorbeeld te laten zien. In de praktijk kunnen ze ingelezen worden door bijvoorbeeld een Excel lijst waarin een koppeling tussen een SPSS kolom naam en de gewenste te tonen naam staat. Een ander voorbeeld is als de kolomnamen een bepaald patroon hebben. Zo ontstaan in het script voor een digitoegankelijk tabellenboek kolommen in het formaat percentage_Wijk1, percentage_Wijk2 (als gevolg van een pivot actie). Door middel van de str_replace() functie kan het ’percentage_` deel van de kolomnaam weggehaald worden, en blijft alleen de wijknaam over.\nJe kunt op 1 tabel beide manieren gebruiken om de weergegeven kolomnamen aan te passen. Deze moeten echter wel in aparte cols_label statements worden gezet.\nCode\nResultaat\nNieuwe wijknaam\nAndere Wijk\nGemeente\nBrabant-Noord\nGGD-regio\nLandelijk\n\n\n\n\nA\n73\n79\n75\n78\n77\n76\n\n\nB\n27\n20\n22\n21\n22\n20\n\n\nC\n13\n18\n17\n16\n16\n\n\n\n\nD\n41\n49\n44\n47\n45\n45\nDe code uit het tabellenboekscript waarbij de namen aangepast worden op basis van een patroon in de kolomnamen ziet er als volgt uit:",
     "crumbs": [
       "Code snippets",
       "Tabellen met gt()"
@@ -782,7 +853,7 @@
     "href": "Radarchart.html",
     "title": "Radar chart",
     "section": "",
-    "text": "Code\nJe kunt een spider chart maken met de fmsb package.\nDe fmsb package verwacht dat elke as in het spinnenweb een eigen kolom heeft. Mocht je meer dan 1 groep willen opnemen in de radar chart, voeg dan meerdere rijen toe met data.",
+    "text": "Code\nEen radar chart, ook wel spider chart of sterdiagram genoemd, is een type grafiek dat wordt gebruikt om meerdere variabelen tegelijk te visualiseren en te vergelijken. Het heeft de vorm van een cirkel waarin verschillende assen vanuit het middelpunt naar buiten stralen. Elke as vertegenwoordigt een variabele, en de waarde van die variabele wordt gemarkeerd op de as. De punten op de verschillende assen worden vervolgens met elkaar verbonden, waardoor een veelhoekige vorm ontstaat.\nDe radar chart is niet de meest geschikte visualisatievorm. Je kunt de perceptie van de grafiek makkelijk beinvloeden door de volgorde van de assen in de grafiek te veranderen. Door alle assen waar hoog op gescoord wordt bij elkaar te plaatsen, en alle assen waar laag op gescoord wordt ook, kan het beeld gegeven worden dat er een sterk ‘profiel’ een bepaalde kant op in de variabelen zit. Als je de hoge en lage scores afwisselt, kan het beeld worden gewekt van een ‘all-round profiel’. De onderliggende data is echter gelijk.\nOok liggen de verschillende assen dichter bij elkaar in het midden van de chart, dan aan de buitenkant van de grafiek. De oppervlakte die ingekleurd wordt door een kleine toename bij een lage score (dicht bij het centrum van de grafiek) is veel kleiner dan eenzelfde toename bij een hoge score op een as.\nMaar ja. Soms wil een mens gewoon een radar chart.\nJe kunt een spider chart maken met de fmsb package.\nDe fmsb package verwacht dat elke as in het spinnenweb een eigen kolom heeft. Mocht je meer dan 1 groep willen opnemen in de radar chart, voeg dan meerdere rijen toe met data.",
     "crumbs": [
       "Code snippets",
       "Radar chart"
@@ -797,66 +868,6 @@
     "crumbs": [
       "Code snippets",
       "Radar chart"
-    ]
-  },
-  {
-    "objectID": "Technieken.html",
-    "href": "Technieken.html",
-    "title": "Technieken",
-    "section": "",
-    "text": "Quarto\nQuarto is een ‘publishing system’ waarin verschillende technieken gecombineerd worden. Het is de opvolger van R Markdown, een R variant van de opmaaktaal Markdown. Je kunt er artikelen, presentaties, dashboards, websites, blogs en boeken mee maken en die opslaan als webpagina, PDF, MS Word, Powerpoint, en meer. Je kunt wetenschappelijke formules opnemen, citaties, kruisverwijzingen, visualisaties, en meer. Oftewel, het kan een hoop.\nOm de basis van Quarto te begrijpen, is het goed om een aantal technieken te kennen. Ze worden hier kort toegelicht, verderop in dit boek worden ze uitgebreider behandeld.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#markdown",
-    "href": "Technieken.html#markdown",
-    "title": "Technieken",
-    "section": "Markdown",
-    "text": "Markdown\nMarkdown is een opmaaktaal - ook wel markeertaal - waarbij tekst opgemaakt kan worden met een beperkt aantal simpele tekens. Het wordt veel gebruikt voor simpele blogs, instant messaging (werkt dus ook op Whatsapp berichten) en online forums. Ten grondslag aan Markdown liggen eigenlijk html tags, maar dan met minder typwerk. In het uiteindelijke html bestand dat gemaakt wordt als je een Quarto document ‘rendert’, worden de Markdown secties omgezet in html tags.\nJe kunt Markdown gebruiken door een woord bijvoorbeeld te omgeven door 2 sterretjes, zoals **tekst**. Dit maakt tekst dikgedrukt.\nDe lijst met Markdown basics die werken in Quarto is hier te vinden.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#html",
-    "href": "Technieken.html#html",
-    "title": "Technieken",
-    "section": "HTML",
-    "text": "HTML\nHTML is de taal van internetpagina’s. Het staat voor HyperText Markup Language, en is dus, net als Markdown, een opmaaktaal. Het wordt gebruikt om de structuur van een internetpagina weer te geven. Dit wordt gedaan door middel van zogeheten ‘tags’, keywords omgeven door “&lt;&gt;”. Interessant voor ons zijn in ieder geval &lt;div&gt; en &lt;span&gt;. Bijna alle tags moeten ook weer gesloten worden, door middel van &lt;/&gt;. Voor div wordt het dan &lt;div&gt;&lt;/div&gt; en voor &lt;span&gt; wordt het &lt;span&gt;&lt;/span&gt;. Tussen de openende en sluitende tags kun je tekst zetten, maar ook andere tags.\nW3Schools bevat een (op dit moment te) uitgebreid overzicht van alles omtrent HTML.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#css",
-    "href": "Technieken.html#css",
-    "title": "Technieken",
-    "section": "CSS",
-    "text": "CSS\nCSS is een taal die gebruikt wordt om een HTML document te stylen. Dit wordt gedaan door een tag in de HTML een ‘class’ of ‘id’ mee te geven en vervolgens in de css te specificeren hoe elementen van zo’n class of met een bepaalde id moeten worden opgemaakt. De mogelijkheden voor opmaak zijn een stuk groter dan de mogelijkheden die Markdown biedt.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Technieken.html#javascript",
-    "href": "Technieken.html#javascript",
-    "title": "Technieken",
-    "section": "Javascript",
-    "text": "Javascript\nJavascript is een programmeertaal die zorgt voor interactiviteit op een webpagina. Quarto neemt voor heel veel dingen de implementatie van Javascript al op zich. Het kan echter zijn dat je bepaalde aanpassingen wilt doen, die alleen met Javascript te implementeren zijn. Er is daarom een kort hoofdstuk met stukjes code die dit bereiken.",
-    "crumbs": [
-      "Technieken"
-    ]
-  },
-  {
-    "objectID": "Code snippets.html",
-    "href": "Code snippets.html",
-    "title": "Code snippets",
-    "section": "",
-    "text": "In de volgende hoofdstukken vind je stukjes code met uitleg van visualisaties die Jolien en Pieter al eens gebruikt hebben.",
-    "crumbs": [
-      "Code snippets"
     ]
   }
 ]
